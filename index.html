@@ -1,226 +1,1227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>npSarkar Directory | Official Directory & Documents Guide</title>
-    <!-- Tailwind CSS CDN for modern responsive UI -->
-    <script src="jsdelivr.net"></script>
-    <style>
-        /* Ensures any embedded google map iframe fits perfectly inside the card */
-        .map-container iframe {
-            width: 100% !important;
-            height: 180px !important;
-            border-radius: 0.5rem;
-            border: 0;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="npSarkar Directory — Nepal's fastest public sector office directory. Find government offices, contacts, services and locations across all 7 provinces and 77 districts." />
+  <meta name="keywords" content="Nepal government offices, सरकारी कार्यालय, ward office, district office, province, Nepal directory, npsarkar, nagarpalika, municipality" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="npSarkar Directory — Nepal Public Sector Directory" />
+  <meta property="og:description" content="Find Nepal's government offices, contacts and services instantly." />
+  <meta property="og:url" content="https://npsarkar.com" />
+  <meta name="theme-color" content="#1e3a8a" />
+  <title>npSarkar Directory | Nepal सरकारी कार्यालय निर्देशिका</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Plus Jakarta Sans (distinct modern) + Noto Sans Devanagari -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+              950: '#172554',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans Devanagari"', 'sans-serif'],
+            devanagari: ['"Noto Sans Devanagari"', 'sans-serif'],
+          }
         }
-    </style>
+      }
+    };
+  </script>
+
+  <style>
+    /* ─── Base ─── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Plus Jakarta Sans", "Noto Sans Devanagari", sans-serif;
+      background: #f0f4f8;
+      color: #1e293b;
+      min-height: 100vh;
+    }
+    .np { font-family: "Noto Sans Devanagari", sans-serif; }
+
+    /* ─── Hero Gradient ─── */
+    .hero-bg {
+      background: linear-gradient(140deg, #172554 0%, #1e3a8a 45%, #1d4ed8 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.04) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(96,165,250,0.08) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    /* geometric grid texture */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    /* ─── Search Bar ─── */
+    .search-bar {
+      transition: box-shadow 0.25s ease, transform 0.2s ease;
+    }
+    .search-bar:focus-within {
+      box-shadow: 0 0 0 3px rgba(96,165,250,0.4), 0 20px 40px rgba(0,0,0,0.15);
+      transform: translateY(-1px);
+    }
+
+    /* ─── Dropdowns ─── */
+    .select-custom {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%231e3a8a'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 14px;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .select-custom:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+    }
+    .select-custom:hover { border-color: #93c5fd; }
+
+    /* ─── Category Badges ─── */
+    .badge-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1.5px solid #e2e8f0;
+      background: #fff;
+      color: #475569;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .badge-btn:hover {
+      border-color: #3b82f6;
+      color: #1e3a8a;
+      background: #eff6ff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(30,58,138,0.12);
+    }
+    .badge-btn.active {
+      background: #1e3a8a;
+      color: #fff;
+      border-color: #1e3a8a;
+      box-shadow: 0 4px 14px rgba(30,58,138,0.35);
+    }
+    .badge-btn .np-label {
+      font-family: "Noto Sans Devanagari", sans-serif;
+      font-size: 0.68rem;
+      opacity: 0.75;
+    }
+    .badge-btn.active .np-label { opacity: 0.85; }
+
+    /* ─── Office Cards ─── */
+    .office-card {
+      background: #fff;
+      border-radius: 18px;
+      border: 1px solid #e8edf5;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .office-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 48px rgba(30,58,138,0.13);
+    }
+    .card-body { flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+
+    /* ─── Card Header Gradients per category ─── */
+    .ch-ward      { background: linear-gradient(135deg,#1e3a8a,#2563eb); }
+    .ch-govt      { background: linear-gradient(135deg,#312e81,#4f46e5); }
+    .ch-bank      { background: linear-gradient(135deg,#065f46,#059669); }
+    .ch-hospital  { background: linear-gradient(135deg,#991b1b,#dc2626); }
+    .ch-utilities { background: linear-gradient(135deg,#92400e,#d97706); }
+    .ch-education { background: linear-gradient(135deg,#4c1d95,#7c3aed); }
+    .ch-police    { background: linear-gradient(135deg,#1e293b,#475569); }
+    .ch-land      { background: linear-gradient(135deg,#7c2d12,#ea580c); }
+    .ch-default   { background: linear-gradient(135deg,#1e293b,#334155); }
+
+    /* ─── Accordion ─── */
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+      opacity: 0;
+    }
+    .accordion-body.open {
+      max-height: 1200px;
+      opacity: 1;
+    }
+    .accordion-trigger { cursor: pointer; user-select: none; }
+    .accordion-trigger:hover { background: #f8fafc; }
+
+    /* ─── Map Wrapper ─── */
+    .map-ratio {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .map-ratio iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* ─── Loading Spinner ─── */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner {
+      width: 44px; height: 44px;
+      border: 3px solid #dbeafe;
+      border-top-color: #1e3a8a;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    /* ─── AdSense placeholder ─── */
+    .ads-placeholder {
+      background: repeating-linear-gradient(
+        -45deg,
+        #f8fafc, #f8fafc 8px,
+        #f1f5f9 8px, #f1f5f9 16px
+      );
+      border: 1.5px dashed #cbd5e1;
+    }
+
+    /* ─── Scrollbar ─── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #93c5fd; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #1e3a8a; }
+
+    /* ─── Floating search button on mobile ─── */
+    @media (max-width: 640px) {
+      .hero-search-input { font-size: 15px; }
+    }
+
+    /* ─── Card stagger animation ─── */
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .office-card { animation: fadeSlideUp 0.4s ease both; }
+
+    /* ─── Stats counter ─── */
+    .stat-pill {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(8px);
+      border-radius: 14px;
+      padding: 10px 18px;
+      text-align: center;
+    }
+
+    /* ─── Province chip colors ─── */
+    .prov-1 { background:#fef3c7; color:#92400e; }
+    .prov-2 { background:#d1fae5; color:#065f46; }
+    .prov-3 { background:#dbeafe; color:#1e40af; }
+    .prov-4 { background:#ede9fe; color:#4c1d95; }
+    .prov-5 { background:#fce7f3; color:#9d174d; }
+    .prov-6 { background:#ffedd5; color:#7c2d12; }
+    .prov-7 { background:#f0fdf4; color:#14532d; }
+
+    /* ─── Action button ─── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .btn-web   { background:#1e3a8a; color:#fff; }
+    .btn-call  { background:#059669; color:#fff; }
+    .btn-map   { background:#fff; color:#1e3a8a; border: 1.5px solid #bfdbfe; }
+    .btn-map:hover { background:#eff6ff; }
+    .btn-email { background:#fff; color:#7c3aed; border: 1.5px solid #ddd6fe; }
+    .btn-email:hover { background:#f5f3ff; }
+
+    /* ─── Clear filters button ─── */
+    #clear-all-btn { transition: all 0.2s; }
+    #clear-all-btn:hover { background:#fee2e2; }
+
+    /* ─── Disclaimer box ─── */
+    .disclaimer-box {
+      border: 1.5px solid rgba(251,191,36,0.45);
+      background: rgba(251,191,36,0.08);
+      border-radius: 16px;
+    }
+
+    /* ─── Top bar flag animation ─── */
+    @keyframes wave { 0%,100%{transform:rotate(-3deg)} 50%{transform:rotate(3deg)} }
+    .flag-wave { display:inline-block; animation: wave 1.5s ease-in-out infinite; }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col">
 
-    <!-- Header Section -->
-    <header class="bg-blue-900 text-white shadow-lg py-8 px-4 text-center">
-        <h1 class="text-4xl font-black tracking-tight">npSarkar Directory</h1>
-        <p class="text-blue-200 mt-2 text-sm md:text-base font-medium max-w-xl mx-auto">
-            77 Districts ka Sarkari Offices, Court, Hospital ra Bank ko Centralized Hub & Required Documents Guide
+<body>
+<!-- ══════════════════════════════════════════════
+     HEADER / HERO
+══════════════════════════════════════════════ -->
+<header class="hero-bg text-white">
+
+  <!-- Top micro-bar -->
+  <div class="relative z-10 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between">
+      <span class="text-[11px] text-blue-200 flex items-center gap-1.5">
+        <span class="flag-wave">🇳🇵</span>
+        <span>npsarkar.com — Nepal Public Sector Directory</span>
+      </span>
+      <span class="np text-[11px] text-blue-200 hidden sm:block">सरकारी सेवा निर्देशिका • नेपाल</span>
+    </div>
+  </div>
+
+  <!-- Main header content -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-7 pb-8">
+
+    <!-- Logo row + stats -->
+    <div class="flex flex-col sm:flex-row sm:items-start gap-5 mb-7">
+      <!-- Logo -->
+      <div class="flex items-center gap-4">
+        <div class="w-[60px] h-[60px] rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-4xl shadow-lg flex-shrink-0">🏛️</div>
+        <div>
+          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-none">
+            np<span class="text-blue-300">Sarkar</span>
+          </h1>
+          <p class="text-blue-200 text-sm mt-0.5 font-medium tracking-wide">Directory &nbsp;|&nbsp; <span class="np">निर्देशिका</span></p>
+        </div>
+      </div>
+
+      <!-- Stats pills -->
+      <div class="sm:ml-auto flex gap-3">
+        <div class="stat-pill">
+          <div class="text-2xl font-bold" id="stat-offices">–</div>
+          <div class="text-[11px] text-blue-200 mt-0.5 font-medium">Offices</div>
+        </div>
+        <div class="stat-pill">
+          <div class="text-2xl font-bold">77</div>
+          <div class="text-[11px] text-blue-200 mt-0.5 font-medium">Districts</div>
+        </div>
+        <div class="stat-pill">
+          <div class="text-2xl font-bold">7</div>
+          <div class="text-[11px] text-blue-200 mt-0.5 font-medium">Provinces</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEARCH BAR -->
+    <div class="search-bar relative bg-white rounded-2xl shadow-2xl overflow-hidden">
+      <div class="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
+        <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+      </div>
+      <input
+        id="search-input"
+        type="search"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Search offices, districts, services… | कार्यालय, जिल्ला, सेवा खोज्नुहोस्…"
+        class="hero-search-input np w-full bg-transparent pl-12 pr-12 py-4 text-slate-800 text-base placeholder:text-slate-400 focus:outline-none"
+      />
+      <button
+        id="btn-clear-search"
+        onclick="clearSearch()"
+        class="hidden absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-slate-400 hover:bg-slate-100 hover:text-slate-700 transition-colors"
+        aria-label="Clear search"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Quick hint -->
+    <p class="text-blue-200/70 text-[11px] mt-2.5 pl-1">
+      Tip: search by office name, district, or service type &nbsp;·&nbsp; <span class="np">कार्यालय, जिल्ला वा सेवा नाममा खोज्नुहोस्</span>
+    </p>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════
+     TOP ADSENSE BANNER
+══════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+  <div class="ads-placeholder rounded-2xl h-[90px] sm:h-[90px] flex items-center justify-center gap-3">
+    <!-- ★ Replace this block with your Google AdSense <ins> tag ★ -->
+    <svg class="w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+    </svg>
+    <div>
+      <p class="text-xs font-semibold text-slate-400">Advertisement — Google AdSense</p>
+      <p class="text-[10px] text-slate-300">Leaderboard 728×90 / Responsive Banner — Insert AdSense code here</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     FILTER ZONE
+══════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 pb-4 space-y-3">
+
+  <!-- Province + District Row -->
+  <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="text-base">📍</span>
+      <h2 class="text-xs font-bold text-slate-500 uppercase tracking-widest">Location Filter &nbsp;|&nbsp; <span class="np font-medium normal-case tracking-normal">स्थान अनुसार फिल्टर</span></h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+      <!-- Province -->
+      <div>
+        <label for="province-select" class="block text-[11px] font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">
+          Province &nbsp;<span class="np normal-case tracking-normal font-normal">प्रदेश</span>
+        </label>
+        <select id="province-select"
+          class="select-custom w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-sm font-medium">
+          <option value="">All Provinces &nbsp;— सबै प्रदेश</option>
+          <option value="1">Province 1 — Koshi Pradesh (कोशी प्रदेश)</option>
+          <option value="2">Province 2 — Madhesh Pradesh (मधेश प्रदेश)</option>
+          <option value="3">Province 3 — Bagmati Pradesh (बागमती प्रदेश)</option>
+          <option value="4">Province 4 — Gandaki Pradesh (गण्डकी प्रदेश)</option>
+          <option value="5">Province 5 — Lumbini Pradesh (लुम्बिनी प्रदेश)</option>
+          <option value="6">Province 6 — Karnali Pradesh (कर्णाली प्रदेश)</option>
+          <option value="7">Province 7 — Sudurpashchim Pradesh (सुदूरपश्चिम प्रदेश)</option>
+        </select>
+      </div>
+
+      <!-- District (dynamically populated) -->
+      <div>
+        <label for="district-select" class="block text-[11px] font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">
+          District &nbsp;<span class="np normal-case tracking-normal font-normal">जिल्ला</span>
+        </label>
+        <select id="district-select"
+          class="select-custom w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-sm font-medium">
+          <option value="">All Districts &nbsp;— सबै जिल्ला</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Badges -->
+  <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="text-base">🏷️</span>
+      <h2 class="text-xs font-bold text-slate-500 uppercase tracking-widest">Category &nbsp;|&nbsp; <span class="np font-medium normal-case tracking-normal">श्रेणी</span></h2>
+    </div>
+    <div class="flex flex-wrap gap-2" id="category-badges">
+      <!-- JS renders badges here -->
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     RESULTS SECTION
+══════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 pb-10">
+
+  <!-- Results meta row -->
+  <div class="flex items-center justify-between mb-4 min-h-[32px]">
+    <div class="flex items-center gap-2 flex-wrap">
+      <span id="results-count" class="text-sm font-semibold text-slate-600"></span>
+    </div>
+    <button id="clear-all-btn"
+      onclick="clearAllFilters()"
+      class="hidden items-center gap-1.5 text-xs font-semibold text-red-500 hover:text-red-700 border border-red-200 px-3 py-1.5 rounded-full">
+      ✕ Clear All Filters
+    </button>
+  </div>
+
+  <!-- ── Loading ── -->
+  <div id="state-loading" class="flex flex-col items-center justify-center py-24 gap-4">
+    <div class="spinner"></div>
+    <p class="text-slate-500 text-sm np">डेटा लोड हुँदैछ… <span class="font-sans not-np">Loading directory…</span></p>
+  </div>
+
+  <!-- ── Error ── -->
+  <div id="state-error" class="hidden text-center py-24">
+    <div class="text-6xl mb-4">⚠️</div>
+    <h3 class="text-xl font-bold text-slate-700">Could not load directory data</h3>
+    <p class="text-slate-500 text-sm mt-2 np">data.json फाइल लोड हुन सकेन। कनेक्सन जाँच्नुहोस्।</p>
+    <button onclick="loadData()"
+      class="mt-6 bg-brand-900 hover:bg-brand-800 text-white px-6 py-2.5 rounded-xl text-sm font-semibold transition-colors">
+      🔄 Retry
+    </button>
+  </div>
+
+  <!-- ── No Results ── -->
+  <div id="state-empty" class="hidden text-center py-24">
+    <div class="text-6xl mb-4">🔍</div>
+    <h3 class="text-xl font-bold text-slate-700">No offices found</h3>
+    <p class="text-slate-500 text-sm mt-2 np">तपाईंको खोजी अनुसार कुनै कार्यालय फेला परेन।</p>
+    <button onclick="clearAllFilters()"
+      class="mt-6 bg-brand-900 hover:bg-brand-800 text-white px-6 py-2.5 rounded-xl text-sm font-semibold transition-colors">
+      ✕ Clear All Filters
+    </button>
+  </div>
+
+  <!-- ── Results Grid ── -->
+  <div id="results-grid" class="hidden grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     BOTTOM ADSENSE BANNER
+══════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 pb-6">
+  <div class="ads-placeholder rounded-2xl h-[90px] flex items-center justify-center gap-3">
+    <!-- ★ Replace this block with your Google AdSense <ins> tag ★ -->
+    <svg class="w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+    </svg>
+    <div>
+      <p class="text-xs font-semibold text-slate-400">Advertisement — Google AdSense</p>
+      <p class="text-[10px] text-slate-300">Responsive Banner — Insert AdSense code here</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer class="hero-bg text-white mt-4">
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-12">
+
+    <!-- Footer grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+
+      <!-- About -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-2xl">🏛️</span>
+          <span class="text-xl font-extrabold">np<span class="text-blue-300">Sarkar</span></span>
+        </div>
+        <p class="text-blue-200 text-sm leading-relaxed">
+          Nepal's comprehensive public sector directory — helping citizens find government services, contacts, and locations instantly.
         </p>
-    </header>
+        <p class="np text-blue-200/80 text-[13px] leading-relaxed mt-2">
+          नेपालीहरूलाई सरकारी सेवा, सम्पर्क र स्थान छिटो खोज्न मद्दत गर्ने निर्देशिका।
+        </p>
+        <div class="flex gap-3 mt-4">
+          <span class="bg-white/10 border border-white/15 text-xs px-3 py-1 rounded-full">7 Provinces</span>
+          <span class="bg-white/10 border border-white/15 text-xs px-3 py-1 rounded-full">77 Districts</span>
+        </div>
+      </div>
 
-    <!-- Main Content Area -->
-    <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl">
-        
-        <!-- Search Engine Box -->
-        <div class="mb-8 text-center">
-            <label for="search-input" class="block text-base font-bold text-slate-600 mb-3 uppercase tracking-wider">
-                Search Karyalaya, Jilla, or Service (English / नेपाली)
-            </label>
-            <div class="relative max-w-2xl mx-auto shadow-md rounded-full overflow-hidden">
-                <input 
-                    type="text" 
-                    id="search-input" 
-                    oninput="searchNepal()"
-                    placeholder="Jastai: Kathmandu, License, Ward 7, नागरिकता, CDO..." 
-                    class="w-full pl-6 pr-14 py-4 bg-white border-2 border-slate-200 rounded-full focus:outline-none focus:border-blue-600 text-lg transition duration-150"
-                >
-                <div class="absolute right-5 top-4.5 text-xl text-slate-400">🔍</div>
+      <!-- Quick links -->
+      <div>
+        <h3 class="font-bold text-sm uppercase tracking-widest text-blue-200 mb-4">Official Portals</h3>
+        <ul class="space-y-2.5 text-sm">
+          <li>
+            <a href="https://nepal.gov.np" target="_blank" rel="noopener noreferrer"
+               class="text-blue-200 hover:text-white flex items-center gap-2 transition-colors group">
+              <span class="group-hover:translate-x-0.5 transition-transform">↗</span>
+              Government of Nepal Portal
+            </a>
+          </li>
+          <li>
+            <a href="https://nagarik.gov.np" target="_blank" rel="noopener noreferrer"
+               class="text-blue-200 hover:text-white flex items-center gap-2 transition-colors group">
+              <span class="group-hover:translate-x-0.5 transition-transform">↗</span>
+              Nagarik Online Portal
+            </a>
+          </li>
+          <li>
+            <a href="https://moha.gov.np" target="_blank" rel="noopener noreferrer"
+               class="text-blue-200 hover:text-white flex items-center gap-2 transition-colors group">
+              <span class="group-hover:translate-x-0.5 transition-transform">↗</span>
+              Ministry of Home Affairs
+            </a>
+          </li>
+          <li>
+            <a href="https://mof.gov.np" target="_blank" rel="noopener noreferrer"
+               class="text-blue-200 hover:text-white flex items-center gap-2 transition-colors group">
+              <span class="group-hover:translate-x-0.5 transition-transform">↗</span>
+              Ministry of Finance
+            </a>
+          </li>
+          <li>
+            <a href="https://dos.gov.np" target="_blank" rel="noopener noreferrer"
+               class="text-blue-200 hover:text-white flex items-center gap-2 transition-colors group">
+              <span class="group-hover:translate-x-0.5 transition-transform">↗</span>
+              Dept of Survey (Land)
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="font-bold text-sm uppercase tracking-widest text-blue-200 mb-4">Contribute</h3>
+        <p class="text-blue-200 text-sm">Found incorrect data or want to add a missing office?</p>
+        <a href="mailto:info@npsarkar.com"
+           class="inline-flex items-center gap-2 mt-3 text-blue-300 hover:text-white text-sm transition-colors">
+          📧 info@npsarkar.com
+        </a>
+        <p class="text-blue-200/70 text-xs mt-4">
+          Data updated: <span class="text-white font-semibold">2025</span><br/>
+          Hosted on GitHub Pages
+        </p>
+        <div class="mt-4 flex gap-2">
+          <span class="bg-white/10 border border-white/15 text-[11px] px-3 py-1 rounded-full">Serverless</span>
+          <span class="bg-white/10 border border-white/15 text-[11px] px-3 py-1 rounded-full">Open Source</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── LEGAL DISCLAIMER ── -->
+    <div class="disclaimer-box p-6 mb-8">
+      <div class="flex items-start gap-4">
+        <span class="text-amber-400 text-2xl flex-shrink-0 mt-0.5">⚠️</span>
+        <div>
+          <h4 class="font-extrabold text-amber-300 text-sm uppercase tracking-widest mb-2">Legal Disclaimer / कानूनी अस्वीकरण</h4>
+          <p class="text-amber-100/90 text-sm leading-relaxed">
+            <strong class="text-amber-200">npsarkar.com is a privately operated public service directory and is NOT officially affiliated with, endorsed by, or connected to the Government of Nepal or any of its ministries, departments, or agencies.</strong>
+            All information provided is for general informational purposes only. While we strive for accuracy, we make no guarantees regarding the completeness, correctness, or currency of the data. Users are strongly advised to verify all information directly with the respective government offices before making any decisions.
+          </p>
+          <p class="np text-amber-200/80 text-[13px] mt-3 leading-relaxed">
+            <strong>कानूनी अस्वीकरण:</strong> npsarkar.com एक निजी रूपमा सञ्चालित सार्वजनिक सेवा निर्देशिका हो र यो नेपाल सरकार वा यसका कुनै पनि मन्त्रालय, विभाग वा निकायसँग आधिकारिक रूपमा सम्बद्ध, अनुमोदित वा जोडिएको <strong>छैन</strong>। यहाँ प्रदान गरिएको सबै जानकारी केवल सामान्य सूचनाका लागि मात्र हो।
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright bar -->
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-blue-300">
+      <span>© 2025 npSarkar Directory (npsarkar.com) &nbsp;·&nbsp; All Rights Reserved</span>
+      <span>Built with ❤️ for the people of Nepal &nbsp;<span class="flag-wave">🇳🇵</span></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════
+     JAVASCRIPT ENGINE
+══════════════════════════════════════════════ -->
+<script>
+// ┌─────────────────────────────────────────────┐
+// │  PROVINCE → DISTRICT LOOKUP TABLE           │
+// └─────────────────────────────────────────────┘
+const PROVINCE_MAP = {
+  "1": {
+    label_en: "Koshi Pradesh", label_np: "कोशी प्रदेश",
+    districts: [
+      { en: "Bhojpur",        np: "भोजपुर" },
+      { en: "Dhankuta",       np: "धनकुटा" },
+      { en: "Ilam",           np: "इलाम" },
+      { en: "Jhapa",          np: "झापा" },
+      { en: "Khotang",        np: "खोटाङ" },
+      { en: "Morang",         np: "मोरङ" },
+      { en: "Okhaldhunga",    np: "ओखलढुङ्गा" },
+      { en: "Panchthar",      np: "पाँचथर" },
+      { en: "Sankhuwasabha",  np: "सङ्खुवासभा" },
+      { en: "Solukhumbu",     np: "सोलुखुम्बु" },
+      { en: "Sunsari",        np: "सुनसरी" },
+      { en: "Taplejung",      np: "ताप्लेजुङ" },
+      { en: "Terhathum",      np: "तेह्रथुम" },
+      { en: "Udayapur",       np: "उदयपुर" }
+    ]
+  },
+  "2": {
+    label_en: "Madhesh Pradesh", label_np: "मधेश प्रदेश",
+    districts: [
+      { en: "Bara",       np: "बारा" },
+      { en: "Dhanusha",   np: "धनुषा" },
+      { en: "Mahottari",  np: "महोत्तरी" },
+      { en: "Parsa",      np: "पर्सा" },
+      { en: "Rautahat",   np: "रौतहट" },
+      { en: "Saptari",    np: "सप्तरी" },
+      { en: "Sarlahi",    np: "सर्लाही" },
+      { en: "Siraha",     np: "सिरहा" }
+    ]
+  },
+  "3": {
+    label_en: "Bagmati Pradesh", label_np: "बागमती प्रदेश",
+    districts: [
+      { en: "Bhaktapur",       np: "भक्तपुर" },
+      { en: "Chitwan",         np: "चितवन" },
+      { en: "Dhading",         np: "धादिङ" },
+      { en: "Dolakha",         np: "दोलखा" },
+      { en: "Kathmandu",       np: "काठमाडौं" },
+      { en: "Kavrepalanchok",  np: "काभ्रेपलाञ्चोक" },
+      { en: "Lalitpur",        np: "ललितपुर" },
+      { en: "Makwanpur",       np: "मकवानपुर" },
+      { en: "Nuwakot",         np: "नुवाकोट" },
+      { en: "Ramechhap",       np: "रामेछाप" },
+      { en: "Rasuwa",          np: "रसुवा" },
+      { en: "Sindhuli",        np: "सिन्धुली" },
+      { en: "Sindhupalchok",   np: "सिन्धुपाल्चोक" }
+    ]
+  },
+  "4": {
+    label_en: "Gandaki Pradesh", label_np: "गण्डकी प्रदेश",
+    districts: [
+      { en: "Baglung",   np: "बागलुङ" },
+      { en: "Gorkha",    np: "गोरखा" },
+      { en: "Kaski",     np: "कास्की" },
+      { en: "Lamjung",   np: "लमजुङ" },
+      { en: "Manang",    np: "मनाङ" },
+      { en: "Mustang",   np: "मुस्ताङ" },
+      { en: "Myagdi",    np: "म्याग्दी" },
+      { en: "Nawalpur",  np: "नवलपुर" },
+      { en: "Parbat",    np: "पर्वत" },
+      { en: "Syangja",   np: "स्याङ्जा" },
+      { en: "Tanahu",    np: "तनहुँ" }
+    ]
+  },
+  "5": {
+    label_en: "Lumbini Pradesh", label_np: "लुम्बिनी प्रदेश",
+    districts: [
+      { en: "Arghakhanchi",     np: "अर्घाखाँची" },
+      { en: "Banke",            np: "बाँके" },
+      { en: "Bardiya",          np: "बर्दिया" },
+      { en: "Dang",             np: "दाङ" },
+      { en: "Gulmi",            np: "गुल्मी" },
+      { en: "Kapilvastu",       np: "कपिलवस्तु" },
+      { en: "Nawalparasi East", np: "नवलपरासी पूर्व" },
+      { en: "Palpa",            np: "पाल्पा" },
+      { en: "Pyuthan",          np: "प्युठान" },
+      { en: "Rolpa",            np: "रोल्पा" },
+      { en: "Rukum East",       np: "रुकुम पूर्व" },
+      { en: "Rupandehi",        np: "रुपन्देही" }
+    ]
+  },
+  "6": {
+    label_en: "Karnali Pradesh", label_np: "कर्णाली प्रदेश",
+    districts: [
+      { en: "Dailekh",    np: "दैलेख" },
+      { en: "Dolpa",      np: "डोल्पा" },
+      { en: "Humla",      np: "हुम्ला" },
+      { en: "Jajarkot",   np: "जाजरकोट" },
+      { en: "Jumla",      np: "जुम्ला" },
+      { en: "Kalikot",    np: "कालीकोट" },
+      { en: "Mugu",       np: "मुगु" },
+      { en: "Rukum West", np: "रुकुम पश्चिम" },
+      { en: "Salyan",     np: "सल्यान" },
+      { en: "Surkhet",    np: "सुर्खेत" }
+    ]
+  },
+  "7": {
+    label_en: "Sudurpashchim Pradesh", label_np: "सुदूरपश्चिम प्रदेश",
+    districts: [
+      { en: "Achham",      np: "अछाम" },
+      { en: "Baitadi",     np: "बैतडी" },
+      { en: "Bajhang",     np: "बझाङ" },
+      { en: "Bajura",      np: "बाजुरा" },
+      { en: "Dadeldhura",  np: "डडेलधुरा" },
+      { en: "Darchula",    np: "दार्चुला" },
+      { en: "Doti",        np: "डोटी" },
+      { en: "Kailali",     np: "कैलाली" },
+      { en: "Kanchanpur",  np: "कञ्चनपुर" }
+    ]
+  }
+};
+
+// ┌─────────────────────────────────────────────┐
+// │  CATEGORY DEFINITIONS                       │
+// └─────────────────────────────────────────────┘
+const CATEGORIES = [
+  { key: "Ward Office",       icon: "🏘️", np: "वडा कार्यालय",    cssClass: "ch-ward" },
+  { key: "Government Office", icon: "🏛️", np: "सरकारी कार्यालय", cssClass: "ch-govt" },
+  { key: "Banking",           icon: "🏦", np: "बैंकिङ",           cssClass: "ch-bank" },
+  { key: "Hospital",          icon: "🏥", np: "अस्पताल",          cssClass: "ch-hospital" },
+  { key: "Utilities",         icon: "⚡", np: "उपयोगिता",         cssClass: "ch-utilities" },
+  { key: "Education",         icon: "🎓", np: "शिक्षा",            cssClass: "ch-education" },
+  { key: "Police",            icon: "🚔", np: "प्रहरी",            cssClass: "ch-police" },
+  { key: "Land Revenue",      icon: "📋", np: "मालपोत",           cssClass: "ch-land" },
+];
+
+// ┌─────────────────────────────────────────────┐
+// │  APPLICATION STATE                          │
+// └─────────────────────────────────────────────┘
+let allOffices   = [];
+let activeQuery  = "";
+let activeCat    = null;
+let activeProv   = "";
+let activeDist   = "";
+const openAccordions = new Set();
+
+// ┌─────────────────────────────────────────────┐
+// │  BOOT                                       │
+// └─────────────────────────────────────────────┘
+window.onload = function () {
+  buildCategoryBadges();
+  wireProvinceDistrict();
+  wireSearch();
+  loadData();
+};
+
+// ┌─────────────────────────────────────────────┐
+// │  ASYNC DATA LOADING                         │
+// └─────────────────────────────────────────────┘
+async function loadData() {
+  showState("loading");
+  try {
+    const response = await fetch("data.json");
+    if (!response.ok) {
+      throw new Error(`Fetch failed — HTTP ${response.status}`);
+    }
+    const json = await response.json();
+    allOffices = Array.isArray(json.offices) ? json.offices : [];
+    document.getElementById("stat-offices").textContent = allOffices.length;
+    applyFilters();
+  } catch (err) {
+    console.error("[npSarkar] Could not load data.json:", err);
+    showState("error");
+  }
+}
+
+// ┌─────────────────────────────────────────────┐
+// │  PROVINCE → DISTRICT CASCADING              │
+// └─────────────────────────────────────────────┘
+function wireProvinceDistrict() {
+  const provSel  = document.getElementById("province-select");
+  const distSel  = document.getElementById("district-select");
+
+  provSel.addEventListener("change", function () {
+    activeProv = this.value;
+    activeDist = "";
+    rebuildDistrictDropdown(this.value);
+    distSel.value = "";
+    applyFilters();
+  });
+
+  distSel.addEventListener("change", function () {
+    activeDist = this.value;
+    applyFilters();
+  });
+}
+
+function rebuildDistrictDropdown(provinceId) {
+  const distSel = document.getElementById("district-select");
+  distSel.innerHTML = `<option value="">All Districts &nbsp;— सबै जिल्ला</option>`;
+  if (!provinceId || !PROVINCE_MAP[provinceId]) return;
+
+  PROVINCE_MAP[provinceId].districts.forEach(d => {
+    const opt = document.createElement("option");
+    opt.value = d.en;
+    opt.textContent = `${d.en}  (${d.np})`;
+    distSel.appendChild(opt);
+  });
+}
+
+// ┌─────────────────────────────────────────────┐
+// │  CATEGORY BADGES                            │
+// └─────────────────────────────────────────────┘
+function buildCategoryBadges() {
+  const container = document.getElementById("category-badges");
+  container.innerHTML = "";
+  CATEGORIES.forEach(cat => {
+    const btn = document.createElement("button");
+    btn.className = "badge-btn";
+    btn.dataset.cat = cat.key;
+    btn.innerHTML = `
+      <span>${cat.icon}</span>
+      <span>${cat.key}</span>
+      <span class="np-label np">${cat.np}</span>
+    `;
+    btn.addEventListener("click", () => toggleCategory(cat.key));
+    container.appendChild(btn);
+  });
+}
+
+function toggleCategory(key) {
+  activeCat = activeCat === key ? null : key;
+  document.querySelectorAll(".badge-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.cat === activeCat);
+  });
+  applyFilters();
+}
+
+// ┌─────────────────────────────────────────────┐
+// │  SEARCH WIRING                              │
+// └─────────────────────────────────────────────┘
+function wireSearch() {
+  const input   = document.getElementById("search-input");
+  const clearBtn = document.getElementById("btn-clear-search");
+
+  input.addEventListener("input", function () {
+    activeQuery = this.value.trim().toLowerCase();
+    clearBtn.classList.toggle("hidden", activeQuery.length === 0);
+    clearBtn.classList.toggle("flex",   activeQuery.length > 0);
+    applyFilters();
+  });
+}
+
+function clearSearch() {
+  document.getElementById("search-input").value = "";
+  document.getElementById("btn-clear-search").classList.add("hidden");
+  document.getElementById("btn-clear-search").classList.remove("flex");
+  activeQuery = "";
+  applyFilters();
+}
+
+// ┌─────────────────────────────────────────────┐
+// │  MAIN FILTER ENGINE                         │
+// └─────────────────────────────────────────────┘
+function applyFilters() {
+  const filtered = allOffices.filter(office => {
+    // 1. Category
+    if (activeCat && office.category !== activeCat) return false;
+    // 2. Province
+    if (activeProv && office.province !== activeProv) return false;
+    // 3. District
+    if (activeDist && office.district !== activeDist) return false;
+    // 4. Full-text search
+    if (activeQuery) {
+      const haystack = buildSearchHaystack(office);
+      if (!haystack.includes(activeQuery)) return false;
+    }
+    return true;
+  });
+
+  renderResults(filtered);
+  updateMetaRow(filtered.length);
+}
+
+function buildSearchHaystack(o) {
+  const parts = [
+    o.name_en, o.name_np,
+    o.district, o.district_np,
+    o.province_name_en, o.province_name_np,
+    o.address_en, o.address_np,
+    o.info_en, o.info_np,
+    o.category,
+    o.email, o.website,
+    ...(o.phone   || []),
+    ...(o.seo_tags || []),
+    ...(o.services || []).flatMap(s => [s.name_en, s.name_np]),
+  ];
+  return parts.filter(Boolean).join(" ").toLowerCase();
+}
+
+// ┌─────────────────────────────────────────────┐
+// │  RENDER RESULTS                             │
+// └─────────────────────────────────────────────┘
+function renderResults(offices) {
+  const grid = document.getElementById("results-grid");
+  grid.innerHTML = "";
+
+  if (offices.length === 0) {
+    showState("empty");
+    return;
+  }
+
+  showState("results");
+  offices.forEach((office, idx) => {
+    const card = buildCard(office);
+    card.style.animationDelay = `${Math.min(idx * 45, 600)}ms`;
+    grid.appendChild(card);
+  });
+}
+
+// ┌─────────────────────────────────────────────┐
+// │  BUILD A SINGLE OFFICE CARD                 │
+// └─────────────────────────────────────────────┘
+function buildCard(o) {
+  const wrap = document.createElement("div");
+  wrap.className = "office-card";
+
+  const cat     = CATEGORIES.find(c => c.key === o.category) || { icon: "🏢", cssClass: "ch-default" };
+  const provNum = parseInt(o.province, 10);
+  const hasServices = Array.isArray(o.services) && o.services.length > 0;
+  const hasMap      = o.map_embed && o.map_embed.trim() !== "";
+
+  /* ── Card header ── */
+  const headerHtml = `
+    <div class="${cat.cssClass} p-5">
+      <div class="flex items-start justify-between gap-2">
+        <div class="flex-1 min-w-0">
+          <span class="inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-1 rounded-full bg-white/20 text-white mb-2.5 uppercase tracking-wider">
+            ${cat.icon} ${o.category}
+          </span>
+          <h3 class="text-white font-bold text-[15px] leading-snug">${escHtml(o.name_en)}</h3>
+          <p class="text-white/75 text-[13px] np mt-0.5 leading-snug">${escHtml(o.name_np)}</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-1.5 mt-3">
+        <span class="text-[11px] bg-white/15 text-white px-2.5 py-0.5 rounded-full flex items-center gap-1">
+          📍 ${escHtml(o.district)}
+        </span>
+        <span class="text-[11px] bg-white/15 text-white px-2.5 py-0.5 rounded-full np">${escHtml(o.district_np)}</span>
+        <span class="text-[11px] bg-white/15 text-white px-2.5 py-0.5 rounded-full prov-${provNum}">
+          P${provNum} · ${escHtml(o.province_name_en)}
+        </span>
+      </div>
+    </div>`;
+
+  /* ── Info block ── */
+  const infoHtml = `
+    <div>
+      <p class="text-slate-600 text-[13px] leading-relaxed">${escHtml(o.info_en)}</p>
+      <p class="np text-slate-400 text-[12px] mt-1 leading-relaxed">${escHtml(o.info_np)}</p>
+    </div>`;
+
+  /* ── Contact details ── */
+  let contactHtml = `<div class="space-y-2">`;
+  if (o.phone && o.phone.length > 0) {
+    const links = o.phone.map(p =>
+      `<a href="tel:${escAttr(p)}" class="text-brand-700 font-semibold text-[13px] hover:text-brand-900 transition-colors">${escHtml(p)}</a>`
+    ).join('<span class="text-slate-200 mx-1">|</span>');
+    contactHtml += `<div class="flex items-start gap-2"><span class="text-slate-400 text-sm mt-px">📞</span><div class="flex flex-wrap items-center gap-y-0.5">${links}</div></div>`;
+  }
+  if (o.email) {
+    contactHtml += `<div class="flex items-center gap-2">
+      <span class="text-slate-400 text-sm">📧</span>
+      <a href="mailto:${escAttr(o.email)}" class="text-brand-700 text-[13px] hover:text-brand-900 transition-colors truncate">${escHtml(o.email)}</a>
+    </div>`;
+  }
+  if (o.address_en) {
+    contactHtml += `<div class="flex items-start gap-2">
+      <span class="text-slate-400 text-sm mt-px">🏠</span>
+      <div>
+        <span class="text-slate-600 text-[13px]">${escHtml(o.address_en)}</span>
+        ${o.address_np ? `<span class="np text-slate-400 text-[11px] block">${escHtml(o.address_np)}</span>` : ""}
+      </div>
+    </div>`;
+  }
+  contactHtml += `</div>`;
+
+  /* ── Services accordion ── */
+  let servicesHtml = "";
+  if (hasServices) {
+    const rows = o.services.map((svc, si) => {
+      const accordionId = `${o.id}__${si}`;
+      const docsEn = (svc.documents_en || []).map(d =>
+        `<li class="flex items-start gap-1.5 text-[12px] text-slate-600"><span class="text-emerald-500 mt-0.5 flex-shrink-0">✓</span>${escHtml(d)}</li>`
+      ).join("");
+      const docsNp = (svc.documents_np || []).map(d =>
+        `<li class="flex items-start gap-1.5 text-[12px] text-slate-600 np"><span class="text-emerald-500 mt-0.5 flex-shrink-0">✓</span>${escHtml(d)}</li>`
+      ).join("");
+
+      return `
+        <div class="border-b border-slate-100 last:border-b-0">
+          <div
+            class="accordion-trigger flex items-center justify-between px-4 py-3 rounded-none hover:bg-slate-50"
+            onclick="toggleAccordion('${accordionId}')"
+            role="button"
+            aria-expanded="false"
+            id="trigger-${accordionId}"
+          >
+            <div>
+              <span class="text-[13px] font-semibold text-slate-700">${escHtml(svc.name_en)}</span>
+              <span class="np text-[11px] text-slate-400 ml-2">${escHtml(svc.name_np)}</span>
             </div>
-            <p class="text-xs text-slate-400 mt-2.5">Instant JavaScript Client Search. System doesn't reload pages.</p>
-        </div>
-
-        <!-- Premium/Google AdSense Banner Placeholder -->
-        <div class="bg-slate-200 text-slate-500 text-xs font-bold tracking-wider py-4 text-center rounded-xl mb-8 border border-dashed border-slate-300">
-            ADVERTISEMENT / SPONSORED BANNER SPACE
-        </div>
-
-        <!-- Dynamic Output Target -->
-        <div id="results" class="space-y-6">
-            <!-- Default Initialization View -->
-            <div class="text-center py-14 text-slate-400 bg-white rounded-2xl shadow-sm border border-slate-100">
-                <p class="text-lg font-bold text-slate-500">Search bar ma type garesi details yahan dekhinechha.</p>
-                <p class="text-xs mt-1">Type 2 or more characters to trigger search across 77 districts.</p>
+            <span id="icon-${accordionId}" class="text-brand-700 text-lg leading-none select-none flex-shrink-0 ml-2">➕</span>
+          </div>
+          <div class="accordion-body" id="body-${accordionId}">
+            <div class="px-4 pb-4 pt-1">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">📄 Documents (English)</p>
+                  <ul class="space-y-1.5">${docsEn}</ul>
+                </div>
+                <div>
+                  <p class="np text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">📄 कागजातहरू (नेपाली)</p>
+                  <ul class="space-y-1.5">${docsNp}</ul>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>`;
+    }).join("");
+
+    servicesHtml = `
+      <div class="rounded-xl border border-slate-100 overflow-hidden">
+        <div class="px-4 py-2.5 bg-slate-50 border-b border-slate-100 flex items-center gap-1.5">
+          <span class="text-sm">🗂️</span>
+          <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Services &nbsp;<span class="np font-medium normal-case tracking-normal">सेवाहरू</span></span>
         </div>
+        ${rows}
+      </div>`;
+  }
 
-    </main>
-
-    <!-- Legal Disclaimer & Footer -->
-    <footer class="bg-slate-900 text-slate-400 text-xs py-8 px-4 mt-12 border-t border-slate-800">
-        <div class="max-w-4xl mx-auto text-center space-y-4">
-            <p class="text-slate-500 leading-relaxed text-justify md:text-center">
-                <strong>Disclaimer / घोषणा:</strong> npsarkar.com euta private ra swatantra directory web portal ho. Yo website Nepal Sarkar, kunai pani mantralaya, bivag, wa sarkari nikayashanga aabadha, authorized, wa pramanit chaina. Yahan diyieka jankari ra links nagarik ko sajiloko lagi official source bata sankalan gariyakha hun.
-            </p>
-            <p class="text-slate-600 border-t border-slate-800 pt-4 text-2xs uppercase tracking-widest">
-                &copy; 2026 npsarkar.com | Hosted 100% Free via GitHub Pages Environment
-            </p>
+  /* ── Map embed ── */
+  let mapHtml = "";
+  if (hasMap) {
+    mapHtml = `
+      <div>
+        <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">🗺️ Location Map</p>
+        <div class="map-ratio">
+          <iframe
+            src="${escAttr(o.map_embed)}"
+            loading="lazy"
+            allowfullscreen=""
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Map: ${escAttr(o.name_en)}"
+          ></iframe>
         </div>
-    </footer>
+      </div>`;
+  }
 
-    <!-- Frontend Core Engine Code -->
-    <script>
-        let officeData = [];
+  /* ── Action buttons ── */
+  let btnHtml = `<div class="flex flex-wrap gap-2 pt-1">`;
+  if (o.website) {
+    btnHtml += `<a href="${escAttr(o.website)}" target="_blank" rel="noopener noreferrer" class="btn-primary btn-web flex-1 min-w-[110px]">🌐 Website</a>`;
+  }
+  if (o.phone && o.phone.length > 0) {
+    btnHtml += `<a href="tel:${escAttr(o.phone[0])}" class="btn-primary btn-call flex-1 min-w-[110px]">📞 Call</a>`;
+  }
+  const mapTarget = o.map_link || `https://maps.google.com/?q=${encodeURIComponent(o.name_en + ' ' + o.district + ' Nepal')}`;
+  btnHtml += `<a href="${escAttr(mapTarget)}" target="_blank" rel="noopener noreferrer" class="btn-primary btn-map">🗺️ Map</a>`;
+  if (o.email) {
+    btnHtml += `<a href="mailto:${escAttr(o.email)}" class="btn-primary btn-email">📧</a>`;
+  }
+  btnHtml += `</div>`;
 
-        // Fetches your data.json from the same directory on GitHub Pages
-        async function loadData() {
-            try {
-                const response = await fetch('data.json');
-                officeData = await response.json();
-            } catch (error) {
-                console.error("Database connection array extraction failed:", error);
-                document.getElementById('results').innerHTML = `
-                    <div class="bg-rose-50 text-rose-600 p-4 rounded-xl border border-rose-100 text-center font-semibold text-sm shadow-sm">
-                        ⚠️ Error: data.json file bhetiyena wa JSON format bigriyeko chha. Please check console tools.
-                    </div>
-                `;
-            }
-        }
+  /* ── Assemble full card ── */
+  wrap.innerHTML = `
+    ${headerHtml}
+    <div class="card-body">
+      ${infoHtml}
+      ${contactHtml}
+      ${servicesHtml}
+      ${mapHtml}
+      ${btnHtml}
+    </div>`;
 
-        // Active dynamic filtering mechanics
-        function searchNepal() {
-            const query = document.getElementById('search-input').value.toLowerCase().trim();
-            const resultsDiv = document.getElementById('results');
+  return wrap;
+}
 
-            if (query.length < 2) {
-                resultsDiv.innerHTML = `
-                    <div class="text-center py-14 text-slate-400 bg-white rounded-2xl shadow-sm border border-slate-100">
-                        <p class="text-lg font-bold text-slate-500">Search bar ma type garesi details yahan dekhinechha.</p>
-                    </div>
-                `;
-                return;
-            }
+// ┌─────────────────────────────────────────────┐
+// │  ACCORDION TOGGLE                           │
+// └─────────────────────────────────────────────┘
+function toggleAccordion(id) {
+  const body    = document.getElementById(`body-${id}`);
+  const icon    = document.getElementById(`icon-${id}`);
+  const trigger = document.getElementById(`trigger-${id}`);
+  if (!body) return;
 
-            // High recall cross-language object matcher
-            const filtered = officeData.filter(o => 
-                o.office_en.toLowerCase().includes(query) || 
-                o.office_np.includes(query) || 
-                o.district_en.toLowerCase().includes(query) || 
-                o.district_np.includes(query) ||
-                o.province_en.toLowerCase().includes(query) ||
-                o.category_en.toLowerCase().includes(query) ||
-                (o.seo_tags && o.seo_tags.some(tag => tag.toLowerCase().includes(query)))
-            );
+  const isOpen = openAccordions.has(id);
+  if (isOpen) {
+    body.classList.remove("open");
+    icon.textContent = "➕";
+    trigger && trigger.setAttribute("aria-expanded", "false");
+    openAccordions.delete(id);
+  } else {
+    body.classList.add("open");
+    icon.textContent = "➖";
+    trigger && trigger.setAttribute("aria-expanded", "true");
+    openAccordions.add(id);
+  }
+}
 
-            if (filtered.length === 0) {
-                resultsDiv.innerHTML = `
-                    <div class="text-center py-14 text-slate-400 bg-white rounded-2xl shadow-sm border border-slate-100">
-                        <p class="text-lg font-bold text-slate-500">Tapai le khojnu bhayeko karyalaya bhetiyena.</p>
-                        <p class="text-xs mt-1">Spelling accuracy check garnuhas wa anya keyword (jastai District, Service name) use garnuhas.</p>
-                    </div>
-                `;
-                return;
-            }
+// ┌─────────────────────────────────────────────┐
+// │  UI STATE SWITCHER                          │
+// └─────────────────────────────────────────────┘
+function showState(state) {
+  const states = { loading: "state-loading", error: "state-error", empty: "state-empty", results: "results-grid" };
+  Object.values(states).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.add("hidden");
+  });
+  const target = states[state];
+  if (target) {
+    const el = document.getElementById(target);
+    if (el) {
+      el.classList.remove("hidden");
+      if (state === "results") el.classList.add("grid");
+    }
+  }
+}
 
-            // Dynamic HTML construction logic 
-            resultsDiv.innerHTML = filtered.map(o => {
-                let servicesHTML = '';
-                
-                // Loops through services object array if nested components exist (Ward offices/Complex Listings)
-                if (o.services && o.services.length > 0) {
-                    servicesHTML = `
-                        <div class="mt-6 pt-5 border-t border-slate-100">
-                            <h4 class="text-xs font-black uppercase tracking-wider text-slate-400 mb-3">🛠️ Services & Required Documents / सेवा र कागजातहरू</h4>
-                            <div class="space-y-2">
-                                ${o.services.map((s, idx) => `
-                                    <div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50">
-                                        <button onclick="toggleService('${o.id}_${idx}')" class="w-full text-left px-4 py-3 bg-slate-100 hover:bg-slate-200 font-bold text-slate-700 text-xs md:text-sm flex justify-between items-center transition">
-                                            <span>${s.service_name_en} / ${s.service_name_np}</span>
-                                            <span id="arrow_${o.id}_${idx}" class="text-2xs">➕</span>
-                                        </button>
-                                        <div id="service_${o.id}_${idx}" class="hidden p-4 bg-white border-t border-slate-200 text-xs md:text-sm space-y-4">
-                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                <div>
-                                                    <span class="font-extrabold text-blue-600 block mb-1 text-3xs uppercase tracking-widest">English Requirements</span>
-                                                    <ul class="list-disc list-inside space-y-1 text-slate-600 font-medium">${s.docs_en.map(d => `<li>${d}</li>`).join('')}</ul>
-                                                </div>
-                                                <div class="border-t md:border-t-0 md:border-l border-slate-100 pt-3 md:pt-0 md:pl-4">
-                                                    <span class="font-extrabold text-blue-600 block mb-1 text-3xs uppercase tracking-widest">आवश्यक कागजातहरू (नेपाली)</span>
-                                                    <ul class="list-disc list-inside space-y-1 text-slate-600 font-medium">${s.docs_np.map(d => `<li>${d}</li>`).join('')}</ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                    `;
-                }
+function updateMetaRow(count) {
+  const countEl  = document.getElementById("results-count");
+  const clearBtn = document.getElementById("clear-all-btn");
+  const hasFilters = activeQuery || activeCat || activeProv || activeDist;
 
-                // Parent directory card deployment framework
-                return `
-                    <div class="bg-white rounded-2xl shadow-md border border-slate-100 p-5 md:p-6 transition hover:shadow-lg">
-                        <div class="flex flex-wrap gap-1.5 mb-3 text-3xs font-extrabold tracking-wide uppercase">
-                            <span class="bg-blue-50 text-blue-700 px-2.5 py-1 rounded-full border border-blue-100">${o.province_en} / ${o.province_np}</span>
-                            <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-full">${o.district_en} / ${o.district_np}</span>
-                            <span class="bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full border border-emerald-100">${o.category_en} / ${o.category_np}</span>
-                        </div>
+  countEl.textContent = count > 0
+    ? `Showing ${count} office${count !== 1 ? "s" : ""}`
+    : "";
 
-                        <h2 class="text-xl font-extrabold text-slate-900">${o.office_en}</h2>
-                        <h3 class="text-md font-bold text-blue-800 mt-0.5">${o.office_np}</h3>
+  if (hasFilters) {
+    clearBtn.classList.remove("hidden");
+    clearBtn.classList.add("inline-flex");
+  } else {
+    clearBtn.classList.add("hidden");
+    clearBtn.classList.remove("inline-flex");
+  }
+}
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 bg-slate-50 p-4 rounded-xl text-xs md:text-sm leading-relaxed border border-slate-100">
-                            <div><p class="text-slate-600"><strong class="text-slate-800 text-2xs uppercase tracking-wider block mb-0.5">English Info:</strong> ${o.brief_en}</p></div>
-                            <div class="border-t md:border-t-0 md:border-l border-slate-200 pt-2 md:pt-0 md:pl-4"><p class="text-slate-600"><strong class="text-slate-800 text-2xs uppercase tracking-wider block mb-0.5">नेपाली विवरण:</strong> ${o.brief_np}</p></div>
-                        </div>
+// ┌─────────────────────────────────────────────┐
+// │  CLEAR ALL FILTERS                          │
+// └─────────────────────────────────────────────┘
+function clearAllFilters() {
+  activeQuery = ""; activeCat = ""; activeProv = ""; activeDist = "";
 
-                        ${servicesHTML}
+  const searchIn = document.getElementById("search-input");
+  if (searchIn) searchIn.value = "";
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5 pt-5 border-t border-slate-100 text-xs">
-                            <div>
-                                <h4 class="text-3xs font-black uppercase tracking-wider text-slate-400 mb-1">📞 Contacts</h4>
-                                <p class="text-sm font-bold text-slate-800">${o.phone || 'Upalabdha Chaina'}</p>
-                            </div>
-                            <div>
-                                <h4 class="text-3xs font-black uppercase tracking-wider text-slate-400 mb-1.5">📍 Embed Maps</h4>
-                                <div class="map-container shadow-inner bg-slate-100 rounded-lg overflow-hidden border border-slate-200">
-                                    ${o.map_iframe || '<div class="text-center py-14 text-2xs text-slate-400 font-medium">Map Unavailable</div>'}
-                                </div>
-                            </div>
-                        </div>
+  const clearBtn = document.getElementById("btn-clear-search");
+  if (clearBtn) { clearBtn.classList.add("hidden"); clearBtn.classList.remove("flex"); }
 
-                        <div class="mt-5 pt-4 border-t border-slate-100 text-right">
-                            <a href="${o.official_url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs rounded-xl shadow-sm transition group">
-                                Open Official Portal <span class="ml-1 transition-transform group-hover:translate-x-0.5">↗</span>
-                            </a>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
+  document.getElementById("province-select").value = "";
+  document.getElementById("district-select").value = "";
+  rebuildDistrictDropdown("");
 
-        // Toggles nested services panels inside cards
-        function toggleService(id) {
-            const container = document.getElementById(`service_${id}`);
-            const indicator = document.getElementById(`arrow_${id}`);
-            if (container.classList.contains('hidden')) {
-                container.classList.remove('hidden');
-                indicator.innerText = '➖';
-            } else {
-                container.classList.add('hidden');
-                indicator.innerText = '➕';
-            }
-        }
+  document.querySelectorAll(".badge-btn").forEach(b => b.classList.remove("active"));
+  activeCat = null;
 
-        // Initiates continuous backend array monitoring on frame startup
-        window.onload = loadData;
-    </script>
+  applyFilters();
+}
+
+// ┌─────────────────────────────────────────────┐
+// │  SANITISATION HELPERS                       │
+// └─────────────────────────────────────────────┘
+function escHtml(str) {
+  if (typeof str !== "string") return "";
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+function escAttr(str) {
+  if (typeof str !== "string") return "";
+  return str.replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+}
+</script>
 </body>
 </html>
