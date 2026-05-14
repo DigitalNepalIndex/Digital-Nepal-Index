@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>npSarkar Directory | Official Directory & Documents Guide</title>
+    <!-- Tailwind CSS CDN for modern responsive UI -->
+    <script src="jsdelivr.net"></script>
+    <style>
+        /* Ensures any embedded google map iframe fits perfectly inside the card */
+        .map-container iframe {
+            width: 100% !important;
+            height: 180px !important;
+            border-radius: 0.5rem;
+            border: 0;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col">
+
+    <!-- Header Section -->
+    <header class="bg-blue-900 text-white shadow-lg py-8 px-4 text-center">
+        <h1 class="text-4xl font-black tracking-tight">npSarkar Directory</h1>
+        <p class="text-blue-200 mt-2 text-sm md:text-base font-medium max-w-xl mx-auto">
+            77 Districts ka Sarkari Offices, Court, Hospital ra Bank ko Centralized Hub & Required Documents Guide
+        </p>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl">
+        
+        <!-- Search Engine Box -->
+        <div class="mb-8 text-center">
+            <label for="search-input" class="block text-base font-bold text-slate-600 mb-3 uppercase tracking-wider">
+                Search Karyalaya, Jilla, or Service (English / नेपाली)
+            </label>
+            <div class="relative max-w-2xl mx-auto shadow-md rounded-full overflow-hidden">
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    oninput="searchNepal()"
+                    placeholder="Jastai: Kathmandu, License, Ward 7, नागरिकता, CDO..." 
+                    class="w-full pl-6 pr-14 py-4 bg-white border-2 border-slate-200 rounded-full focus:outline-none focus:border-blue-600 text-lg transition duration-150"
+                >
+                <div class="absolute right-5 top-4.5 text-xl text-slate-400">🔍</div>
+            </div>
+            <p class="text-xs text-slate-400 mt-2.5">Instant JavaScript Client Search. System doesn't reload pages.</p>
+        </div>
+
+        <!-- Premium/Google AdSense Banner Placeholder -->
+        <div class="bg-slate-200 text-slate-500 text-xs font-bold tracking-wider py-4 text-center rounded-xl mb-8 border border-dashed border-slate-300">
+            ADVERTISEMENT / SPONSORED BANNER SPACE
+        </div>
+
+        <!-- Dynamic Output Target -->
+        <div id="results" class="space-y-6">
+            <!-- Default Initialization View -->
+            <div class="text-center py-14 text-slate-400 bg-white rounded-2xl shadow-sm border border-slate-100">
+                <p class="text-lg font-bold text-slate-500">Search bar ma type garesi details yahan dekhinechha.</p>
+                <p class="text-xs mt-1">Type 2 or more characters to trigger search across 77 districts.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Legal Disclaimer & Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-8 px-4 mt-12 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto text-center space-y-4">
+            <p class="text-slate-500 leading-relaxed text-justify md:text-center">
+                <strong>Disclaimer / घोषणा:</strong> npsarkar.com euta private ra swatantra directory web portal ho. Yo website Nepal Sarkar, kunai pani mantralaya, bivag, wa sarkari nikayashanga aabadha, authorized, wa pramanit chaina. Yahan diyieka jankari ra links nagarik ko sajiloko lagi official source bata sankalan gariyakha hun.
+            </p>
+            <p class="text-slate-600 border-t border-slate-800 pt-4 text-2xs uppercase tracking-widest">
+                &copy; 2026 npsarkar.com | Hosted 100% Free via GitHub Pages Environment
+            </p>
+        </div>
+    </footer>
+
+    <!-- Frontend Core Engine Code -->
+    <script>
+        let officeData = [];
+
+        // Fetches your data.json from the same directory on GitHub Pages
+        async function loadData() {
+            try {
+                const response = await fetch('data.json');
+                officeData = await response.json();
+            } catch (error) {
+                console.error("Database connection array extraction failed:", error);
+                document.getElementById('results').innerHTML = `
+                    <div class="bg-rose-50 text-rose-600 p-4 rounded-xl border border-rose-100 text-center font-semibold text-sm shadow-sm">
+                        ⚠️ Error: data.json file bhetiyena wa JSON format bigriyeko chha. Please check console tools.
+                    </div>
+                `;
+            }
+        }
+
+        // Active dynamic filtering mechanics
+        function searchNepal() {
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
+            const resultsDiv = document.getElementById('results');
+
+            if (query.length < 2) {
+                resultsDiv.innerHTML = `
+                    <div class="text-center py-14 text-slate-400 bg-white rounded-2xl shadow-sm border border-slate-100">
+                        <p class="text-lg font-bold text-slate-500">Search bar ma type garesi details yahan dekhinechha.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // High recall cross-language object matcher
+            const filtered = officeData.filter(o => 
+                o.office_en.toLowerCase().includes(query) || 
+                o.office_np.includes(query) || 
+                o.district_en.toLowerCase().includes(query) || 
+                o.district_np.includes(query) ||
+                o.province_en.toLowerCase().includes(query) ||
+                o.category_en.toLowerCase().includes(query) ||
+                (o.seo_tags && o.seo_tags.some(tag => tag.toLowerCase().includes(query)))
+            );
+
+            if (filtered.length === 0) {
+                resultsDiv.innerHTML = `
+                    <div class="text-center py-14 text-slate-400 bg-white rounded-2xl shadow-sm border border-slate-100">
+                        <p class="text-lg font-bold text-slate-500">Tapai le khojnu bhayeko karyalaya bhetiyena.</p>
+                        <p class="text-xs mt-1">Spelling accuracy check garnuhas wa anya keyword (jastai District, Service name) use garnuhas.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Dynamic HTML construction logic 
+            resultsDiv.innerHTML = filtered.map(o => {
+                let servicesHTML = '';
+                
+                // Loops through services object array if nested components exist (Ward offices/Complex Listings)
+                if (o.services && o.services.length > 0) {
+                    servicesHTML = `
+                        <div class="mt-6 pt-5 border-t border-slate-100">
+                            <h4 class="text-xs font-black uppercase tracking-wider text-slate-400 mb-3">🛠️ Services & Required Documents / सेवा र कागजातहरू</h4>
+                            <div class="space-y-2">
+                                ${o.services.map((s, idx) => `
+                                    <div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50">
+                                        <button onclick="toggleService('${o.id}_${idx}')" class="w-full text-left px-4 py-3 bg-slate-100 hover:bg-slate-200 font-bold text-slate-700 text-xs md:text-sm flex justify-between items-center transition">
+                                            <span>${s.service_name_en} / ${s.service_name_np}</span>
+                                            <span id="arrow_${o.id}_${idx}" class="text-2xs">➕</span>
+                                        </button>
+                                        <div id="service_${o.id}_${idx}" class="hidden p-4 bg-white border-t border-slate-200 text-xs md:text-sm space-y-4">
+                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <span class="font-extrabold text-blue-600 block mb-1 text-3xs uppercase tracking-widest">English Requirements</span>
+                                                    <ul class="list-disc list-inside space-y-1 text-slate-600 font-medium">${s.docs_en.map(d => `<li>${d}</li>`).join('')}</ul>
+                                                </div>
+                                                <div class="border-t md:border-t-0 md:border-l border-slate-100 pt-3 md:pt-0 md:pl-4">
+                                                    <span class="font-extrabold text-blue-600 block mb-1 text-3xs uppercase tracking-widest">आवश्यक कागजातहरू (नेपाली)</span>
+                                                    <ul class="list-disc list-inside space-y-1 text-slate-600 font-medium">${s.docs_np.map(d => `<li>${d}</li>`).join('')}</ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // Parent directory card deployment framework
+                return `
+                    <div class="bg-white rounded-2xl shadow-md border border-slate-100 p-5 md:p-6 transition hover:shadow-lg">
+                        <div class="flex flex-wrap gap-1.5 mb-3 text-3xs font-extrabold tracking-wide uppercase">
+                            <span class="bg-blue-50 text-blue-700 px-2.5 py-1 rounded-full border border-blue-100">${o.province_en} / ${o.province_np}</span>
+                            <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-full">${o.district_en} / ${o.district_np}</span>
+                            <span class="bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full border border-emerald-100">${o.category_en} / ${o.category_np}</span>
+                        </div>
+
+                        <h2 class="text-xl font-extrabold text-slate-900">${o.office_en}</h2>
+                        <h3 class="text-md font-bold text-blue-800 mt-0.5">${o.office_np}</h3>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 bg-slate-50 p-4 rounded-xl text-xs md:text-sm leading-relaxed border border-slate-100">
+                            <div><p class="text-slate-600"><strong class="text-slate-800 text-2xs uppercase tracking-wider block mb-0.5">English Info:</strong> ${o.brief_en}</p></div>
+                            <div class="border-t md:border-t-0 md:border-l border-slate-200 pt-2 md:pt-0 md:pl-4"><p class="text-slate-600"><strong class="text-slate-800 text-2xs uppercase tracking-wider block mb-0.5">नेपाली विवरण:</strong> ${o.brief_np}</p></div>
+                        </div>
+
+                        ${servicesHTML}
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5 pt-5 border-t border-slate-100 text-xs">
+                            <div>
+                                <h4 class="text-3xs font-black uppercase tracking-wider text-slate-400 mb-1">📞 Contacts</h4>
+                                <p class="text-sm font-bold text-slate-800">${o.phone || 'Upalabdha Chaina'}</p>
+                            </div>
+                            <div>
+                                <h4 class="text-3xs font-black uppercase tracking-wider text-slate-400 mb-1.5">📍 Embed Maps</h4>
+                                <div class="map-container shadow-inner bg-slate-100 rounded-lg overflow-hidden border border-slate-200">
+                                    ${o.map_iframe || '<div class="text-center py-14 text-2xs text-slate-400 font-medium">Map Unavailable</div>'}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 pt-4 border-t border-slate-100 text-right">
+                            <a href="${o.official_url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs rounded-xl shadow-sm transition group">
+                                Open Official Portal <span class="ml-1 transition-transform group-hover:translate-x-0.5">↗</span>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Toggles nested services panels inside cards
+        function toggleService(id) {
+            const container = document.getElementById(`service_${id}`);
+            const indicator = document.getElementById(`arrow_${id}`);
+            if (container.classList.contains('hidden')) {
+                container.classList.remove('hidden');
+                indicator.innerText = '➖';
+            } else {
+                container.classList.add('hidden');
+                indicator.innerText = '➕';
+            }
+        }
+
+        // Initiates continuous backend array monitoring on frame startup
+        window.onload = loadData;
+    </script>
+</body>
+</html>
