@@ -1,0 +1,686 @@
+{
+  "offices": [
+    {
+      "id": "ktm-metro-001",
+      "name_en": "Kathmandu Metropolitan City Office",
+      "name_np": "काठमाडौं महानगरपालिका कार्यालय",
+      "category": "Ward Office",
+      "province": "3",
+      "province_name_en": "Bagmati Pradesh",
+      "province_name_np": "बागमती प्रदेश",
+      "district": "Kathmandu",
+      "district_np": "काठमाडौं",
+      "address_en": "Bagh Durbar, Kathmandu Metropolitan City, Bagmati Pradesh",
+      "address_np": "बाघ दरबार, काठमाडौं महानगरपालिका, बागमती प्रदेश",
+      "phone": ["01-4225890", "01-4225891", "01-4225892"],
+      "email": "info@kathmandu.gov.np",
+      "website": "https://kathmandu.gov.np",
+      "map_embed": "https://maps.google.com/maps?q=Kathmandu+Metropolitan+City+Office+Nepal&output=embed",
+      "map_link": "https://maps.google.com/?q=Kathmandu+Metropolitan+City+Office",
+      "info_en": "The administrative hub of Kathmandu Metropolitan City — Nepal's largest city. Manages 32 wards covering urban development, municipal taxation, social services, and infrastructure.",
+      "info_np": "नेपालको सबैभन्दा ठूलो सहर काठमाडौं महानगरपालिकाको प्रशासनिक केन्द्र। ३२ वडाहरू समेटेर सहरी विकास, नगर कर, सामाजिक सेवा र पूर्वाधारको व्यवस्थापन गर्दछ।",
+      "seo_tags": ["metro office", "mayor", "nagarpalika", "urban", "ktm", "tax", "nagar sewa"],
+      "services": [
+        {
+          "name_en": "Birth Registration",
+          "name_np": "जन्म दर्ता",
+          "documents_en": [
+            "Citizenship certificate of both parents",
+            "Hospital birth certificate (original)",
+            "Application form (available at ward office)",
+            "Passport-size photo of parents",
+            "Land ownership certificate or rental agreement"
+          ],
+          "documents_np": [
+            "दुवै अभिभावकको नागरिकता प्रमाणपत्र",
+            "अस्पतालको जन्म प्रमाणपत्र (असल प्रति)",
+            "निवेदन फाराम (वडा कार्यालयमा उपलब्ध)",
+            "अभिभावकको पासपोर्ट साइज फोटो",
+            "जग्गाधनी प्रमाणपत्र वा भाडा सम्झौता"
+          ]
+        },
+        {
+          "name_en": "Death Registration",
+          "name_np": "मृत्यु दर्ता",
+          "documents_en": [
+            "Medical death certificate from hospital/doctor",
+            "Citizenship of deceased",
+            "Application by family member with citizenship copy",
+            "Witness letter (2 persons)"
+          ],
+          "documents_np": [
+            "अस्पताल/चिकित्सकको मृत्यु प्रमाणपत्र",
+            "मृतकको नागरिकता",
+            "परिवारको सदस्यबाट निवेदन र नागरिकताको प्रतिलिपि",
+            "साक्षी पत्र (२ जना)"
+          ]
+        },
+        {
+          "name_en": "Residence Certificate",
+          "name_np": "बसाई सराई",
+          "documents_en": [
+            "Application form",
+            "Citizenship certificate",
+            "Old residence certificate (if transferring)",
+            "Land ownership or rental proof"
+          ],
+          "documents_np": [
+            "निवेदन फाराम",
+            "नागरिकता प्रमाणपत्र",
+            "पुरानो बसाई सराई प्रमाण (सरेको भए)",
+            "जग्गाधनी वा भाडाको प्रमाण"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nrb-hq-002",
+      "name_en": "Nepal Rastra Bank (Central Bank)",
+      "name_np": "नेपाल राष्ट्र बैंक (केन्द्रीय बैंक)",
+      "category": "Banking",
+      "province": "3",
+      "province_name_en": "Bagmati Pradesh",
+      "province_name_np": "बागमती प्रदेश",
+      "district": "Kathmandu",
+      "district_np": "काठमाडौं",
+      "address_en": "Baluwatar, Kathmandu, Bagmati Pradesh",
+      "address_np": "बालुवाटार, काठमाडौं, बागमती प्रदेश",
+      "phone": ["01-4411407", "01-4411601", "01-4413200"],
+      "email": "info@nrb.org.np",
+      "website": "https://www.nrb.org.np",
+      "map_embed": "https://maps.google.com/maps?q=Nepal+Rastra+Bank+Baluwatar+Kathmandu&output=embed",
+      "map_link": "https://maps.google.com/?q=Nepal+Rastra+Bank+Kathmandu",
+      "info_en": "Nepal's apex monetary authority, responsible for regulating the banking sector, maintaining price stability, managing foreign exchange reserves, and issuing currency.",
+      "info_np": "नेपालको सर्वोच्च मौद्रिक प्राधिकरण, बैंकिङ क्षेत्रको नियमन, मूल्य स्थिरता, विदेशी मुद्रा संचय व्यवस्थापन र मुद्रा जारी गर्न जिम्मेवार।",
+      "seo_tags": ["central bank", "monetary policy", "forex", "currency", "banking regulation", "NRB"],
+      "services": []
+    },
+    {
+      "id": "bir-hosp-003",
+      "name_en": "Bir Hospital (National Reference Hospital)",
+      "name_np": "वीर अस्पताल (राष्ट्रिय रेफरेन्स अस्पताल)",
+      "category": "Hospital",
+      "province": "3",
+      "province_name_en": "Bagmati Pradesh",
+      "province_name_np": "बागमती प्रदेश",
+      "district": "Kathmandu",
+      "district_np": "काठमाडौं",
+      "address_en": "Kanti Path, Kathmandu, Bagmati Pradesh",
+      "address_np": "कान्तिपथ, काठमाडौं, बागमती प्रदेश",
+      "phone": ["01-4221988", "01-4221119", "01-4222211"],
+      "email": "info@birhospital.gov.np",
+      "website": "https://birhospital.gov.np",
+      "map_embed": "https://maps.google.com/maps?q=Bir+Hospital+Kathmandu+Nepal&output=embed",
+      "map_link": "https://maps.google.com/?q=Bir+Hospital+Kathmandu",
+      "info_en": "Nepal's oldest and largest government hospital, established in 1889. Provides tertiary-level medical care as the national reference hospital with over 800 beds and specialized departments.",
+      "info_np": "नेपालको सबैभन्दा पुरानो र ठूलो सरकारी अस्पताल, १८८९ मा स्थापित। ८०० भन्दा बढी शैयासहित राष्ट्रिय रेफरेन्स अस्पतालको रूपमा तृतीयस्तरको चिकित्सा सेवा प्रदान गर्दछ।",
+      "seo_tags": ["hospital", "emergency", "doctor", "medicine", "OPD", "surgery", "national hospital"],
+      "services": [
+        {
+          "name_en": "OPD Registration",
+          "name_np": "बाह्य रोगी दर्ता",
+          "documents_en": [
+            "Valid citizenship or passport",
+            "Previous medical reports (if any)",
+            "Referral letter (for specialized departments)",
+            "OPD registration fee (subsidized)"
+          ],
+          "documents_np": [
+            "नागरिकता वा राहदानी",
+            "अघिल्लो चिकित्सा रिपोर्ट (भए)",
+            "विशेषज्ञ विभागको लागि रेफरल पत्र",
+            "बाह्य रोगी दर्ता शुल्क (अनुदानित)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pkr-metro-004",
+      "name_en": "Pokhara Metropolitan City Office",
+      "name_np": "पोखरा महानगरपालिका कार्यालय",
+      "category": "Ward Office",
+      "province": "4",
+      "province_name_en": "Gandaki Pradesh",
+      "province_name_np": "गण्डकी प्रदेश",
+      "district": "Kaski",
+      "district_np": "कास्की",
+      "address_en": "Bagar, Pokhara Metropolitan City, Gandaki Pradesh",
+      "address_np": "बागर, पोखरा महानगरपालिका, गण्डकी प्रदेश",
+      "phone": ["061-520081", "061-520082", "061-530333"],
+      "email": "info@pokharamun.gov.np",
+      "website": "https://pokharamun.gov.np",
+      "map_embed": "https://maps.google.com/maps?q=Pokhara+Metropolitan+City+Office+Nepal&output=embed",
+      "map_link": "https://maps.google.com/?q=Pokhara+Metropolitan+City+Office",
+      "info_en": "Administrative center of Nepal's second-largest city and tourist capital. Manages 33 wards, tourism development, lakeside infrastructure, and municipal services in Gandaki Province.",
+      "info_np": "नेपालको दोस्रो ठूलो सहर र पर्यटन राजधानीको प्रशासनिक केन्द्र। ३३ वडा, पर्यटन विकास, तालछेउ पूर्वाधार र गण्डकी प्रदेशमा नगर सेवाको व्यवस्थापन।",
+      "seo_tags": ["pokhara", "tourism", "lakeside", "fewa lake", "nagarpalika", "gandaki", "kaski"],
+      "services": [
+        {
+          "name_en": "Business Registration / Nagarik App",
+          "name_np": "व्यवसाय दर्ता / नागरिक एप",
+          "documents_en": [
+            "Citizenship certificate",
+            "Application form (Form 11)",
+            "Proposed business location lease/ownership document",
+            "PAN registration certificate",
+            "Passport-sized photo"
+          ],
+          "documents_np": [
+            "नागरिकता प्रमाणपत्र",
+            "निवेदन फाराम (फाराम ११)",
+            "व्यवसाय स्थान भाडा/धनी प्रमाणपत्र",
+            "स्थायी लेखा नम्बर दर्ता प्रमाणपत्र",
+            "पासपोर्ट साइज फोटो"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nea-hq-005",
+      "name_en": "Nepal Electricity Authority (NEA) — HQ",
+      "name_np": "नेपाल विद्युत् प्राधिकरण — मुख्यालय",
+      "category": "Utilities",
+      "province": "3",
+      "province_name_en": "Bagmati Pradesh",
+      "province_name_np": "बागमती प्रदेश",
+      "district": "Kathmandu",
+      "district_np": "काठमाडौं",
+      "address_en": "Durbar Marg, Kathmandu, Bagmati Pradesh",
+      "address_np": "दरबारमार्ग, काठमाडौं, बागमती प्रदेश",
+      "phone": ["01-4153000", "01-4153001", "16600101133"],
+      "email": "info@nea.org.np",
+      "website": "https://www.nea.org.np",
+      "map_embed": "https://maps.google.com/maps?q=Nepal+Electricity+Authority+Durbar+Marg+Kathmandu&output=embed",
+      "map_link": "https://maps.google.com/?q=Nepal+Electricity+Authority+Kathmandu",
+      "info_en": "State-owned enterprise responsible for generation, transmission, and distribution of electricity throughout Nepal. Provides new connection, meter reading, and billing complaint services.",
+      "info_np": "नेपालभर विद्युत् उत्पादन, प्रसारण र वितरणको जिम्मेवार सरकारी संस्था। नयाँ जडान, मिटर रिडिङ र बिल उजुरी सेवाहरू प्रदान गर्दछ।",
+      "seo_tags": ["electricity", "power", "load shedding", "meter", "bill", "NEA", "current", "wiring"],
+      "services": [
+        {
+          "name_en": "New Electricity Connection",
+          "name_np": "नयाँ विद्युत् जडान",
+          "documents_en": [
+            "Application form (available at NEA office)",
+            "Land ownership certificate / rental agreement",
+            "Citizenship certificate",
+            "Site plan / building permit",
+            "Wiring test certificate from licensed electrician"
+          ],
+          "documents_np": [
+            "निवेदन फाराम (NEA कार्यालयमा उपलब्ध)",
+            "जग्गाधनी प्रमाणपत्र / भाडा सम्झौता",
+            "नागरिकता प्रमाणपत्र",
+            "साइट नक्सा / भवन निर्माण अनुमति",
+            "इजाजतपत्र प्राप्त इलेक्ट्रिसियनको तारबन्दी परीक्षण प्रमाणपत्र"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tu-main-006",
+      "name_en": "Tribhuvan University — Central Administration",
+      "name_np": "त्रिभुवन विश्वविद्यालय — केन्द्रीय प्रशासन",
+      "category": "Education",
+      "province": "3",
+      "province_name_en": "Bagmati Pradesh",
+      "province_name_np": "बागमती प्रदेश",
+      "district": "Kathmandu",
+      "district_np": "काठमाडौं",
+      "address_en": "Kirtipur, Kathmandu, Bagmati Pradesh",
+      "address_np": "कीर्तिपुर, काठमाडौं, बागमती प्रदेश",
+      "phone": ["01-4330433", "01-4331964", "01-4335128"],
+      "email": "info@tribhuvan-university.edu.np",
+      "website": "https://tribhuvan-university.edu.np",
+      "map_embed": "https://maps.google.com/maps?q=Tribhuvan+University+Kirtipur+Kathmandu&output=embed",
+      "map_link": "https://maps.google.com/?q=Tribhuvan+University+Kirtipur",
+      "info_en": "Nepal's oldest and largest university, established 1959. Encompasses over 60 constituent campuses and 1,100+ affiliated colleges across Nepal with faculties in science, humanities, education, management, and law.",
+      "info_np": "नेपालको सबैभन्दा पुरानो र ठूलो विश्वविद्यालय, १९५९ मा स्थापित। नेपालभर ६०+ संविधान क्याम्पस र ११०० भन्दा बढी सम्बद्ध कलेज समेटेको छ।",
+      "seo_tags": ["university", "TU", "exam", "result", "admission", "college", "degree", "scholarship"],
+      "services": [
+        {
+          "name_en": "Transcript / Migration Certificate",
+          "name_np": "ट्रान्सक्रिप्ट / स्थानान्तरण प्रमाणपत्र",
+          "documents_en": [
+            "Application form with academic year",
+            "Original mark sheet (all semesters)",
+            "Character certificate from campus",
+            "Citizenship certificate copy",
+            "Migration certificate (if changing institution)"
+          ],
+          "documents_np": [
+            "शैक्षिक वर्ष उल्लेख गरिएको निवेदन फाराम",
+            "सबै सेमेस्टरको मूल अंक पत्र",
+            "क्याम्पसको चारित्रिक प्रमाणपत्र",
+            "नागरिकता प्रमाणपत्रको प्रतिलिपि",
+            "संस्था परिवर्तन गरेको भए स्थानान्तरण प्रमाणपत्र"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nepal-police-007",
+      "name_en": "Nepal Police — Metropolitan Police Range, Kathmandu",
+      "name_np": "नेपाल प्रहरी — महानगरीय प्रहरी दायरा, काठमाडौं",
+      "category": "Police",
+      "province": "3",
+      "province_name_en": "Bagmati Pradesh",
+      "province_name_np": "बागमती प्रदेश",
+      "district": "Kathmandu",
+      "district_np": "काठमाडौं",
+      "address_en": "Naxal, Kathmandu, Bagmati Pradesh",
+      "address_np": "नक्साल, काठमाडौं, बागमती प्रदेश",
+      "phone": ["100", "01-4412720", "01-4412724"],
+      "email": "dpo.ktm@nepalpolice.gov.np",
+      "website": "https://www.nepalpolice.gov.np",
+      "map_embed": "https://maps.google.com/maps?q=Nepal+Police+Naxal+Kathmandu&output=embed",
+      "map_link": "https://maps.google.com/?q=Nepal+Police+HQ+Naxal+Kathmandu",
+      "info_en": "Metropolitan Police Range covering all police stations in Kathmandu Valley. Handles FIR registration, police reports, character certificates, and emergency response. Emergency: 100.",
+      "info_np": "काठमाडौं उपत्यकाका सबै प्रहरी कार्यालयहरू समेट्ने महानगरीय प्रहरी दायरा। FIR दर्ता, प्रहरी रिपोर्ट, चारित्रिक प्रमाणपत्र र आपतकालीन प्रतिक्रिया। आपतकाल: १००।",
+      "seo_tags": ["police", "emergency", "FIR", "crime", "report", "character certificate", "100", "prhari"],
+      "services": [
+        {
+          "name_en": "Police Character Certificate",
+          "name_np": "प्रहरी चारित्रिक प्रमाणपत्र",
+          "documents_en": [
+            "Application form with personal details",
+            "Citizenship certificate (original + copy)",
+            "Passport-size photo (2 copies)",
+            "Purpose declaration letter",
+            "Fee receipt from District Police Office"
+          ],
+          "documents_np": [
+            "व्यक्तिगत विवरण सहित निवेदन फाराम",
+            "नागरिकता प्रमाणपत्र (असल + प्रतिलिपि)",
+            "पासपोर्ट साइज फोटो (२ प्रति)",
+            "प्रयोजन घोषणा पत्र",
+            "जिल्ला प्रहरी कार्यालयको शुल्क रसिद"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lalipur-metro-008",
+      "name_en": "Lalitpur Metropolitan City Office",
+      "name_np": "ललितपुर महानगरपालिका कार्यालय",
+      "category": "Ward Office",
+      "province": "3",
+      "province_name_en": "Bagmati Pradesh",
+      "province_name_np": "बागमती प्रदेश",
+      "district": "Lalitpur",
+      "district_np": "ललितपुर",
+      "address_en": "Mangalbazar, Lalitpur Metropolitan City, Bagmati Pradesh",
+      "address_np": "मंगलबजार, ललितपुर महानगरपालिका, बागमती प्रदेश",
+      "phone": ["01-5521155", "01-5521180", "01-5521185"],
+      "email": "info@lalitpur.gov.np",
+      "website": "https://lalitpur.gov.np",
+      "map_embed": "https://maps.google.com/maps?q=Lalitpur+Metropolitan+City+Office+Mangalbazar&output=embed",
+      "map_link": "https://maps.google.com/?q=Lalitpur+Metropolitan+City+Office",
+      "info_en": "The historic Patan (Lalitpur) Metropolitan City's administrative office, preserving UNESCO World Heritage cultural sites alongside modern urban services across 29 wards.",
+      "info_np": "UNESCO विश्व सम्पदा सांस्कृतिक स्थलहरूको संरक्षण गर्दै २९ वडामा आधुनिक नगर सेवाहरू प्रदान गर्ने ऐतिहासिक पाटन (ललितपुर) महानगरपालिका।",
+      "seo_tags": ["lalitpur", "patan", "UNESCO", "heritage", "nagarpalika", "ward", "patan darbar"],
+      "services": [
+        {
+          "name_en": "Relationship Certificate (Nata Pramaan)",
+          "name_np": "नाता प्रमाण",
+          "documents_en": [
+            "Application form",
+            "Citizenship of both parties",
+            "Birth registration document",
+            "Recommendation from ward office",
+            "Two witnesses with citizenship"
+          ],
+          "documents_np": [
+            "निवेदन फाराम",
+            "दुवैको नागरिकता",
+            "जन्म दर्ता प्रमाण",
+            "वडा कार्यालयको सिफारिस",
+            "नागरिकता सहित दुई जना साक्षी"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biratnagar-metro-009",
+      "name_en": "Biratnagar Metropolitan City Office",
+      "name_np": "विराटनगर महानगरपालिका कार्यालय",
+      "category": "Ward Office",
+      "province": "1",
+      "province_name_en": "Koshi Pradesh",
+      "province_name_np": "कोशी प्रदेश",
+      "district": "Morang",
+      "district_np": "मोरङ",
+      "address_en": "Traffic Chowk, Biratnagar Metropolitan City, Koshi Pradesh",
+      "address_np": "ट्राफिक चोक, विराटनगर महानगरपालिका, कोशी प्रदेश",
+      "phone": ["021-525266", "021-525267", "021-525268"],
+      "email": "info@biratnagar.gov.np",
+      "website": "https://biratnagar.gov.np",
+      "map_embed": "https://maps.google.com/maps?q=Biratnagar+Metropolitan+City+Office+Nepal&output=embed",
+      "map_link": "https://maps.google.com/?q=Biratnagar+Metropolitan+City+Nepal",
+      "info_en": "Nepal's second-largest metropolitan city and industrial hub of eastern Nepal. Covers 19 wards and is the commercial center of Koshi Pradesh with major jute and textile industries.",
+      "info_np": "नेपालको दोस्रो ठूलो महानगर र पूर्वी नेपालको औद्योगिक केन्द्र। १९ वडा समेट्ने यो कोशी प्रदेशको व्यापारिक केन्द्र हो जहाँ जूट र कपडा उद्योग प्रमुख छन्।",
+      "seo_tags": ["biratnagar", "morang", "industrial", "eastern nepal", "koshi", "export", "jute"],
+      "services": []
+    },
+    {
+      "id": "janakpur-dda-010",
+      "name_en": "Janakpur Sub-Metropolitan City Office",
+      "name_np": "जनकपुर उपमहानगरपालिका कार्यालय",
+      "category": "Ward Office",
+      "province": "2",
+      "province_name_en": "Madhesh Pradesh",
+      "province_name_np": "मधेश प्रदेश",
+      "district": "Dhanusha",
+      "district_np": "धनुषा",
+      "address_en": "Ram Mandir Marg, Janakpur, Madhesh Pradesh",
+      "address_np": "राम मन्दिर मार्ग, जनकपुर, मधेश प्रदेश",
+      "phone": ["041-520271", "041-520272"],
+      "email": "info@janakpurdham.gov.np",
+      "website": "https://janakpurdham.gov.np",
+      "map_embed": "https://maps.google.com/maps?q=Janakpur+Sub+Metropolitan+City+Office+Nepal&output=embed",
+      "map_link": "https://maps.google.com/?q=Janakpur+Nepal",
+      "info_en": "The capital of Madhesh Province and sacred Hindu city of Mithila culture. Administrative center for religious tourism, cultural heritage preservation, and 18 wards of municipal services.",
+      "info_np": "मधेश प्रदेशको राजधानी र मिथिला संस्कृतिको पवित्र हिन्दू शहर। धार्मिक पर्यटन, सांस्कृतिक सम्पदा संरक्षण र १८ वडाको नगर सेवाको प्रशासनिक केन्द्र।",
+      "seo_tags": ["janakpur", "mithila", "madhesh", "dhanusha", "ram mandir", "religious", "madhesi"],
+      "services": []
+    },
+    {
+      "id": "bharatpur-metro-011",
+      "name_en": "Bharatpur Metropolitan City Office",
+      "name_np": "भरतपुर महानगरपालिका कार्यालय",
+      "category": "Ward Office",
+      "province": "3",
+      "province_name_en": "Bagmati Pradesh",
+      "province_name_np": "बागमती प्रदेश",
+      "district": "Chitwan",
+      "district_np": "चितवन",
+      "address_en": "Bharatpur-10, Chitwan, Bagmati Pradesh",
+      "address_np": "भरतपुर-१०, चितवन, बागमती प्रदेश",
+      "phone": ["056-527055", "056-527056", "056-527057"],
+      "email": "info@bharatpurmun.gov.np",
+      "website": "https://bharatpurmun.gov.np",
+      "map_embed": "https://maps.google.com/maps?q=Bharatpur+Metropolitan+City+Office+Chitwan&output=embed",
+      "map_link": "https://maps.google.com/?q=Bharatpur+Metropolitan+City+Chitwan",
+      "info_en": "Fast-growing metropolitan city and gateway to Chitwan National Park. Manages 29 wards with a focus on wildlife conservation coordination, health tourism, and commercial development.",
+      "info_np": "द्रुत रूपमा बढ्दो महानगर र चितवन राष्ट्रिय निकुञ्जको प्रवेशद्वार। वन्यजन्तु संरक्षण समन्वय, स्वास्थ्य पर्यटन र व्यापारिक विकासमा केन्द्रित २९ वडाको व्यवस्थापन।",
+      "seo_tags": ["bharatpur", "chitwan", "national park", "jungle safari", "hospital", "health tourism"],
+      "services": []
+    },
+    {
+      "id": "butwal-sub-012",
+      "name_en": "Butwal Sub-Metropolitan City Office",
+      "name_np": "बुटवल उपमहानगरपालिका कार्यालय",
+      "category": "Ward Office",
+      "province": "5",
+      "province_name_en": "Lumbini Pradesh",
+      "province_name_np": "लुम्बिनी प्रदेश",
+      "district": "Rupandehi",
+      "district_np": "रुपन्देही",
+      "address_en": "Traffic Chowk, Butwal, Lumbini Pradesh",
+      "address_np": "ट्राफिक चोक, बुटवल, लुम्बिनी प्रदेश",
+      "phone": ["071-548100", "071-548101", "071-548555"],
+      "email": "info@butwalmun.gov.np",
+      "website": "https://butwalmun.gov.np",
+      "map_embed": "https://maps.google.com/maps?q=Butwal+Sub+Metropolitan+City+Office+Nepal&output=embed",
+      "map_link": "https://maps.google.com/?q=Butwal+Sub+Metropolitan+City+Nepal",
+      "info_en": "The commercial hub of western Nepal and gateway city to Lumbini, the birthplace of Lord Buddha. Covers 19 wards with major trade, banking, and transit services.",
+      "info_np": "पश्चिम नेपालको व्यापारिक केन्द्र र भगवान बुद्धको जन्मस्थल लुम्बिनीको प्रवेशद्वार। प्रमुख व्यापार, बैंकिङ र पारवहन सेवासहित १९ वडाको व्यवस्थापन।",
+      "seo_tags": ["butwal", "rupandehi", "lumbini", "buddha", "western nepal", "commercial", "transit"],
+      "services": []
+    },
+    {
+      "id": "nepalgunj-sub-013",
+      "name_en": "Nepalgunj Sub-Metropolitan City Office",
+      "name_np": "नेपालगन्ज उपमहानगरपालिका कार्यालय",
+      "category": "Ward Office",
+      "province": "5",
+      "province_name_en": "Lumbini Pradesh",
+      "province_name_np": "लुम्बिनी प्रदेश",
+      "district": "Banke",
+      "district_np": "बाँके",
+      "address_en": "Surkhet Road, Nepalgunj, Lumbini Pradesh",
+      "address_np": "सुर्खेत सडक, नेपालगन्ज, लुम्बिनी प्रदेश",
+      "phone": ["081-520099", "081-520100"],
+      "email": "info@nepalgunjmun.gov.np",
+      "website": "https://nepalgunjmun.gov.np",
+      "map_embed": "https://maps.google.com/maps?q=Nepalgunj+Sub+Metropolitan+City+Nepal&output=embed",
+      "map_link": "https://maps.google.com/?q=Nepalgunj+Nepal",
+      "info_en": "Key transit city and airlink hub for mid and far-western Nepal. The city serves as the commercial center for Karnali region access and has a major international border crossing with India.",
+      "info_np": "मध्य र सुदूरपश्चिम नेपालको प्रमुख पारवहन सहर र हवाई जडान केन्द्र। कर्णाली क्षेत्र पहुँचको व्यापारिक केन्द्र र भारतसँग प्रमुख अन्तर्राष्ट्रिय सीमा नाका।",
+      "seo_tags": ["nepalgunj", "banke", "mid-western", "airport", "border", "india", "transit", "flight"],
+      "services": []
+    },
+    {
+      "id": "dhangadhi-sub-014",
+      "name_en": "Dhangadhi Sub-Metropolitan City Office",
+      "name_np": "धनगढी उपमहानगरपालिका कार्यालय",
+      "category": "Ward Office",
+      "province": "7",
+      "province_name_en": "Sudurpashchim Pradesh",
+      "province_name_np": "सुदूरपश्चिम प्रदेश",
+      "district": "Kailali",
+      "district_np": "कैलाली",
+      "address_en": "Dhangadhi, Kailali, Sudurpashchim Pradesh",
+      "address_np": "धनगढी, कैलाली, सुदूरपश्चिम प्रदेश",
+      "phone": ["091-522588", "091-522589"],
+      "email": "info@dhangadhimun.gov.np",
+      "website": "https://dhangadhimun.gov.np",
+      "map_embed": "https://maps.google.com/maps?q=Dhangadhi+Sub+Metropolitan+City+Kailali+Nepal&output=embed",
+      "map_link": "https://maps.google.com/?q=Dhangadhi+Kailali+Nepal",
+      "info_en": "Headquarters and economic capital of Sudurpashchim Province. The city is the administrative hub for Far Western Nepal with important agricultural and timber trade connections.",
+      "info_np": "सुदूरपश्चिम प्रदेशको मुख्यालय र आर्थिक राजधानी। सुदूरपश्चिम नेपालको प्रशासनिक केन्द्र जहाँ महत्त्वपूर्ण कृषि र काठ व्यापार जडानहरू छन्।",
+      "seo_tags": ["dhangadhi", "kailali", "far western", "sudurpashchim", "agriculture", "timber", "terai"],
+      "services": []
+    },
+    {
+      "id": "surkhet-mun-015",
+      "name_en": "Birendranagar Municipality Office (Surkhet)",
+      "name_np": "वीरेन्द्रनगर नगरपालिका कार्यालय (सुर्खेत)",
+      "category": "Ward Office",
+      "province": "6",
+      "province_name_en": "Karnali Pradesh",
+      "province_name_np": "कर्णाली प्रदेश",
+      "district": "Surkhet",
+      "district_np": "सुर्खेत",
+      "address_en": "Birendranagar, Surkhet, Karnali Pradesh",
+      "address_np": "वीरेन्द्रनगर, सुर्खेत, कर्णाली प्रदेश",
+      "phone": ["083-520086", "083-520087"],
+      "email": "info@birendranagarmun.gov.np",
+      "website": "https://birendranagarmun.gov.np",
+      "map_embed": "https://maps.google.com/maps?q=Birendranagar+Surkhet+Nepal&output=embed",
+      "map_link": "https://maps.google.com/?q=Birendranagar+Surkhet+Nepal",
+      "info_en": "Capital city of Karnali Province, covering remote mountain communities with essential municipal services, healthcare coordination, and agricultural support programs.",
+      "info_np": "कर्णाली प्रदेशको राजधानी, अत्यावश्यक नगर सेवाहरू, स्वास्थ्यसेवा समन्वय र कृषि सहायता कार्यक्रमहरूसहित दुर्गम पहाडी समुदायहरू समेट्ने।",
+      "seo_tags": ["surkhet", "karnali", "birendranagar", "remote", "mountain", "province capital", "karnali pradesh"],
+      "services": []
+    },
+    {
+      "id": "land-rev-ktm-016",
+      "name_en": "Kathmandu District Land Revenue Office",
+      "name_np": "काठमाडौं जिल्ला मालपोत कार्यालय",
+      "category": "Land Revenue",
+      "province": "3",
+      "province_name_en": "Bagmati Pradesh",
+      "province_name_np": "बागमती प्रदेश",
+      "district": "Kathmandu",
+      "district_np": "काठमाडौं",
+      "address_en": "Babarmahal, Kathmandu, Bagmati Pradesh",
+      "address_np": "बाबरमहल, काठमाडौं, बागमती प्रदेश",
+      "phone": ["01-4262530", "01-4262535", "01-4262540"],
+      "email": "malpot.ktm@nepal.gov.np",
+      "website": "https://dos.gov.np",
+      "map_embed": "https://maps.google.com/maps?q=Kathmandu+Land+Revenue+Office+Babarmahal&output=embed",
+      "map_link": "https://maps.google.com/?q=Malpot+Office+Babarmahal+Kathmandu",
+      "info_en": "Manages land registration, ownership transfer, and property tax assessment for Kathmandu District. Issues lalpurja (land ownership certificates) and handles property-related legal documentation.",
+      "info_np": "काठमाडौं जिल्लाको जग्गा दर्ता, स्वामित्व हस्तान्तरण र सम्पत्ति कर मूल्यांकन व्यवस्थापन। लालपुर्जा (जग्गाधनी प्रमाणपत्र) जारी गर्दछ र सम्पत्ति सम्बन्धी कानूनी कागजात सम्हाल्दछ।",
+      "seo_tags": ["land", "lalpurja", "malpot", "property", "registration", "ownership", "transfer", "tax"],
+      "services": [
+        {
+          "name_en": "Land Ownership Transfer (Rajinama)",
+          "name_np": "जग्गा स्वामित्व हस्तान्तरण (राजीनामा)",
+          "documents_en": [
+            "Original Lalpurja (Land Ownership Certificate)",
+            "Citizenship of buyer and seller",
+            "Land survey map (Naksha)",
+            "Tax clearance certificate",
+            "Valuation certificate from local authority",
+            "Bank voucher of stamp duty paid"
+          ],
+          "documents_np": [
+            "मूल लालपुर्जा (जग्गाधनी प्रमाणपत्र)",
+            "क्रेता र विक्रेताको नागरिकता",
+            "जग्गाको नापी नक्सा",
+            "कर चुक्ता प्रमाणपत्र",
+            "स्थानीय निकायको मूल्यांकन प्रमाणपत्र",
+            "तिरेको लाग्ने बैंक भौचर"
+          ]
+        },
+        {
+          "name_en": "Land Survey Certificate (Tracepas)",
+          "name_np": "जग्गा नापी प्रमाणपत्र",
+          "documents_en": [
+            "Application to survey department",
+            "Original lalpurja copy",
+            "VDC/Municipality recommendation",
+            "Survey fee receipt",
+            "Field inspection request"
+          ],
+          "documents_np": [
+            "नापी विभागमा निवेदन",
+            "मूल लालपुर्जाको प्रतिलिपि",
+            "गा.वि.स./नगरपालिका सिफारिस",
+            "नापी शुल्क रसिद",
+            "क्षेत्र निरीक्षण अनुरोध"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nwsc-ktm-017",
+      "name_en": "Nepal Water Supply Corporation — Kathmandu",
+      "name_np": "नेपाल खानेपानी संस्थान — काठमाडौं",
+      "category": "Utilities",
+      "province": "3",
+      "province_name_en": "Bagmati Pradesh",
+      "province_name_np": "बागमती प्रदेश",
+      "district": "Kathmandu",
+      "district_np": "काठमाडौं",
+      "address_en": "Panipokhari, Kathmandu, Bagmati Pradesh",
+      "address_np": "पानीपोखरी, काठमाडौं, बागमती प्रदेश",
+      "phone": ["01-4412808", "01-4412939", "16600196363"],
+      "email": "info@nwsc.gov.np",
+      "website": "https://www.nwsc.gov.np",
+      "map_embed": "https://maps.google.com/maps?q=Nepal+Water+Supply+Corporation+Panipokhari+Kathmandu&output=embed",
+      "map_link": "https://maps.google.com/?q=Nepal+Water+Supply+Corporation+Kathmandu",
+      "info_en": "Responsible for drinking water distribution, pipe connections, and billing across Kathmandu Valley. Operates multiple water treatment plants and manages the valley's urban water network.",
+      "info_np": "काठमाडौं उपत्यकामा खानेपानी वितरण, पाइप जडान र बिलिङको जिम्मेवार। धेरै पानी प्रशोधन प्लान्ट सञ्चालन र उपत्यकाको सहरी पानी नेटवर्क व्यवस्थापन।",
+      "seo_tags": ["water", "khanepaani", "pipe", "connection", "meter", "bill", "NWSC", "supply"],
+      "services": [
+        {
+          "name_en": "New Water Connection",
+          "name_np": "नयाँ पानी जडान",
+          "documents_en": [
+            "Application form (NWSC prescribed)",
+            "Land/building ownership certificate",
+            "Citizenship certificate",
+            "Building permit or completion certificate",
+            "Site sketch / layout plan",
+            "Payment of connection fee"
+          ],
+          "documents_np": [
+            "निवेदन फाराम (NWSC निर्धारित)",
+            "जग्गा/भवन स्वामित्व प्रमाणपत्र",
+            "नागरिकता प्रमाणपत्र",
+            "भवन निर्माण अनुमति वा सम्पन्न प्रमाणपत्र",
+            "साइट रेखाचित्र / लेआउट योजना",
+            "जडान शुल्क भुक्तानी"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bpkihs-dharan-018",
+      "name_en": "BP Koirala Institute of Health Sciences (BPKIHS)",
+      "name_np": "बी.पी. कोइराला स्वास्थ्य विज्ञान प्रतिष्ठान",
+      "category": "Hospital",
+      "province": "1",
+      "province_name_en": "Koshi Pradesh",
+      "province_name_np": "कोशी प्रदेश",
+      "district": "Sunsari",
+      "district_np": "सुनसरी",
+      "address_en": "Dharan-18, Sunsari, Koshi Pradesh",
+      "address_np": "धरान-१८, सुनसरी, कोशी प्रदेश",
+      "phone": ["025-525555", "025-520061", "025-525533"],
+      "email": "info@bpkihs.edu",
+      "website": "https://www.bpkihs.edu",
+      "map_embed": "https://maps.google.com/maps?q=BPKIHS+Dharan+Nepal&output=embed",
+      "map_link": "https://maps.google.com/?q=BP+Koirala+Institute+Health+Sciences+Dharan",
+      "info_en": "Premier academic medical institution and teaching hospital in Eastern Nepal. Offers tertiary healthcare, medical education (MBBS, MD), and specialized oncology, cardiology, and trauma care services.",
+      "info_np": "पूर्वी नेपालको प्रमुख शैक्षिक चिकित्सा संस्था र शिक्षण अस्पताल। तृतीयस्तरको स्वास्थ्यसेवा, चिकित्सा शिक्षा (MBBS, MD) र विशेष अर्बुद, हृदयरोग र आघात सेवाहरू।",
+      "seo_tags": ["BPKIHS", "dharan", "hospital", "cancer", "cardiology", "teaching hospital", "eastern nepal", "medical college"],
+      "services": []
+    },
+    {
+      "id": "hetauda-sub-019",
+      "name_en": "Hetauda Sub-Metropolitan City Office",
+      "name_np": "हेटौंडा उपमहानगरपालिका कार्यालय",
+      "category": "Ward Office",
+      "province": "3",
+      "province_name_en": "Bagmati Pradesh",
+      "province_name_np": "बागमती प्रदेश",
+      "district": "Makwanpur",
+      "district_np": "मकवानपुर",
+      "address_en": "Hetauda Industrial Area, Makwanpur, Bagmati Pradesh",
+      "address_np": "हेटौंडा औद्योगिक क्षेत्र, मकवानपुर, बागमती प्रदेश",
+      "phone": ["057-520107", "057-520108"],
+      "email": "info@hetaudamun.gov.np",
+      "website": "https://hetaudamun.gov.np",
+      "map_embed": "https://maps.google.com/maps?q=Hetauda+Sub+Metropolitan+City+Makwanpur+Nepal&output=embed",
+      "map_link": "https://maps.google.com/?q=Hetauda+Makwanpur+Nepal",
+      "info_en": "Capital of Makwanpur district and a major industrial city on the BP Highway. Home to Nepal's largest cement factory and important garment export industries along the Terai-Hills corridor.",
+      "info_np": "मकवानपुर जिल्लाको राजधानी र बी.पी. राजमार्गमा अवस्थित प्रमुख औद्योगिक सहर। नेपालको सबैभन्दा ठूलो सिमेन्ट कारखाना र तराई-पहाड कोरिडोरमा महत्त्वपूर्ण कपडा निर्यात उद्योग।",
+      "seo_tags": ["hetauda", "makwanpur", "industrial", "cement", "BP highway", "garment", "factory"],
+      "services": []
+    },
+    {
+      "id": "nepal-post-020",
+      "name_en": "Nepal Post — General Post Office (GPO)",
+      "name_np": "नेपाल हुलाक — साधारण हुलाक कार्यालय",
+      "category": "Government Office",
+      "province": "3",
+      "province_name_en": "Bagmati Pradesh",
+      "province_name_np": "बागमती प्रदेश",
+      "district": "Kathmandu",
+      "district_np": "काठमाडौं",
+      "address_en": "Sundhara, Kathmandu, Bagmati Pradesh",
+      "address_np": "सुन्धारा, काठमाडौं, बागमती प्रदेश",
+      "phone": ["01-4229078", "01-4229649"],
+      "email": "info@nepalpost.gov.np",
+      "website": "https://www.nepalpost.gov.np",
+      "map_embed": "https://maps.google.com/maps?q=Nepal+General+Post+Office+Sundhara+Kathmandu&output=embed",
+      "map_link": "https://maps.google.com/?q=Nepal+Post+Office+Sundhara+Kathmandu",
+      "info_en": "Nepal's national postal service headquarters. Provides domestic and international mail, parcel courier, savings bank, express mail services (EMS), and philatelic services.",
+      "info_np": "नेपालको राष्ट्रिय हुलाक सेवाको मुख्यालय। घरेलु र अन्तर्राष्ट्रिय चिठीपत्र, पार्सल कुरियर, बचत बैंक, द्रुत डाक सेवा (EMS) र डाक टिकट सेवाहरू प्रदान गर्दछ।",
+      "seo_tags": ["post office", "hulaak", "parcel", "courier", "stamp", "EMS", "postal", "letter", "savings"],
+      "services": [
+        {
+          "name_en": "International Parcel Dispatch (EMS)",
+          "name_np": "अन्तर्राष्ट्रिय पार्सल पठाउने (EMS)",
+          "documents_en": [
+            "Parcel content declaration form (CN22/CN23)",
+            "Sender's citizenship or passport",
+            "Customs value declaration",
+            "Recipient's complete address with postal code",
+            "Prohibited item clearance (if applicable)"
+          ],
+          "documents_np": [
+            "पार्सल सामग्री घोषणा फाराम (CN22/CN23)",
+            "पठाउनेको नागरिकता वा राहदानी",
+            "भन्सार मूल्य घोषणा",
+            "प्राप्तकर्ताको पूरा ठेगाना हुलाक सङ्केत सहित",
+            "प्रतिबन्धित वस्तु छूट (लागू भएमा)"
+          ]
+        }
+      ]
+    }
+  ]
+}
