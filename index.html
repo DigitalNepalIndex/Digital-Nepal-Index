@@ -1,1227 +1,2578 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ne">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="npSarkar Directory — Nepal's fastest public sector office directory. Find government offices, contacts, services and locations across all 7 provinces and 77 districts." />
-  <meta name="keywords" content="Nepal government offices, सरकारी कार्यालय, ward office, district office, province, Nepal directory, npsarkar, nagarpalika, municipality" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="npSarkar Directory — Nepal Public Sector Directory" />
-  <meta property="og:description" content="Find Nepal's government offices, contacts and services instantly." />
-  <meta property="og:url" content="https://npsarkar.com" />
-  <meta name="theme-color" content="#1e3a8a" />
-  <title>npSarkar Directory | Nepal सरकारी कार्यालय निर्देशिका</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Nepal Index | नेपाल सरकारी सेवा निर्देशिका</title>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;700;800&family=Tiro+Devanagari+Nepal&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red:    #c8102e;
+  --blue:   #003893;
+  --gold:   #f5a623;
+  --white:  #ffffff;
+  --bg:     #f4f1eb;
+  --dark:   #1a1a2e;
+  --card:   #ffffff;
+  --border: #e0d8cc;
+  --text:   #2c2c2c;
+  --muted:  #7a7a7a;
+  --green:  #2d7d46;
+}
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+* { margin:0; padding:0; box-sizing:border-box; }
 
-  <!-- Google Fonts: Plus Jakarta Sans (distinct modern) + Noto Sans Devanagari -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+body {
+  font-family: 'Mukta', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50:  '#eff6ff',
-              100: '#dbeafe',
-              200: '#bfdbfe',
-              300: '#93c5fd',
-              400: '#60a5fa',
-              500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8',
-              800: '#1e40af',
-              900: '#1e3a8a',
-              950: '#172554',
-            }
-          },
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', '"Noto Sans Devanagari"', 'sans-serif'],
-            devanagari: ['"Noto Sans Devanagari"', 'sans-serif'],
-          }
-        }
-      }
-    };
-  </script>
+/* ── TOP NAV ── */
+.topbar {
+  background: var(--dark);
+  color: #aaa;
+  font-size: 12px;
+  padding: 5px 24px;
+  display: flex;
+  justify-content: space-between;
+}
 
-  <style>
-    /* ─── Base ─── */
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: "Plus Jakarta Sans", "Noto Sans Devanagari", sans-serif;
-      background: #f0f4f8;
-      color: #1e293b;
-      min-height: 100vh;
-    }
-    .np { font-family: "Noto Sans Devanagari", sans-serif; }
+nav {
+  background: linear-gradient(135deg, var(--blue) 0%, #001f6b 100%);
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  box-shadow: 0 3px 12px rgba(0,56,147,0.4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-    /* ─── Hero Gradient ─── */
-    .hero-bg {
-      background: linear-gradient(140deg, #172554 0%, #1e3a8a 45%, #1d4ed8 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-bg::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.04) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(96,165,250,0.08) 0%, transparent 40%);
-      pointer-events: none;
-    }
-    /* geometric grid texture */
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-    }
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px 12px 0;
+  border-right: 1px solid rgba(255,255,255,0.15);
+  margin-right: 8px;
+}
 
-    /* ─── Search Bar ─── */
-    .search-bar {
-      transition: box-shadow 0.25s ease, transform 0.2s ease;
-    }
-    .search-bar:focus-within {
-      box-shadow: 0 0 0 3px rgba(96,165,250,0.4), 0 20px 40px rgba(0,0,0,0.15);
-      transform: translateY(-1px);
-    }
+.nav-emblem {
+  width: 44px; height: 44px;
+  background: var(--red);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  border: 2px solid var(--gold);
+}
 
-    /* ─── Dropdowns ─── */
-    .select-custom {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%231e3a8a'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      background-size: 14px;
-      cursor: pointer;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .select-custom:focus {
-      outline: none;
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
-    }
-    .select-custom:hover { border-color: #93c5fd; }
+.nav-title {
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+}
 
-    /* ─── Category Badges ─── */
-    .badge-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 14px;
-      border-radius: 999px;
-      border: 1.5px solid #e2e8f0;
-      background: #fff;
-      color: #475569;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-    .badge-btn:hover {
-      border-color: #3b82f6;
-      color: #1e3a8a;
-      background: #eff6ff;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(30,58,138,0.12);
-    }
-    .badge-btn.active {
-      background: #1e3a8a;
-      color: #fff;
-      border-color: #1e3a8a;
-      box-shadow: 0 4px 14px rgba(30,58,138,0.35);
-    }
-    .badge-btn .np-label {
-      font-family: "Noto Sans Devanagari", sans-serif;
-      font-size: 0.68rem;
-      opacity: 0.75;
-    }
-    .badge-btn.active .np-label { opacity: 0.85; }
+.nav-title small { font-weight: 300; font-size: 11px; color: #b0c4f0; display: block; }
 
-    /* ─── Office Cards ─── */
-    .office-card {
-      background: #fff;
-      border-radius: 18px;
-      border: 1px solid #e8edf5;
-      overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .office-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 24px 48px rgba(30,58,138,0.13);
-    }
-    .card-body { flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+.nav-links {
+  display: flex;
+  flex: 1;
+  overflow-x: auto;
+}
 
-    /* ─── Card Header Gradients per category ─── */
-    .ch-ward      { background: linear-gradient(135deg,#1e3a8a,#2563eb); }
-    .ch-govt      { background: linear-gradient(135deg,#312e81,#4f46e5); }
-    .ch-bank      { background: linear-gradient(135deg,#065f46,#059669); }
-    .ch-hospital  { background: linear-gradient(135deg,#991b1b,#dc2626); }
-    .ch-utilities { background: linear-gradient(135deg,#92400e,#d97706); }
-    .ch-education { background: linear-gradient(135deg,#4c1d95,#7c3aed); }
-    .ch-police    { background: linear-gradient(135deg,#1e293b,#475569); }
-    .ch-land      { background: linear-gradient(135deg,#7c2d12,#ea580c); }
-    .ch-default   { background: linear-gradient(135deg,#1e293b,#334155); }
+.nav-links a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  padding: 18px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.2s;
+  position: relative;
+  letter-spacing: 0.3px;
+}
 
-    /* ─── Accordion ─── */
-    .accordion-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
-      opacity: 0;
-    }
-    .accordion-body.open {
-      max-height: 1200px;
-      opacity: 1;
-    }
-    .accordion-trigger { cursor: pointer; user-select: none; }
-    .accordion-trigger:hover { background: #f8fafc; }
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold);
+  background: rgba(255,255,255,0.08);
+}
 
-    /* ─── Map Wrapper ─── */
-    .map-ratio {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .map-ratio iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: none;
-    }
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gold);
+}
 
-    /* ─── Loading Spinner ─── */
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .spinner {
-      width: 44px; height: 44px;
-      border: 3px solid #dbeafe;
-      border-top-color: #1e3a8a;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-    }
+/* Province dropdown */
+.nav-dropdown {
+  position: relative;
+}
 
-    /* ─── AdSense placeholder ─── */
-    .ads-placeholder {
-      background: repeating-linear-gradient(
-        -45deg,
-        #f8fafc, #f8fafc 8px,
-        #f1f5f9 8px, #f1f5f9 16px
-      );
-      border: 1.5px dashed #cbd5e1;
-    }
+.nav-dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--dark);
+  min-width: 200px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  z-index: 200;
+}
 
-    /* ─── Scrollbar ─── */
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #f1f5f9; }
-    ::-webkit-scrollbar-thumb { background: #93c5fd; border-radius: 10px; }
-    ::-webkit-scrollbar-thumb:hover { background: #1e3a8a; }
+.nav-dropdown:hover .dropdown-menu { display: block; }
 
-    /* ─── Floating search button on mobile ─── */
-    @media (max-width: 640px) {
-      .hero-search-input { font-size: 15px; }
-    }
+.dropdown-menu a {
+  display: block;
+  padding: 10px 18px !important;
+  color: rgba(255,255,255,0.8) !important;
+  font-size: 13px !important;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
 
-    /* ─── Card stagger animation ─── */
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .office-card { animation: fadeSlideUp 0.4s ease both; }
+.dropdown-menu a:hover {
+  background: rgba(245,166,35,0.15) !important;
+  color: var(--gold) !important;
+}
 
-    /* ─── Stats counter ─── */
-    .stat-pill {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.18);
-      backdrop-filter: blur(8px);
-      border-radius: 14px;
-      padding: 10px 18px;
-      text-align: center;
-    }
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(180deg, #001f6b 0%, #003893 50%, #c8102e 100%);
+  padding: 48px 24px 60px;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
 
-    /* ─── Province chip colors ─── */
-    .prov-1 { background:#fef3c7; color:#92400e; }
-    .prov-2 { background:#d1fae5; color:#065f46; }
-    .prov-3 { background:#dbeafe; color:#1e40af; }
-    .prov-4 { background:#ede9fe; color:#4c1d95; }
-    .prov-5 { background:#fce7f3; color:#9d174d; }
-    .prov-6 { background:#ffedd5; color:#7c2d12; }
-    .prov-7 { background:#f0fdf4; color:#14532d; }
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30 L30 0 L60 30 L30 60Z' fill='rgba(255,255,255,0.02)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
 
-    /* ─── Action button ─── */
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 9px 16px;
-      border-radius: 10px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      transition: all 0.2s ease;
-      text-decoration: none;
-    }
-    .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
-    .btn-web   { background:#1e3a8a; color:#fff; }
-    .btn-call  { background:#059669; color:#fff; }
-    .btn-map   { background:#fff; color:#1e3a8a; border: 1.5px solid #bfdbfe; }
-    .btn-map:hover { background:#eff6ff; }
-    .btn-email { background:#fff; color:#7c3aed; border: 1.5px solid #ddd6fe; }
-    .btn-email:hover { background:#f5f3ff; }
+.hero h1 {
+  font-family: 'Tiro Devanagari Nepal', serif;
+  font-size: 42px;
+  font-weight: 400;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
 
-    /* ─── Clear filters button ─── */
-    #clear-all-btn { transition: all 0.2s; }
-    #clear-all-btn:hover { background:#fee2e2; }
+.hero p { font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 32px; }
 
-    /* ─── Disclaimer box ─── */
-    .disclaimer-box {
-      border: 1.5px solid rgba(251,191,36,0.45);
-      background: rgba(251,191,36,0.08);
-      border-radius: 16px;
-    }
+/* Search bar */
+.hero-search {
+  display: flex;
+  max-width: 560px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
 
-    /* ─── Top bar flag animation ─── */
-    @keyframes wave { 0%,100%{transform:rotate(-3deg)} 50%{transform:rotate(3deg)} }
-    .flag-wave { display:inline-block; animation: wave 1.5s ease-in-out infinite; }
-  </style>
+.hero-search input {
+  flex: 1;
+  padding: 14px 18px;
+  border: none;
+  font-family: 'Mukta', sans-serif;
+  font-size: 15px;
+  color: var(--text);
+  outline: none;
+}
+
+.hero-search button {
+  background: var(--red);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Mukta', sans-serif;
+}
+
+/* ── MAIN LAYOUT ── */
+.main {
+  display: block;
+  gap: 24px;
+  max-width: 1300px;
+  margin: -24px auto 0;
+  padding: 0 24px 40px;
+  position: relative;
+  z-index: 10;
+}
+
+/* ── MAP SIDE ── */
+
+
+
+/* SVG Nepal Map */
+
+
+
+
+/* Province quick list */
+
+
+
+
+
+
+/* ── RIGHT PANEL ── */
+.content-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  background: white;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-size: 13px;
+  color: var(--muted);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.breadcrumb span { color: var(--blue); cursor: pointer; font-weight: 600; }
+.breadcrumb span:hover { text-decoration: underline; }
+
+/* Service cards */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.service-card {
+  background: white;
+  border-radius: 8px;
+  padding: 16px 12px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: all 0.2s;
+  border-top: 3px solid transparent;
+}
+
+.service-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.service-card.hospital  { border-color: #e74c3c; }
+.service-card.office    { border-color: var(--blue); }
+.service-card.bank      { border-color: var(--gold); }
+.service-card.vacancy   { border-color: var(--green); }
+.service-card.news      { border-color: #8e44ad; }
+.service-card.court     { border-color: #2c3e50; }
+.service-card.school    { border-color: #e67e22; }
+.service-card.transport { border-color: #16a085; }
+
+.service-icon { font-size: 28px; margin-bottom: 8px; }
+.service-name { font-size: 13px; font-weight: 600; color: var(--text); }
+
+/* Main content area */
+.content-area {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  min-height: 400px;
+  overflow: hidden;
+}
+
+.content-header {
+  background: linear-gradient(135deg, var(--blue), #001f6b);
+  color: white;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content-header h2 { font-size: 16px; font-weight: 700; }
+.content-header small { font-size: 12px; color: rgba(255,255,255,0.6); }
+
+.content-body { padding: 20px; }
+
+/* District grid */
+.district-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.district-card {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.district-card:hover {
+  border-color: var(--blue);
+  background: #f0f4ff;
+}
+
+.district-card h3 { font-size: 14px; font-weight: 700; color: var(--blue); }
+.district-card p  { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+.district-badge {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: var(--red);
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+/* Ward list */
+.ward-list { display: flex; flex-direction: column; gap: 8px; }
+
+.ward-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.ward-item:hover { border-color: var(--blue); background: #f8f9ff; }
+.ward-item h4 { font-size: 14px; font-weight: 600; }
+.ward-item p  { font-size: 12px; color: var(--muted); }
+
+.ward-actions { display: flex; gap: 6px; }
+
+.tag {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.tag-hospital { background: #fdecea; color: #c0392b; }
+.tag-office   { background: #e8f0fe; color: var(--blue); }
+
+/* Office/Hospital list */
+.office-list { display: flex; flex-direction: column; gap: 10px; }
+
+.office-item {
+  display: flex;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: all 0.15s;
+}
+
+.office-item:hover { border-color: var(--blue); background: #f8faff; }
+
+.office-icon {
+  width: 44px; height: 44px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.office-icon.hospital { background: #fdecea; }
+.office-icon.govt     { background: #e8f0fe; }
+.office-icon.bank     { background: #fff8e1; }
+.office-icon.court    { background: #f3e5f5; }
+
+.office-info h4 { font-size: 14px; font-weight: 700; }
+.office-info p  { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.office-info .office-tags { display: flex; gap: 6px; margin-top: 6px; }
+
+/* Province homepage */
+.province-home {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, var(--blue), #2980b9);
+  color: white;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stat-card.red   { background: linear-gradient(135deg, #c0392b, #e74c3c); }
+.stat-card.green { background: linear-gradient(135deg, #27ae60, #2ecc71); }
+.stat-card.gold  { background: linear-gradient(135deg, #e67e22, #f39c12); }
+
+.stat-num  { font-size: 28px; font-weight: 800; }
+.stat-label{ font-size: 12px; opacity: 0.8; }
+.stat-icon { font-size: 32px; margin-left: auto; opacity: 0.7; }
+
+/* News items */
+.news-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+.news-item:last-child { border-bottom: none; }
+.news-item:hover .news-title { color: var(--blue); }
+
+.news-date {
+  min-width: 48px;
+  text-align: center;
+  background: var(--red);
+  color: white;
+  border-radius: 4px;
+  padding: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.3;
+  height: fit-content;
+}
+
+.news-title { font-size: 14px; font-weight: 600; line-height: 1.4; }
+.news-meta  { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+/* Back button */
+.back-btn {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Mukta', sans-serif;
+  font-size: 13px;
+  display: none;
+}
+
+.back-btn:hover { background: rgba(255,255,255,0.1); }
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 60px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .main { grid-template-columns: 1fr; }
+  .service-grid { grid-template-columns: repeat(4, 1fr); }
+  .district-grid { grid-template-columns: repeat(2, 1fr); }
+  .province-home { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  /* Mobile: nav-links hide, hamburger only */
+  .nav-links { display: none; }
+  nav { padding: 0 16px; }
+  .nav-logo { border-right: none; margin-right: 0; }
+  .nav-title { font-size: 13px; }
+  .nav-emblem { width: 36px; height: 36px; font-size: 18px; }
+  .topbar { display: none; }
+}
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 24px; }
+  .hero p { font-size: 13px; }
+  .service-grid { grid-template-columns: repeat(4, 1fr); }
+  .main { padding: 0 12px 40px; margin-top: -16px; }
+}
+
+/* ── HAMBURGER + PROVINCE SIDEBAR ── */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px; height: 40px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 4px;
+  margin-left: auto;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.hamburger:hover { background: rgba(255,255,255,0.1); }
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: #f5a623;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* Overlay */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 299;
+}
+.sidebar-overlay.open { display: block; }
+
+/* Province Sidebar */
+.province-sidebar {
+  position: fixed;
+  top: 0; left: -320px;
+  width: 300px;
+  height: 100vh;
+  background: #1a1a2e;
+  z-index: 300;
+  transition: left 0.3s cubic-bezier(.4,0,.2,1);
+  overflow-y: auto;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+}
+.province-sidebar.open { left: 0; }
+
+.sidebar-header {
+  background: linear-gradient(135deg, #003893, #001f6b);
+  padding: 20px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 2px solid #f5a623;
+  flex-shrink: 0;
+}
+
+.sidebar-header .emblem {
+  width: 40px; height: 40px;
+  background: #c8102e;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  border: 2px solid #f5a623;
+}
+
+.sidebar-header h3 {
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.sidebar-header small { color: #b0c4f0; font-size: 11px; font-weight: 300; }
+
+.sidebar-close {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 22px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.sidebar-close:hover { color: white; background: rgba(255,255,255,0.1); }
+
+.sidebar-section {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.sidebar-section-title {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #f5a623;
+  font-weight: 700;
+  padding: 4px 18px 8px;
+  text-transform: uppercase;
+}
+
+.sidebar-prov-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 18px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.8);
+  cursor: pointer;
+  font-family: 'Mukta', sans-serif;
+  font-size: 14px;
+  text-align: left;
+  transition: all 0.15s;
+  overflow: hidden;
+}
+
+.sidebar-prov-btn .dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.sidebar-prov-btn .sb-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.sidebar-prov-btn .count {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.sidebar-prov-btn:hover {
+  background: rgba(255,255,255,0.07);
+  color: white;
+}
+
+.sidebar-prov-btn.active {
+  background: rgba(0,56,147,0.4);
+  color: #f5a623;
+  font-weight: 700;
+}
+
+
+
+.sidebar-prov-btn .count {
+  margin-left: auto;
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.08);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.sidebar-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 11px 18px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.75);
+  cursor: pointer;
+  font-family: 'Mukta', sans-serif;
+  font-size: 14px;
+  text-align: left;
+  transition: all 0.15s;
+}
+.sidebar-nav-btn:hover { background: rgba(255,255,255,0.07); color: white; }
+
+/* ── PORTAL CARDS ── */
+.portal-bar {
+  background: linear-gradient(180deg, #f4f1eb 0%, #eae6dc 100%);
+  border-bottom: 2px solid #d0c9bb;
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.portal-link {
+  text-decoration: none;
+  color: var(--text);
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #e0d8cc;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: all 0.22s;
+  position: relative;
+  overflow: hidden;
+}
+
+.portal-link::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+}
+
+.portal-link.loksewa::before  { background: linear-gradient(90deg, #003893, #2980b9); }
+.portal-link.meroshare::before { background: linear-gradient(90deg, #27ae60, #2ecc71); }
+.portal-link.driving::before  { background: linear-gradient(90deg, #e67e22, #f39c12); }
+.portal-link.dv::before       { background: linear-gradient(90deg, #c0392b, #e74c3c); }
+
+.portal-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+  border-color: transparent;
+}
+
+.portal-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.portal-icon-wrap {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.loksewa  .portal-icon-wrap { background: #e8f0fe; }
+.meroshare .portal-icon-wrap { background: #e8f8ee; }
+.driving  .portal-icon-wrap { background: #fff3e0; }
+.dv       .portal-icon-wrap { background: #fdecea; }
+
+.portal-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.portal-name small {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.portal-desc {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.5;
+  border-top: 1px solid #f0ece4;
+  padding-top: 10px;
+}
+
+.portal-action {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.loksewa  .portal-action { color: #003893; }
+.meroshare .portal-action { color: #27ae60; }
+.driving  .portal-action { color: #e67e22; }
+.dv       .portal-action { color: #c0392b; }
+.passport .portal-icon-wrap { background: #e8f5e9; }
+.passport::before { background: linear-gradient(90deg, #1565c0, #42a5f5); }
+.passport .portal-action { color: #1565c0; }
+.sram .portal-icon-wrap { background: #fff3e0; }
+.sram::before { background: linear-gradient(90deg, #e65100, #ff9800); }
+.sram .portal-action { color: #e65100; }
+.partipaksha .portal-icon-wrap { background: #f3e5f5; }
+.partipaksha::before { background: linear-gradient(90deg, #6a1b9a, #ab47bc); }
+.partipaksha .portal-action { color: #6a1b9a; }
+
+@media (max-width: 900px) {
+  .portal-bar { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+  .portal-bar { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+@media (max-width: 500px) {
+  .portal-bar { grid-template-columns: repeat(2, 1fr); padding: 12px; gap: 10px; }
+  .portal-desc { display: none; }
+  .portal-name { font-size: 13px; }
+  .portal-icon-wrap { width: 36px; height: 36px; font-size: 18px; }
+}
+
+/* ── LANG TOGGLE ── */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 20px;
+  padding: 5px 12px;
+  cursor: pointer;
+  margin-right: 10px;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.lang-toggle:hover { background: rgba(255,255,255,0.18); }
+.lang-ne, .lang-en {
+  font-family: 'Mukta', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s;
+}
+.lang-sep { color: rgba(255,255,255,0.25); font-size: 11px; }
+.lang-ne.active, .lang-en.active { color: #f5a623; }
+
+/* ── FOOTER ── */
+footer {
+  background: #0d1117;
+  color: #8b949e;
+  margin-top: 48px;
+  padding: 40px 24px 0;
+  font-size: 13px;
+}
+
+.footer-top {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #21262d;
+}
+
+.footer-brand .brand-name {
+  font-size: 20px;
+  font-weight: 800;
+  color: #f5a623;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.footer-brand .brand-sub {
+  font-size: 12px;
+  color: #6e7681;
+  margin-bottom: 14px;
+}
+
+.footer-brand .disclaimer {
+  font-size: 12px;
+  color: #6e7681;
+  line-height: 1.7;
+  background: #161b22;
+  border: 1px solid #21262d;
+  border-left: 3px solid #f5a623;
+  padding: 12px 14px;
+  border-radius: 0 4px 4px 0;
+}
+
+.footer-col h4 {
+  font-size: 12px;
+  font-weight: 700;
+  color: #c9d1d9;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.footer-col a {
+  display: block;
+  color: #8b949e;
+  text-decoration: none;
+  padding: 4px 0;
+  font-size: 13px;
+  transition: color 0.15s;
+}
+
+.footer-col a:hover { color: #f5a623; }
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-bottom .copy {
+  font-size: 12px;
+  color: #484f58;
+}
+
+.footer-bottom .private-note {
+  font-size: 11px;
+  color: #484f58;
+  background: #161b22;
+  border: 1px solid #21262d;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.footer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #161b22;
+  border: 1px solid #21262d;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  color: #6e7681;
+  margin-top: 10px;
+}
+
+.footer-badge .badge-dot {
+  width: 6px; height: 6px;
+  background: #f85149;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-col a { display: inline; margin-right: 10px; }
+  .footer-col a::after { content: ' ·'; color: #333; }
+  .footer-col a:last-child::after { content: ''; }
+}
+
+@media (max-width: 500px) {
+  
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-col h4 { margin-bottom: 6px; }
+  .footer-col a { display: inline; font-size: 12px; margin-right: 8px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .footer-bottom .private-note { font-size: 10px; }
+}
+
+/* ── PORTAL DETAIL MODAL ── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 500;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.modal-overlay.open { display: flex; }
+
+.modal-box {
+  background: #fff;
+  border-radius: 12px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  animation: modalIn 0.25s ease;
+}
+
+@keyframes modalIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.modal-header {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid #e0d8cc;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1;
+}
+
+.modal-header-icon {
+  width: 50px; height: 50px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px;
+  flex-shrink: 0;
+}
+
+.modal-header h2 { font-size: 18px; font-weight: 800; color: var(--text); }
+.modal-header p  { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+.modal-close {
+  margin-left: auto;
+  background: #f0f0f0;
+  border: none;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-close:hover { background: #e0e0e0; }
+
+.modal-body { padding: 20px 24px 24px; }
+
+.modal-section {
+  margin-bottom: 20px;
+}
+
+.modal-section h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #e8f0fe;
+}
+
+.modal-section ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.modal-section ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.modal-section ul li::before {
+  content: '✓';
+  color: var(--green);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.modal-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-step {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.step-num {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-text { font-size: 14px; line-height: 1.5; padding-top: 3px; }
+
+.modal-open-btn {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  background: var(--blue);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: 'Mukta', sans-serif;
+  margin-top: 20px;
+  transition: background 0.2s;
+}
+.modal-open-btn:hover { background: #001f6b; color: white; }
+
+.fee-box {
+  background: #f8f9fa;
+  border: 1px solid #e0d8cc;
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 13px;
+  margin-top: 10px;
+}
+.fee-box strong { color: var(--text); }
+
+@media (max-width: 600px) {
+  .modal-box { border-radius: 8px; }
+  .modal-body { padding: 16px; }
+}
+
+/* ── LOCATION FILTER ── */
+.location-filter {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 16px 24px;
+}
+
+.location-filter-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.filter-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #9ca3af;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-label span { color: #6b7280; font-weight: 400; letter-spacing: 0; font-size: 12px; }
+
+.filter-selects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.filter-group label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #9ca3af;
+  margin-bottom: 6px;
+}
+
+.filter-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  font-family: 'Mukta', sans-serif;
+  font-size: 14px;
+  color: #374151;
+  background: #fff;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  transition: border-color 0.15s;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+
+@media (max-width: 600px) {
+  .filter-selects { grid-template-columns: 1fr; gap: 10px; }
+  .location-filter { padding: 12px 16px; }
+}
+
+</style>
 </head>
-
 <body>
-<!-- ══════════════════════════════════════════════
-     HEADER / HERO
-══════════════════════════════════════════════ -->
-<header class="hero-bg text-white">
 
-  <!-- Top micro-bar -->
-  <div class="relative z-10 border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between">
-      <span class="text-[11px] text-blue-200 flex items-center gap-1.5">
-        <span class="flag-wave">🇳🇵</span>
-        <span>npsarkar.com — Nepal Public Sector Directory</span>
-      </span>
-      <span class="np text-[11px] text-blue-200 hidden sm:block">सरकारी सेवा निर्देशिका • नेपाल</span>
-    </div>
-  </div>
+<!-- Top bar -->
 
-  <!-- Main header content -->
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-7 pb-8">
+<!-- Overlay -->
+<div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
 
-    <!-- Logo row + stats -->
-    <div class="flex flex-col sm:flex-row sm:items-start gap-5 mb-7">
-      <!-- Logo -->
-      <div class="flex items-center gap-4">
-        <div class="w-[60px] h-[60px] rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-4xl shadow-lg flex-shrink-0">🏛️</div>
-        <div>
-          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-none">
-            np<span class="text-blue-300">Sarkar</span>
-          </h1>
-          <p class="text-blue-200 text-sm mt-0.5 font-medium tracking-wide">Directory &nbsp;|&nbsp; <span class="np">निर्देशिका</span></p>
-        </div>
-      </div>
-
-      <!-- Stats pills -->
-      <div class="sm:ml-auto flex gap-3">
-        <div class="stat-pill">
-          <div class="text-2xl font-bold" id="stat-offices">–</div>
-          <div class="text-[11px] text-blue-200 mt-0.5 font-medium">Offices</div>
-        </div>
-        <div class="stat-pill">
-          <div class="text-2xl font-bold">77</div>
-          <div class="text-[11px] text-blue-200 mt-0.5 font-medium">Districts</div>
-        </div>
-        <div class="stat-pill">
-          <div class="text-2xl font-bold">7</div>
-          <div class="text-[11px] text-blue-200 mt-0.5 font-medium">Provinces</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SEARCH BAR -->
-    <div class="search-bar relative bg-white rounded-2xl shadow-2xl overflow-hidden">
-      <div class="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
-        <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-        </svg>
-      </div>
-      <input
-        id="search-input"
-        type="search"
-        autocomplete="off"
-        spellcheck="false"
-        placeholder="Search offices, districts, services… | कार्यालय, जिल्ला, सेवा खोज्नुहोस्…"
-        class="hero-search-input np w-full bg-transparent pl-12 pr-12 py-4 text-slate-800 text-base placeholder:text-slate-400 focus:outline-none"
-      />
-      <button
-        id="btn-clear-search"
-        onclick="clearSearch()"
-        class="hidden absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-slate-400 hover:bg-slate-100 hover:text-slate-700 transition-colors"
-        aria-label="Clear search"
-      >
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Quick hint -->
-    <p class="text-blue-200/70 text-[11px] mt-2.5 pl-1">
-      Tip: search by office name, district, or service type &nbsp;·&nbsp; <span class="np">कार्यालय, जिल्ला वा सेवा नाममा खोज्नुहोस्</span>
-    </p>
-  </div>
-</header>
-
-<!-- ══════════════════════════════════════════════
-     TOP ADSENSE BANNER
-══════════════════════════════════════════════ -->
-<div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
-  <div class="ads-placeholder rounded-2xl h-[90px] sm:h-[90px] flex items-center justify-center gap-3">
-    <!-- ★ Replace this block with your Google AdSense <ins> tag ★ -->
-    <svg class="w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-    </svg>
+<!-- Province Sidebar -->
+<div class="province-sidebar" id="province-sidebar">
+  <div class="sidebar-header">
+    <div class="emblem">🏔</div>
     <div>
-      <p class="text-xs font-semibold text-slate-400">Advertisement — Google AdSense</p>
-      <p class="text-[10px] text-slate-300">Leaderboard 728×90 / Responsive Banner — Insert AdSense code here</p>
+      <h3>Digital Nepal Index</h3>
+      <small>Nepal को सरकारी सेवा निर्देशिका</small>
     </div>
+    <button class="sidebar-close" onclick="closeSidebar()">✕</button>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-title">७ प्रदेश</div>
+    <button class="sidebar-prov-btn" onclick="sidebarSelectProvince('p1')" id="sb-p1">
+      <span class="dot" style="background:#e74c3c"></span><span class="sb-name">१. कोशी प्रदेश</span><span class="count">१४ जिल्ला</span>
+    </button>
+    <button class="sidebar-prov-btn" onclick="sidebarSelectProvince('p2')" id="sb-p2">
+      <span class="dot" style="background:#e67e22"></span><span class="sb-name">२. मधेश प्रदेश</span><span class="count">८ जिल्ला</span>
+    </button>
+    <button class="sidebar-prov-btn" onclick="sidebarSelectProvince('bag')" id="sb-bag">
+      <span class="dot" style="background:#27ae60"></span><span class="sb-name">३. बागमती प्रदेश</span><span class="count">१३ जिल्ला</span>
+    </button>
+    <button class="sidebar-prov-btn" onclick="sidebarSelectProvince('gan')" id="sb-gan">
+      <span class="dot" style="background:#2980b9"></span><span class="sb-name">४. गण्डकी प्रदेश</span><span class="count">११ जिल्ला</span>
+    </button>
+    <button class="sidebar-prov-btn" onclick="sidebarSelectProvince('lum')" id="sb-lum">
+      <span class="dot" style="background:#8e44ad"></span><span class="sb-name">५. लुम्बिनी प्रदेश</span><span class="count">१२ जिल्ला</span>
+    </button>
+    <button class="sidebar-prov-btn" onclick="sidebarSelectProvince('kar')" id="sb-kar">
+      <span class="dot" style="background:#16a085"></span><span class="sb-name">६. कर्णाली प्रदेश</span><span class="count">१० जिल्ला</span>
+    </button>
+    <button class="sidebar-prov-btn" onclick="sidebarSelectProvince('sud')" id="sb-sud">
+      <span class="dot" style="background:#c0392b"></span><span class="sb-name">७. सुदूरपश्चिम प्रदेश</span><span class="count">९ जिल्ला</span>
+    </button>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-title">सेवाहरू</div>
+    <button class="sidebar-nav-btn" onclick="showSection('hospitals');closeSidebar()">🏥 अस्पताल</button>
+    <button class="sidebar-nav-btn" onclick="showSection('offices');closeSidebar()">🏛 सरकारी कार्यालय</button>
+    <button class="sidebar-nav-btn" onclick="showSection('news');closeSidebar()">📰 समाचार</button>
+    <button class="sidebar-nav-btn" onclick="showSection('courts');closeSidebar()">⚖ अदालत</button>
+    <button class="sidebar-nav-btn" onclick="showSection('banks');closeSidebar()">🏦 बैंक</button>
+    <button class="sidebar-nav-btn" onclick="showSection('vacancy');closeSidebar()">💼 रिक्त पद</button>
+    <button class="sidebar-nav-btn" onclick="showSection('schools');closeSidebar()">🏫 विद्यालय</button>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════
-     FILTER ZONE
-══════════════════════════════════════════════ -->
-<div class="max-w-7xl mx-auto px-4 sm:px-6 pb-4 space-y-3">
-
-  <!-- Province + District Row -->
-  <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
-    <div class="flex items-center gap-2 mb-4">
-      <span class="text-base">📍</span>
-      <h2 class="text-xs font-bold text-slate-500 uppercase tracking-widest">Location Filter &nbsp;|&nbsp; <span class="np font-medium normal-case tracking-normal">स्थान अनुसार फिल्टर</span></h2>
-    </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-      <!-- Province -->
+<!-- Portal Detail Modal -->
+<div class="modal-overlay" id="portal-modal" onclick="closeModal(event)">
+  <div class="modal-box" id="modal-box">
+    <div class="modal-header">
+      <div class="modal-header-icon" id="modal-icon"></div>
       <div>
-        <label for="province-select" class="block text-[11px] font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">
-          Province &nbsp;<span class="np normal-case tracking-normal font-normal">प्रदेश</span>
-        </label>
-        <select id="province-select"
-          class="select-custom w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-sm font-medium">
-          <option value="">All Provinces &nbsp;— सबै प्रदेश</option>
-          <option value="1">Province 1 — Koshi Pradesh (कोशी प्रदेश)</option>
-          <option value="2">Province 2 — Madhesh Pradesh (मधेश प्रदेश)</option>
-          <option value="3">Province 3 — Bagmati Pradesh (बागमती प्रदेश)</option>
-          <option value="4">Province 4 — Gandaki Pradesh (गण्डकी प्रदेश)</option>
-          <option value="5">Province 5 — Lumbini Pradesh (लुम्बिनी प्रदेश)</option>
-          <option value="6">Province 6 — Karnali Pradesh (कर्णाली प्रदेश)</option>
-          <option value="7">Province 7 — Sudurpashchim Pradesh (सुदूरपश्चिम प्रदेश)</option>
+        <h2 id="modal-title"></h2>
+        <p id="modal-sub"></p>
+      </div>
+      <button class="modal-close" onclick="closePortalModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<div class="topbar">
+  <span>🇳🇵 Digital Nepal Index — नेपाल सरकारी सेवा निर्देशिका</span>
+  <span>सम्पर्क: 1100 | info@nepal.gov.np</span>
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-emblem">🏔</div>
+    <div class="nav-title">
+      Digital Nepal Index
+      <small>Nepal को सरकारी सेवा निर्देशिका</small>
+    </div>
+  </div>
+  <div class="nav-links">
+    <div class="nav-dropdown">
+      <a href="#" class="active" onclick="showProvinceDropdown(event)">🗺 प्रदेश ▾</a>
+      <div class="dropdown-menu" id="province-dropdown">
+        <!-- filled by JS -->
+      </div>
+    </div>
+    <a href="#" onclick="showSection('hospitals')">🏥 अस्पताल</a>
+    <a href="#" onclick="showSection('offices')">🏛 सरकारी कार्यालय</a>
+    <a href="#" onclick="showSection('news')">📰 समाचार</a>
+    <a href="#" onclick="showSection('courts')">⚖ अदालत</a>
+    <a href="#" onclick="showSection('banks')">🏦 बैंक</a>
+    <a href="#" onclick="showSection('vacancy')">💼 रिक्त पद</a>
+  </div>
+  <!-- Language toggle -->
+  <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">
+    <span class="lang-ne active" id="lt-ne">ने</span>
+    <span class="lang-sep">|</span>
+    <span class="lang-en" id="lt-en">EN</span>
+  </button>
+  <!-- Hamburger OUTSIDE nav-links so it always shows -->
+  <div class="hamburger" id="hamburger" onclick="toggleSidebar()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Quick Portal Cards - Loaded from portals.json -->
+<div class="portal-bar" id="portal-bar">
+  <div style="grid-column:1/-1;text-align:center;padding:20px;color:#888;font-size:13px;">⏳ लोड हुँदैछ...</div>
+</div>
+<!-- Hero -->
+<div class="hero">
+  <h1>Digital Nepal Index</h1>
+  <p>७ प्रदेश · ७७ जिल्ला · ७५३ स्थानीय तह</p>
+  <div class="hero-search">
+    <input type="text" placeholder="प्रदेश, जिल्ला, कार्यालय, अस्पताल खोज्नुहोस्..." id="search-input" oninput="handleSearch(this.value)">
+    <button>🔍 खोज</button>
+  </div>
+</div>
+
+<!-- Location Filter -->
+<div class="location-filter">
+  <div class="location-filter-inner">
+    <div class="filter-label" id="filter-heading">
+      📍 LOCATION FILTER <span id="filter-heading-sub">| स्थान अनुसार फिल्टर</span>
+    </div>
+    <div class="filter-selects">
+      <div class="filter-group">
+        <label id="province-label">PROVINCE प्रदेश</label>
+        <select class="filter-select" id="province-select" onchange="onProvinceFilter(this.value)">
+          <option value="" id="province-all">All Provinces — सबै प्रदेश</option>
+          <option value="p1">कोशी प्रदेश</option>
+          <option value="p2">मधेश प्रदेश</option>
+          <option value="bag">बागमती प्रदेश</option>
+          <option value="gan">गण्डकी प्रदेश</option>
+          <option value="lum">लुम्बिनी प्रदेश</option>
+          <option value="kar">कर्णाली प्रदेश</option>
+          <option value="sud">सुदूरपश्चिम प्रदेश</option>
         </select>
       </div>
-
-      <!-- District (dynamically populated) -->
-      <div>
-        <label for="district-select" class="block text-[11px] font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">
-          District &nbsp;<span class="np normal-case tracking-normal font-normal">जिल्ला</span>
-        </label>
-        <select id="district-select"
-          class="select-custom w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-sm font-medium">
-          <option value="">All Districts &nbsp;— सबै जिल्ला</option>
+      <div class="filter-group">
+        <label id="district-label">DISTRICT जिल्ला</label>
+        <select class="filter-select" id="district-select" onchange="onDistrictFilter(this.value)">
+          <option value="" id="district-all">All Districts — सबै जिल्ला</option>
         </select>
       </div>
     </div>
   </div>
-
-  <!-- Category Badges -->
-  <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
-    <div class="flex items-center gap-2 mb-4">
-      <span class="text-base">🏷️</span>
-      <h2 class="text-xs font-bold text-slate-500 uppercase tracking-widest">Category &nbsp;|&nbsp; <span class="np font-medium normal-case tracking-normal">श्रेणी</span></h2>
-    </div>
-    <div class="flex flex-wrap gap-2" id="category-badges">
-      <!-- JS renders badges here -->
-    </div>
-  </div>
 </div>
 
-<!-- ══════════════════════════════════════════════
-     RESULTS SECTION
-══════════════════════════════════════════════ -->
-<div class="max-w-7xl mx-auto px-4 sm:px-6 pb-10">
+<!-- Main -->
+<div class="main">
 
-  <!-- Results meta row -->
-  <div class="flex items-center justify-between mb-4 min-h-[32px]">
-    <div class="flex items-center gap-2 flex-wrap">
-      <span id="results-count" class="text-sm font-semibold text-slate-600"></span>
+
+  <!-- Right: Content -->
+  <div class="content-panel">
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb" id="breadcrumb">
+      🏠 <span onclick="goHome()">गृहपृष्ठ</span>
+      <span id="bc-province" style="display:none"> › <span onclick="goProvince()"></span></span>
+      <span id="bc-district" style="display:none"> › <span onclick="goDistrict()"></span></span>
+      <span id="bc-ward"     style="display:none"> › <span></span></span>
     </div>
-    <button id="clear-all-btn"
-      onclick="clearAllFilters()"
-      class="hidden items-center gap-1.5 text-xs font-semibold text-red-500 hover:text-red-700 border border-red-200 px-3 py-1.5 rounded-full">
-      ✕ Clear All Filters
-    </button>
-  </div>
 
-  <!-- ── Loading ── -->
-  <div id="state-loading" class="flex flex-col items-center justify-center py-24 gap-4">
-    <div class="spinner"></div>
-    <p class="text-slate-500 text-sm np">डेटा लोड हुँदैछ… <span class="font-sans not-np">Loading directory…</span></p>
-  </div>
-
-  <!-- ── Error ── -->
-  <div id="state-error" class="hidden text-center py-24">
-    <div class="text-6xl mb-4">⚠️</div>
-    <h3 class="text-xl font-bold text-slate-700">Could not load directory data</h3>
-    <p class="text-slate-500 text-sm mt-2 np">data.json फाइल लोड हुन सकेन। कनेक्सन जाँच्नुहोस्।</p>
-    <button onclick="loadData()"
-      class="mt-6 bg-brand-900 hover:bg-brand-800 text-white px-6 py-2.5 rounded-xl text-sm font-semibold transition-colors">
-      🔄 Retry
-    </button>
-  </div>
-
-  <!-- ── No Results ── -->
-  <div id="state-empty" class="hidden text-center py-24">
-    <div class="text-6xl mb-4">🔍</div>
-    <h3 class="text-xl font-bold text-slate-700">No offices found</h3>
-    <p class="text-slate-500 text-sm mt-2 np">तपाईंको खोजी अनुसार कुनै कार्यालय फेला परेन।</p>
-    <button onclick="clearAllFilters()"
-      class="mt-6 bg-brand-900 hover:bg-brand-800 text-white px-6 py-2.5 rounded-xl text-sm font-semibold transition-colors">
-      ✕ Clear All Filters
-    </button>
-  </div>
-
-  <!-- ── Results Grid ── -->
-  <div id="results-grid" class="hidden grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════
-     BOTTOM ADSENSE BANNER
-══════════════════════════════════════════════ -->
-<div class="max-w-7xl mx-auto px-4 sm:px-6 pb-6">
-  <div class="ads-placeholder rounded-2xl h-[90px] flex items-center justify-center gap-3">
-    <!-- ★ Replace this block with your Google AdSense <ins> tag ★ -->
-    <svg class="w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-    </svg>
-    <div>
-      <p class="text-xs font-semibold text-slate-400">Advertisement — Google AdSense</p>
-      <p class="text-[10px] text-slate-300">Responsive Banner — Insert AdSense code here</p>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════════ -->
-<footer class="hero-bg text-white mt-4">
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-12">
-
-    <!-- Footer grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
-
-      <!-- About -->
-      <div>
-        <div class="flex items-center gap-3 mb-4">
-          <span class="text-2xl">🏛️</span>
-          <span class="text-xl font-extrabold">np<span class="text-blue-300">Sarkar</span></span>
-        </div>
-        <p class="text-blue-200 text-sm leading-relaxed">
-          Nepal's comprehensive public sector directory — helping citizens find government services, contacts, and locations instantly.
-        </p>
-        <p class="np text-blue-200/80 text-[13px] leading-relaxed mt-2">
-          नेपालीहरूलाई सरकारी सेवा, सम्पर्क र स्थान छिटो खोज्न मद्दत गर्ने निर्देशिका।
-        </p>
-        <div class="flex gap-3 mt-4">
-          <span class="bg-white/10 border border-white/15 text-xs px-3 py-1 rounded-full">7 Provinces</span>
-          <span class="bg-white/10 border border-white/15 text-xs px-3 py-1 rounded-full">77 Districts</span>
-        </div>
+    <!-- Service shortcuts -->
+    <div class="service-grid">
+      <div class="service-card hospital" onclick="showSection('hospitals')">
+        <div class="service-icon">🏥</div>
+        <div class="service-name">अस्पताल</div>
       </div>
-
-      <!-- Quick links -->
-      <div>
-        <h3 class="font-bold text-sm uppercase tracking-widest text-blue-200 mb-4">Official Portals</h3>
-        <ul class="space-y-2.5 text-sm">
-          <li>
-            <a href="https://nepal.gov.np" target="_blank" rel="noopener noreferrer"
-               class="text-blue-200 hover:text-white flex items-center gap-2 transition-colors group">
-              <span class="group-hover:translate-x-0.5 transition-transform">↗</span>
-              Government of Nepal Portal
-            </a>
-          </li>
-          <li>
-            <a href="https://nagarik.gov.np" target="_blank" rel="noopener noreferrer"
-               class="text-blue-200 hover:text-white flex items-center gap-2 transition-colors group">
-              <span class="group-hover:translate-x-0.5 transition-transform">↗</span>
-              Nagarik Online Portal
-            </a>
-          </li>
-          <li>
-            <a href="https://moha.gov.np" target="_blank" rel="noopener noreferrer"
-               class="text-blue-200 hover:text-white flex items-center gap-2 transition-colors group">
-              <span class="group-hover:translate-x-0.5 transition-transform">↗</span>
-              Ministry of Home Affairs
-            </a>
-          </li>
-          <li>
-            <a href="https://mof.gov.np" target="_blank" rel="noopener noreferrer"
-               class="text-blue-200 hover:text-white flex items-center gap-2 transition-colors group">
-              <span class="group-hover:translate-x-0.5 transition-transform">↗</span>
-              Ministry of Finance
-            </a>
-          </li>
-          <li>
-            <a href="https://dos.gov.np" target="_blank" rel="noopener noreferrer"
-               class="text-blue-200 hover:text-white flex items-center gap-2 transition-colors group">
-              <span class="group-hover:translate-x-0.5 transition-transform">↗</span>
-              Dept of Survey (Land)
-            </a>
-          </li>
-        </ul>
+      <div class="service-card office" onclick="showSection('offices')">
+        <div class="service-icon">🏛</div>
+        <div class="service-name">सरकारी कार्यालय</div>
       </div>
-
-      <!-- Contact -->
-      <div>
-        <h3 class="font-bold text-sm uppercase tracking-widest text-blue-200 mb-4">Contribute</h3>
-        <p class="text-blue-200 text-sm">Found incorrect data or want to add a missing office?</p>
-        <a href="mailto:info@npsarkar.com"
-           class="inline-flex items-center gap-2 mt-3 text-blue-300 hover:text-white text-sm transition-colors">
-          📧 info@npsarkar.com
-        </a>
-        <p class="text-blue-200/70 text-xs mt-4">
-          Data updated: <span class="text-white font-semibold">2025</span><br/>
-          Hosted on GitHub Pages
-        </p>
-        <div class="mt-4 flex gap-2">
-          <span class="bg-white/10 border border-white/15 text-[11px] px-3 py-1 rounded-full">Serverless</span>
-          <span class="bg-white/10 border border-white/15 text-[11px] px-3 py-1 rounded-full">Open Source</span>
-        </div>
+      <div class="service-card bank" onclick="showSection('banks')">
+        <div class="service-icon">🏦</div>
+        <div class="service-name">बैंक</div>
+      </div>
+      <div class="service-card vacancy" onclick="showSection('vacancy')">
+        <div class="service-icon">💼</div>
+        <div class="service-name">रिक्त पद</div>
+      </div>
+      <div class="service-card news" onclick="showSection('news')">
+        <div class="service-icon">📰</div>
+        <div class="service-name">समाचार</div>
+      </div>
+      <div class="service-card court" onclick="showSection('courts')">
+        <div class="service-icon">⚖</div>
+        <div class="service-name">अदालत</div>
+      </div>
+      <div class="service-card school" onclick="showSection('schools')">
+        <div class="service-icon">🏫</div>
+        <div class="service-name">विद्यालय</div>
+      </div>
+      <div class="service-card transport" onclick="showSection('transport')">
+        <div class="service-icon">🚌</div>
+        <div class="service-name">यातायात</div>
       </div>
     </div>
 
-    <!-- ── LEGAL DISCLAIMER ── -->
-    <div class="disclaimer-box p-6 mb-8">
-      <div class="flex items-start gap-4">
-        <span class="text-amber-400 text-2xl flex-shrink-0 mt-0.5">⚠️</span>
+    <!-- Main Content Area -->
+    <div class="content-area" id="content-area">
+      <div class="content-header">
         <div>
-          <h4 class="font-extrabold text-amber-300 text-sm uppercase tracking-widest mb-2">Legal Disclaimer / कानूनी अस्वीकरण</h4>
-          <p class="text-amber-100/90 text-sm leading-relaxed">
-            <strong class="text-amber-200">npsarkar.com is a privately operated public service directory and is NOT officially affiliated with, endorsed by, or connected to the Government of Nepal or any of its ministries, departments, or agencies.</strong>
-            All information provided is for general informational purposes only. While we strive for accuracy, we make no guarantees regarding the completeness, correctness, or currency of the data. Users are strongly advised to verify all information directly with the respective government offices before making any decisions.
-          </p>
-          <p class="np text-amber-200/80 text-[13px] mt-3 leading-relaxed">
-            <strong>कानूनी अस्वीकरण:</strong> npsarkar.com एक निजी रूपमा सञ्चालित सार्वजनिक सेवा निर्देशिका हो र यो नेपाल सरकार वा यसका कुनै पनि मन्त्रालय, विभाग वा निकायसँग आधिकारिक रूपमा सम्बद्ध, अनुमोदित वा जोडिएको <strong>छैन</strong>। यहाँ प्रदान गरिएको सबै जानकारी केवल सामान्य सूचनाका लागि मात्र हो।
-          </p>
+          <h2 id="content-title">🏠 गृहपृष्ठ — सबै प्रदेश</h2>
+          <small id="content-sub">प्रदेश छान्नुहोस् वा नक्सामा क्लिक गर्नुहोस्</small>
+        </div>
+        <button class="back-btn" id="back-btn" onclick="goBack()">← पछाडि</button>
+      </div>
+      <div class="content-body" id="content-body">
+        <!-- Home view -->
+        <div id="home-view">
+          <div class="province-home" id="stat-cards">
+            <div class="stat-card"><div><div class="stat-num">७</div><div class="stat-label">प्रदेश</div></div><div class="stat-icon">🗺</div></div>
+            <div class="stat-card red"><div><div class="stat-num">७७</div><div class="stat-label">जिल्ला</div></div><div class="stat-icon">📍</div></div>
+            <div class="stat-card green"><div><div class="stat-num">७५३</div><div class="stat-label">स्थानीय तह</div></div><div class="stat-icon">🏘</div></div>
+            <div class="stat-card gold"><div><div class="stat-num">6915</div><div class="stat-label">वडा</div></div><div class="stat-icon">🏠</div></div>
+          </div>
+          <div style="font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px;" id="news-heading">📰 ताजा समाचार</div>
+          <div id="news-list"><div style="color:#aaa;font-size:13px;padding:12px 0;">⏳ समाचार लोड हुँदैछ...</div></div>
         </div>
       </div>
     </div>
-
-    <!-- Copyright bar -->
-    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-blue-300">
-      <span>© 2025 npSarkar Directory (npsarkar.com) &nbsp;·&nbsp; All Rights Reserved</span>
-      <span>Built with ❤️ for the people of Nepal &nbsp;<span class="flag-wave">🇳🇵</span></span>
-    </div>
   </div>
-</footer>
+</div>
 
-<!-- ══════════════════════════════════════════════
-     JAVASCRIPT ENGINE
-══════════════════════════════════════════════ -->
 <script>
-// ┌─────────────────────────────────────────────┐
-// │  PROVINCE → DISTRICT LOOKUP TABLE           │
-// └─────────────────────────────────────────────┘
-const PROVINCE_MAP = {
-  "1": {
-    label_en: "Koshi Pradesh", label_np: "कोशी प्रदेश",
-    districts: [
-      { en: "Bhojpur",        np: "भोजपुर" },
-      { en: "Dhankuta",       np: "धनकुटा" },
-      { en: "Ilam",           np: "इलाम" },
-      { en: "Jhapa",          np: "झापा" },
-      { en: "Khotang",        np: "खोटाङ" },
-      { en: "Morang",         np: "मोरङ" },
-      { en: "Okhaldhunga",    np: "ओखलढुङ्गा" },
-      { en: "Panchthar",      np: "पाँचथर" },
-      { en: "Sankhuwasabha",  np: "सङ्खुवासभा" },
-      { en: "Solukhumbu",     np: "सोलुखुम्बु" },
-      { en: "Sunsari",        np: "सुनसरी" },
-      { en: "Taplejung",      np: "ताप्लेजुङ" },
-      { en: "Terhathum",      np: "तेह्रथुम" },
-      { en: "Udayapur",       np: "उदयपुर" }
-    ]
-  },
-  "2": {
-    label_en: "Madhesh Pradesh", label_np: "मधेश प्रदेश",
-    districts: [
-      { en: "Bara",       np: "बारा" },
-      { en: "Dhanusha",   np: "धनुषा" },
-      { en: "Mahottari",  np: "महोत्तरी" },
-      { en: "Parsa",      np: "पर्सा" },
-      { en: "Rautahat",   np: "रौतहट" },
-      { en: "Saptari",    np: "सप्तरी" },
-      { en: "Sarlahi",    np: "सर्लाही" },
-      { en: "Siraha",     np: "सिरहा" }
-    ]
-  },
-  "3": {
-    label_en: "Bagmati Pradesh", label_np: "बागमती प्रदेश",
-    districts: [
-      { en: "Bhaktapur",       np: "भक्तपुर" },
-      { en: "Chitwan",         np: "चितवन" },
-      { en: "Dhading",         np: "धादिङ" },
-      { en: "Dolakha",         np: "दोलखा" },
-      { en: "Kathmandu",       np: "काठमाडौं" },
-      { en: "Kavrepalanchok",  np: "काभ्रेपलाञ्चोक" },
-      { en: "Lalitpur",        np: "ललितपुर" },
-      { en: "Makwanpur",       np: "मकवानपुर" },
-      { en: "Nuwakot",         np: "नुवाकोट" },
-      { en: "Ramechhap",       np: "रामेछाप" },
-      { en: "Rasuwa",          np: "रसुवा" },
-      { en: "Sindhuli",        np: "सिन्धुली" },
-      { en: "Sindhupalchok",   np: "सिन्धुपाल्चोक" }
-    ]
-  },
-  "4": {
-    label_en: "Gandaki Pradesh", label_np: "गण्डकी प्रदेश",
-    districts: [
-      { en: "Baglung",   np: "बागलुङ" },
-      { en: "Gorkha",    np: "गोरखा" },
-      { en: "Kaski",     np: "कास्की" },
-      { en: "Lamjung",   np: "लमजुङ" },
-      { en: "Manang",    np: "मनाङ" },
-      { en: "Mustang",   np: "मुस्ताङ" },
-      { en: "Myagdi",    np: "म्याग्दी" },
-      { en: "Nawalpur",  np: "नवलपुर" },
-      { en: "Parbat",    np: "पर्वत" },
-      { en: "Syangja",   np: "स्याङ्जा" },
-      { en: "Tanahu",    np: "तनहुँ" }
-    ]
-  },
-  "5": {
-    label_en: "Lumbini Pradesh", label_np: "लुम्बिनी प्रदेश",
-    districts: [
-      { en: "Arghakhanchi",     np: "अर्घाखाँची" },
-      { en: "Banke",            np: "बाँके" },
-      { en: "Bardiya",          np: "बर्दिया" },
-      { en: "Dang",             np: "दाङ" },
-      { en: "Gulmi",            np: "गुल्मी" },
-      { en: "Kapilvastu",       np: "कपिलवस्तु" },
-      { en: "Nawalparasi East", np: "नवलपरासी पूर्व" },
-      { en: "Palpa",            np: "पाल्पा" },
-      { en: "Pyuthan",          np: "प्युठान" },
-      { en: "Rolpa",            np: "रोल्पा" },
-      { en: "Rukum East",       np: "रुकुम पूर्व" },
-      { en: "Rupandehi",        np: "रुपन्देही" }
-    ]
-  },
-  "6": {
-    label_en: "Karnali Pradesh", label_np: "कर्णाली प्रदेश",
-    districts: [
-      { en: "Dailekh",    np: "दैलेख" },
-      { en: "Dolpa",      np: "डोल्पा" },
-      { en: "Humla",      np: "हुम्ला" },
-      { en: "Jajarkot",   np: "जाजरकोट" },
-      { en: "Jumla",      np: "जुम्ला" },
-      { en: "Kalikot",    np: "कालीकोट" },
-      { en: "Mugu",       np: "मुगु" },
-      { en: "Rukum West", np: "रुकुम पश्चिम" },
-      { en: "Salyan",     np: "सल्यान" },
-      { en: "Surkhet",    np: "सुर्खेत" }
-    ]
-  },
-  "7": {
-    label_en: "Sudurpashchim Pradesh", label_np: "सुदूरपश्चिम प्रदेश",
-    districts: [
-      { en: "Achham",      np: "अछाम" },
-      { en: "Baitadi",     np: "बैतडी" },
-      { en: "Bajhang",     np: "बझाङ" },
-      { en: "Bajura",      np: "बाजुरा" },
-      { en: "Dadeldhura",  np: "डडेलधुरा" },
-      { en: "Darchula",    np: "दार्चुला" },
-      { en: "Doti",        np: "डोटी" },
-      { en: "Kailali",     np: "कैलाली" },
-      { en: "Kanchanpur",  np: "कञ्चनपुर" }
-    ]
-  }
+// ── DATA ──────────────────────────────────────────────────────
+const PROVINCES = {
+  p1:  { name: "कोशी प्रदेश",         hq: "विराटनगर",  districts: ["ताप्लेजुङ","पाँचथर","इलाम","झापा","मोरङ","सुनसरी","धनकुटा","तेह्रथुम","संखुवासभा","भोजपुर","सोलुखुम्बु","ओखलढुङ्गा","खोटाङ","उदयपुर"] },
+  p2:  { name: "मधेश प्रदेश",          hq: "जनकपुर",    districts: ["सर्लाही","रौतहट","बारा","पर्सा","धनुषा","महोत्तरी","सिराहा","सप्तरी"] },
+  bag: { name: "बागमती प्रदेश",        hq: "हेटौँडा",   districts: ["काठमाडौं","ललितपुर","भक्तपुर","काभ्रेपलाञ्चोक","सिन्धुली","रामेछाप","दोलखा","सिन्धुपाल्चोक","रसुवा","नुवाकोट","धादिङ","मकवानपुर","चितवन"] },
+  gan: { name: "गण्डकी प्रदेश",        hq: "पोखरा",     districts: ["कास्की","तनहुँ","गोरखा","लमजुङ","स्याङ्जा","पर्वत","बाग्लुङ","म्याग्दी","मुस्ताङ","मनाङ","नवलपुर"] },
+  lum: { name: "लुम्बिनी प्रदेश",      hq: "देउखुरी",   districts: ["रुपन्देही","कपिलवस्तु","नवलपरासी","पाल्पा","अर्घाखाँची","गुल्मी","रोल्पा","प्युठान","दाङ","बाँके","बर्दिया"] },
+  kar: { name: "कर्णाली प्रदेश",       hq: "वीरेन्द्रनगर", districts: ["सुर्खेत","दैलेख","जाजरकोट","रुकुम पश्चिम","सल्यान","डोल्पा","हुम्ला","जुम्ला","मुगु","कालिकोट"] },
+  sud: { name: "सुदूरपश्चिम प्रदेश",  hq: "धनगढी",     districts: ["कैलाली","कञ्चनपुर","डडेल्धुरा","डोटी","अछाम","बाजुरा","बझाङ","बैतडी","दार्चुला"] }
 };
 
-// ┌─────────────────────────────────────────────┐
-// │  CATEGORY DEFINITIONS                       │
-// └─────────────────────────────────────────────┘
-const CATEGORIES = [
-  { key: "Ward Office",       icon: "🏘️", np: "वडा कार्यालय",    cssClass: "ch-ward" },
-  { key: "Government Office", icon: "🏛️", np: "सरकारी कार्यालय", cssClass: "ch-govt" },
-  { key: "Banking",           icon: "🏦", np: "बैंकिङ",           cssClass: "ch-bank" },
-  { key: "Hospital",          icon: "🏥", np: "अस्पताल",          cssClass: "ch-hospital" },
-  { key: "Utilities",         icon: "⚡", np: "उपयोगिता",         cssClass: "ch-utilities" },
-  { key: "Education",         icon: "🎓", np: "शिक्षा",            cssClass: "ch-education" },
-  { key: "Police",            icon: "🚔", np: "प्रहरी",            cssClass: "ch-police" },
-  { key: "Land Revenue",      icon: "📋", np: "मालपोत",           cssClass: "ch-land" },
-];
-
-// ┌─────────────────────────────────────────────┐
-// │  APPLICATION STATE                          │
-// └─────────────────────────────────────────────┘
-let allOffices   = [];
-let activeQuery  = "";
-let activeCat    = null;
-let activeProv   = "";
-let activeDist   = "";
-const openAccordions = new Set();
-
-// ┌─────────────────────────────────────────────┐
-// │  BOOT                                       │
-// └─────────────────────────────────────────────┘
-window.onload = function () {
-  buildCategoryBadges();
-  wireProvinceDistrict();
-  wireSearch();
-  loadData();
+const OFFICES = {
+  hospital: [
+    { name_ne: "बी.पी. कोइराला स्वास्थ्य विज्ञान प्रतिष्ठान", name_en: "B.P. Koirala Institute of Health Sciences", type: "hospital", address_ne: "धरान, सुनसरी", address_en: "Dharan, Sunsari", phone: "025-525555" },
+    { name_ne: "जिल्ला अस्पताल", name_en: "District Hospital", type: "hospital", address_ne: "जिल्ला सदरमुकाम", address_en: "District Headquarters", phone: "XXXX-XXXXXX" },
+    { name_ne: "प्राथमिक स्वास्थ्य केन्द्र", name_en: "Primary Health Centre", type: "hospital", address_ne: "स्थानीय तह", address_en: "Local Level", phone: "—" }
+  ],
+  office: [
+    { name_ne: "जिल्ला प्रशासन कार्यालय", name_en: "District Administration Office", type: "govt", address_ne: "सदरमुकाम", address_en: "District HQ", phone: "—" },
+    { name_ne: "मालपोत कार्यालय", name_en: "Land Revenue Office", type: "govt", address_ne: "सदरमुकाम", address_en: "District HQ", phone: "—" },
+    { name_ne: "नापी कार्यालय", name_en: "Survey Office", type: "govt", address_ne: "सदरमुकाम", address_en: "District HQ", phone: "—" },
+    { name_ne: "प्रदेश लोक सेवा आयोग", name_en: "Province Public Service Commission", type: "govt", address_ne: "प्रदेश राजधानी", address_en: "Province Capital", phone: "—" }
+  ],
+  bank: [
+    { name_ne: "नेपाल राष्ट्र बैंक", name_en: "Nepal Rastra Bank", type: "bank", address_ne: "सदरमुकाम", address_en: "District HQ", phone: "—" },
+    { name_ne: "कृषि विकास बैंक", name_en: "Agriculture Development Bank", type: "bank", address_ne: "सदरमुकाम", address_en: "District HQ", phone: "—" },
+    { name_ne: "राष्ट्रिय वाणिज्य बैंक", name_en: "Rastriya Banijya Bank", type: "bank", address_ne: "सदरमुकाम", address_en: "District HQ", phone: "—" }
+  ],
+  court: [
+    { name_ne: "उच्च अदालत", name_en: "High Court", type: "court", address_ne: "प्रदेश राजधानी", address_en: "Province Capital", phone: "—" },
+    { name_ne: "जिल्ला अदालत", name_en: "District Court", type: "court", address_ne: "सदरमुकाम", address_en: "District HQ", phone: "—" }
+  ]
 };
 
-// ┌─────────────────────────────────────────────┐
-// │  ASYNC DATA LOADING                         │
-// └─────────────────────────────────────────────┘
-async function loadData() {
-  showState("loading");
-  try {
-    const response = await fetch("data.json");
-    if (!response.ok) {
-      throw new Error(`Fetch failed — HTTP ${response.status}`);
-    }
-    const json = await response.json();
-    allOffices = Array.isArray(json.offices) ? json.offices : [];
-    document.getElementById("stat-offices").textContent = allOffices.length;
-    applyFilters();
-  } catch (err) {
-    console.error("[npSarkar] Could not load data.json:", err);
-    showState("error");
-  }
+// State
+let state = { province: null, district: null, ward: null, section: null };
+let history = [];
+
+// ── PROVINCE SELECT ───────────────────────────────────────────
+function selectProvince(id) {
+  state = { province: id, district: null, ward: null, section: null };
+  history = ['home'];
+
+  // Map highlight
+  document.querySelectorAll('.province-shape').forEach(s => s.classList.remove('selected'));
+  document.getElementById('map-' + id)?.classList.add('selected');
+
+  // Button highlight
+  document.querySelectorAll('.prov-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + id)?.classList.add('active');
+
+  const p = PROVINCES[id];
+  const lang = T[currentLang];
+  const pLang = lang.provinces[id];
+  const provName = pLang ? pLang.name : p.name;
+  const provHq   = pLang ? pLang.hq   : p.hq;
+  const distLabel = currentLang === 'ne' ? 'जिल्ला' : 'Districts';
+  const hospLabel = currentLang === 'ne' ? 'अस्पताल' : 'Hospitals';
+  const offLabel  = currentLang === 'ne' ? 'कार्यालय' : 'Offices';
+  const wardLabel = currentLang === 'ne' ? 'वडा' : 'Wards';
+  const hqLabel   = currentLang === 'ne' ? 'मुख्यालय' : 'HQ';
+
+  setBreadcrumb({ province: provName });
+  setHeader(`🏔 ${provName}`, `${hqLabel}: ${provHq} · ${p.districts.length} ${distLabel}`);
+  showBackBtn(true);
+  document.getElementById('back-btn').textContent = lang.back;
+
+  const districtCards = p.districts.map(d => {
+    const safeD = d.replace(/'/g, "\\'");
+    return `
+    <div class="district-card" onclick="selectDistrict('${safeD}')">
+      <h3>${d}</h3>
+      <p>${distLabel} · ${currentLang === 'ne' ? 'वडाहरू हेर्नुहोस्' : 'View wards'}</p>
+      <span class="district-badge">→</span>
+    </div>`;
+  }).join('');
+
+  setContent(`
+    <div class="province-home">
+      <div class="stat-card"><div><div class="stat-num">${p.districts.length}</div><div class="stat-label">${distLabel}</div></div><div class="stat-icon">📍</div></div>
+      <div class="stat-card red"><div><div class="stat-num">—</div><div class="stat-label">${hospLabel}</div></div><div class="stat-icon">🏥</div></div>
+      <div class="stat-card green"><div><div class="stat-num">—</div><div class="stat-label">${offLabel}</div></div><div class="stat-icon">🏛</div></div>
+      <div class="stat-card gold"><div><div class="stat-num">—</div><div class="stat-label">${wardLabel}</div></div><div class="stat-icon">🏠</div></div>
+    </div>
+    <div style="font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px;">${lang.select_dist}</div>
+    <div class="district-grid">${districtCards}</div>
+  `);
 }
 
-// ┌─────────────────────────────────────────────┐
-// │  PROVINCE → DISTRICT CASCADING              │
-// └─────────────────────────────────────────────┘
-function wireProvinceDistrict() {
-  const provSel  = document.getElementById("province-select");
-  const distSel  = document.getElementById("district-select");
+// ── DISTRICT SELECT ───────────────────────────────────────────
+function selectDistrict(name) {
+  state.district = name;
+  state.ward     = null;
+  history.push('province');
 
-  provSel.addEventListener("change", function () {
-    activeProv = this.value;
-    activeDist = "";
-    rebuildDistrictDropdown(this.value);
-    distSel.value = "";
-    applyFilters();
-  });
+  const p = PROVINCES[state.province];
+  const lang = T[currentLang];
+  const pLang = lang.provinces[state.province];
+  const provName = pLang ? pLang.name : p.name;
+  const ne = currentLang === 'ne';
 
-  distSel.addEventListener("change", function () {
-    activeDist = this.value;
-    applyFilters();
-  });
+  setBreadcrumb({ province: provName, district: name });
+  setHeader(`📍 ${name} ${ne?'जिल्ला':'District'}`, `${provName} ${ne?'अन्तर्गत':'Province'}`);
+  document.getElementById('back-btn').textContent = lang.back;
+
+  const wards = Array.from({length: 15}, (_, i) => i + 1);
+  const wardItems = wards.map(w => `
+    <div class="ward-item" onclick="selectWard(${w})">
+      <div>
+        <h4>${ne?'वडा नं.':'Ward No.'} ${w}</h4>
+        <p>${name} · ${ne?'वडा कार्यालय':'Ward Office'}</p>
+      </div>
+      <div class="ward-actions">
+        <span class="tag tag-hospital">🏥 ${ne?'अस्पताल':'Hospital'}</span>
+        <span class="tag tag-office">🏛 ${ne?'कार्यालय':'Office'}</span>
+      </div>
+    </div>
+  `).join('');
+
+  setContent(`
+    <div style="display:flex;gap:12px;margin-bottom:16px;">
+      <div class="service-card hospital" style="flex:1;cursor:pointer" onclick="showOfficeList('hospital','${name}')"><div class="service-icon">🏥</div><div class="service-name">${ne?'अस्पताल':'Hospital'}</div></div>
+      <div class="service-card office" style="flex:1;cursor:pointer" onclick="showOfficeList('office','${name}')"><div class="service-icon">🏛</div><div class="service-name">${ne?'कार्यालय':'Office'}</div></div>
+      <div class="service-card bank" style="flex:1;cursor:pointer" onclick="showOfficeList('bank','${name}')"><div class="service-icon">🏦</div><div class="service-name">${ne?'बैंक':'Bank'}</div></div>
+      <div class="service-card court" style="flex:1;cursor:pointer" onclick="showOfficeList('court','${name}')"><div class="service-icon">⚖</div><div class="service-name">${ne?'अदालत':'Court'}</div></div>
+    </div>
+    <div style="font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px;">${lang.wards_title}</div>
+    <div class="ward-list">${wardItems}</div>
+  `);
 }
 
-function rebuildDistrictDropdown(provinceId) {
-  const distSel = document.getElementById("district-select");
-  distSel.innerHTML = `<option value="">All Districts &nbsp;— सबै जिल्ला</option>`;
-  if (!provinceId || !PROVINCE_MAP[provinceId]) return;
+// ── WARD SELECT ───────────────────────────────────────────────
+function selectWard(num) {
+  state.ward = num;
+  history.push('district');
 
-  PROVINCE_MAP[provinceId].districts.forEach(d => {
-    const opt = document.createElement("option");
-    opt.value = d.en;
-    opt.textContent = `${d.en}  (${d.np})`;
-    distSel.appendChild(opt);
-  });
-}
+  const p = PROVINCES[state.province];
+  const lang = T[currentLang];
+  const pLang = lang.provinces[state.province];
+  const provName = pLang ? pLang.name : p.name;
+  const ne = currentLang === 'ne';
 
-// ┌─────────────────────────────────────────────┐
-// │  CATEGORY BADGES                            │
-// └─────────────────────────────────────────────┘
-function buildCategoryBadges() {
-  const container = document.getElementById("category-badges");
-  container.innerHTML = "";
-  CATEGORIES.forEach(cat => {
-    const btn = document.createElement("button");
-    btn.className = "badge-btn";
-    btn.dataset.cat = cat.key;
-    btn.innerHTML = `
-      <span>${cat.icon}</span>
-      <span>${cat.key}</span>
-      <span class="np-label np">${cat.np}</span>
-    `;
-    btn.addEventListener("click", () => toggleCategory(cat.key));
-    container.appendChild(btn);
-  });
-}
+  setBreadcrumb({ province: provName, district: state.district, ward: `${ne?'वडा':'Ward'} ${num}` });
+  setHeader(`🏠 ${ne?'वडा नं.':'Ward No.'} ${num}`, `${state.district} · ${provName}`);
+  document.getElementById('back-btn').textContent = lang.back;
 
-function toggleCategory(key) {
-  activeCat = activeCat === key ? null : key;
-  document.querySelectorAll(".badge-btn").forEach(btn => {
-    btn.classList.toggle("active", btn.dataset.cat === activeCat);
-  });
-  applyFilters();
-}
-
-// ┌─────────────────────────────────────────────┐
-// │  SEARCH WIRING                              │
-// └─────────────────────────────────────────────┘
-function wireSearch() {
-  const input   = document.getElementById("search-input");
-  const clearBtn = document.getElementById("btn-clear-search");
-
-  input.addEventListener("input", function () {
-    activeQuery = this.value.trim().toLowerCase();
-    clearBtn.classList.toggle("hidden", activeQuery.length === 0);
-    clearBtn.classList.toggle("flex",   activeQuery.length > 0);
-    applyFilters();
-  });
-}
-
-function clearSearch() {
-  document.getElementById("search-input").value = "";
-  document.getElementById("btn-clear-search").classList.add("hidden");
-  document.getElementById("btn-clear-search").classList.remove("flex");
-  activeQuery = "";
-  applyFilters();
-}
-
-// ┌─────────────────────────────────────────────┐
-// │  MAIN FILTER ENGINE                         │
-// └─────────────────────────────────────────────┘
-function applyFilters() {
-  const filtered = allOffices.filter(office => {
-    // 1. Category
-    if (activeCat && office.category !== activeCat) return false;
-    // 2. Province
-    if (activeProv && office.province !== activeProv) return false;
-    // 3. District
-    if (activeDist && office.district !== activeDist) return false;
-    // 4. Full-text search
-    if (activeQuery) {
-      const haystack = buildSearchHaystack(office);
-      if (!haystack.includes(activeQuery)) return false;
-    }
-    return true;
-  });
-
-  renderResults(filtered);
-  updateMetaRow(filtered.length);
-}
-
-function buildSearchHaystack(o) {
-  const parts = [
-    o.name_en, o.name_np,
-    o.district, o.district_np,
-    o.province_name_en, o.province_name_np,
-    o.address_en, o.address_np,
-    o.info_en, o.info_np,
-    o.category,
-    o.email, o.website,
-    ...(o.phone   || []),
-    ...(o.seo_tags || []),
-    ...(o.services || []).flatMap(s => [s.name_en, s.name_np]),
+  const offices = ne ? [
+    { name: "वडा कार्यालय",          type: "govt",     address: `${state.district} वडा ${num}`, phone: "—" },
+    { name: "सामुदायिक स्वास्थ्य एकाइ", type: "hospital", address: `वडा ${num}`, phone: "—" },
+    { name: "विद्यालय",              type: "govt",     address: `वडा ${num}`, phone: "—" },
+  ] : [
+    { name: "Ward Office",           type: "govt",     address: `${state.district} Ward ${num}`, phone: "—" },
+    { name: "Community Health Unit", type: "hospital", address: `Ward ${num}`, phone: "—" },
+    { name: "School",                type: "govt",     address: `Ward ${num}`, phone: "—" },
   ];
-  return parts.filter(Boolean).join(" ").toLowerCase();
+
+  const officeHTML = offices.map(o => `
+    <div class="office-item">
+      <div class="office-icon ${o.type === 'hospital' ? 'hospital' : 'govt'}">${o.type === 'hospital' ? '🏥' : '🏛'}</div>
+      <div class="office-info">
+        <h4>${o.name}</h4>
+        <p>📍 ${o.address} · 📞 ${o.phone}</p>
+        <div class="office-tags">
+          <span class="tag tag-office">${ne?'सरकारी':'Government'}</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  setContent(`
+    <div style="font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px;">${lang.ward_offices}</div>
+    <div class="office-list">${officeHTML}</div>
+  `);
 }
 
-// ┌─────────────────────────────────────────────┐
-// │  RENDER RESULTS                             │
-// └─────────────────────────────────────────────┘
-function renderResults(offices) {
-  const grid = document.getElementById("results-grid");
-  grid.innerHTML = "";
+// ── OFFICE LIST ───────────────────────────────────────────────
+function showOfficeList(type, district) {
+  const icons    = { hospital: '🏥', office: '🏛', bank: '🏦', court: '⚖' };
+  const ne = currentLang === 'ne';
+  const names    = ne
+    ? { hospital: 'अस्पताल', office: 'सरकारी कार्यालय', bank: 'बैंक', court: 'अदालत' }
+    : { hospital: 'Hospitals', office: 'Govt Offices', bank: 'Banks', court: 'Courts' };
+  const list     = OFFICES[type] || [];
 
-  if (offices.length === 0) {
-    showState("empty");
+  const html = list.map(o => `
+    <div class="office-item">
+      <div class="office-icon ${o.type}">${icons[type] || '🏛'}</div>
+      <div class="office-info">
+        <h4>${o.name}</h4>
+        <p>📍 ${district} · 📞 ${o.phone}</p>
+        <div class="office-tags">
+          <span class="tag tag-office">${names[type]}</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  setHeader(`${icons[type]} ${district} — ${names[type]}`, state.province ? PROVINCES[state.province].name : '');
+  setContent(`<div class="office-list">${html}</div>`);
+}
+
+// ── SECTION ───────────────────────────────────────────────────
+function showSection(type) {
+  const ne = currentLang === 'ne';
+  const map = ne ? {
+    hospitals: { icon: '🏥', name: 'अस्पतालहरू',        key: 'hospital' },
+    offices:   { icon: '🏛', name: 'सरकारी कार्यालयहरू', key: 'office'  },
+    banks:     { icon: '🏦', name: 'बैंकहरू',            key: 'bank'    },
+    courts:    { icon: '⚖', name: 'अदालतहरू',           key: 'court'   },
+    news:      { icon: '📰', name: 'समाचार',             key: 'news'    },
+    vacancy:   { icon: '💼', name: 'रिक्त पद',           key: 'vacancy' },
+    schools:   { icon: '🏫', name: 'विद्यालयहरू',        key: 'school'  },
+    transport: { icon: '🚌', name: 'यातायात',            key: 'transport' }
+  } : {
+    hospitals: { icon: '🏥', name: 'Hospitals',        key: 'hospital' },
+    offices:   { icon: '🏛', name: 'Govt Offices',     key: 'office'  },
+    banks:     { icon: '🏦', name: 'Banks',            key: 'bank'    },
+    courts:    { icon: '⚖', name: 'Courts',            key: 'court'   },
+    news:      { icon: '📰', name: 'News',             key: 'news'    },
+    vacancy:   { icon: '💼', name: 'Vacancies',        key: 'vacancy' },
+    schools:   { icon: '🏫', name: 'Schools',          key: 'school'  },
+    transport: { icon: '🚌', name: 'Transport',        key: 'transport' }
+  };
+
+  const info = map[type] || { icon: '📋', name: type, key: type };
+  setHeader(`${info.icon} ${info.name}`, 'सबै प्रदेश');
+
+  if (type === 'news') {
+    setHeader('📰 ' + (currentLang==='ne'?'समाचार':'News'), currentLang==='ne'?'सबै समाचार':'All News');
+    setContent(`<div id="news-list">${renderNewsHTML(null)}</div>`);
     return;
   }
 
-  showState("results");
-  offices.forEach((office, idx) => {
-    const card = buildCard(office);
-    card.style.animationDelay = `${Math.min(idx * 45, 600)}ms`;
-    grid.appendChild(card);
+  if (type === 'vacancy') {
+    const vne = currentLang === 'ne';
+    setContent(vne ? `
+      <div class="office-item"><div class="office-icon govt">💼</div><div class="office-info"><h4>लोक सेवा आयोग — प्रशासन सेवा</h4><p>पद: ५०० · अन्तिम मिति: २०८१ पुस ३०</p><div class="office-tags"><span class="tag tag-office">खुला</span></div></div></div>
+      <div class="office-item"><div class="office-icon govt">💼</div><div class="office-info"><h4>स्वास्थ्य सेवा — नर्स</h4><p>पद: २०० · अन्तिम मिति: २०८१ पुस १५</p><div class="office-tags"><span class="tag tag-hospital">खुला</span></div></div></div>
+      <div class="office-item"><div class="office-icon govt">💼</div><div class="office-info"><h4>शिक्षा सेवा — शिक्षक</h4><p>पद: ३५० · अन्तिम मिति: २०८१ माघ ५</p><div class="office-tags"><span class="tag tag-office">खुला</span></div></div></div>
+    ` : `
+      <div class="office-item"><div class="office-icon govt">💼</div><div class="office-info"><h4>PSC — Administration Service</h4><p>Posts: 500 · Deadline: Poush 30, 2081</p><div class="office-tags"><span class="tag tag-office">Open</span></div></div></div>
+      <div class="office-item"><div class="office-icon govt">💼</div><div class="office-info"><h4>Health Service — Nurse</h4><p>Posts: 200 · Deadline: Poush 15, 2081</p><div class="office-tags"><span class="tag tag-hospital">Open</span></div></div></div>
+      <div class="office-item"><div class="office-icon govt">💼</div><div class="office-info"><h4>Education Service — Teacher</h4><p>Posts: 350 · Deadline: Magh 5, 2081</p><div class="office-tags"><span class="tag tag-office">Open</span></div></div></div>
+    `);
+    return;
+  }
+
+  const list = OFFICES[info.key] || [];
+  if (!list.length) {
+    setContent(`<div class="loading">${info.icon} ${info.name} को तथ्याङ्क लोड हुँदैछ...</div>`);
+    return;
+  }
+
+  const iconMap = { hospital: '🏥', govt: '🏛', bank: '🏦', court: '⚖' };
+  const html = list.map(o => `
+    <div class="office-item">
+      <div class="office-icon ${o.type}">${iconMap[o.type] || '🏛'}</div>
+      <div class="office-info">
+        <h4>${ne ? o.name_ne : o.name_en}</h4>
+        <p>📍 ${ne ? o.address_ne : o.address_en} · 📞 ${o.phone}</p>
+      </div>
+    </div>
+  `).join('');
+
+  setContent(`<div class="office-list">${html}</div>`);
+}
+
+// ── NAVIGATION ────────────────────────────────────────────────
+function goHome() {
+  state = { province: null, district: null, ward: null, section: null };
+  document.querySelectorAll('.province-shape').forEach(s => s.classList.remove('selected'));
+  document.querySelectorAll('.prov-btn').forEach(b => b.classList.remove('active'));
+  setBreadcrumb({});
+  const lang = T[currentLang];
+  setHeader(lang.home_title, lang.home_sub);
+  showBackBtn(false);
+  document.getElementById('back-btn').textContent = lang.back;
+
+  const ne = currentLang === 'ne';
+  setContent(`
+    <div class="province-home">
+      <div class="stat-card"><div><div class="stat-num">${ne?'७':'7'}</div><div class="stat-label">${lang.stat_province}</div></div><div class="stat-icon">🗺</div></div>
+      <div class="stat-card red"><div><div class="stat-num">${ne?'७७':'77'}</div><div class="stat-label">${lang.stat_district}</div></div><div class="stat-icon">📍</div></div>
+      <div class="stat-card green"><div><div class="stat-num">${ne?'७५३':'753'}</div><div class="stat-label">${lang.stat_local}</div></div><div class="stat-icon">🏘</div></div>
+      <div class="stat-card gold"><div><div class="stat-num">6915</div><div class="stat-label">${lang.stat_ward}</div></div><div class="stat-icon">🏠</div></div>
+    </div>
+    <div style="font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px;">${lang.news_title}</div>
+    <div id="news-list">${renderNewsHTML()}</div>
+  `);
+}
+
+function goProvince() {
+  if (state.province) selectProvince(state.province);
+}
+
+function goDistrict() {
+  if (state.district) selectDistrict(state.district);
+}
+
+function goBack() {
+  const prev = history.pop();
+  if (prev === 'home' || !prev) goHome();
+  else if (prev === 'province') goProvince();
+  else if (prev === 'district') goDistrict();
+}
+
+// ── HELPERS ───────────────────────────────────────────────────
+function setHeader(title, sub) {
+  document.getElementById('content-title').textContent = title;
+  document.getElementById('content-sub').textContent   = sub;
+}
+
+function setContent(html) {
+  document.getElementById('content-body').innerHTML = html;
+}
+
+function showBackBtn(show) {
+  document.getElementById('back-btn').style.display = show ? 'block' : 'none';
+}
+
+function setBreadcrumb({ province, district, ward }) {
+  const bcProv = document.getElementById('bc-province');
+  const bcDist = document.getElementById('bc-district');
+  const bcWard = document.getElementById('bc-ward');
+
+  if (province) {
+    bcProv.style.display = 'inline';
+    bcProv.querySelector('span').textContent = province;
+  } else { bcProv.style.display = 'none'; }
+
+  if (district) {
+    bcDist.style.display = 'inline';
+    bcDist.querySelector('span').textContent = district;
+  } else { bcDist.style.display = 'none'; }
+
+  if (ward) {
+    bcWard.style.display = 'inline';
+    bcWard.querySelector('span').textContent = ward;
+  } else { bcWard.style.display = 'none'; }
+}
+
+// Province dropdown fill
+function showProvinceDropdown(e) {
+  e.preventDefault();
+  const menu = document.getElementById('province-dropdown');
+  if (!menu.innerHTML) {
+    Object.entries(PROVINCES).forEach(([id, p]) => {
+      const a = document.createElement('a');
+      a.href = '#';
+      a.textContent = p.name;
+      a.onclick = (ev) => { ev.preventDefault(); selectProvince(id); };
+      menu.appendChild(a);
+    });
+  }
+}
+
+// Search
+function handleSearch(q) {
+  if (!q) return;
+  q = q.toLowerCase();
+  Object.entries(PROVINCES).forEach(([id, p]) => {
+    if (p.name.includes(q) || p.districts.some(d => d.includes(q))) {
+      selectProvince(id);
+    }
   });
 }
 
-// ┌─────────────────────────────────────────────┐
-// │  BUILD A SINGLE OFFICE CARD                 │
-// └─────────────────────────────────────────────┘
-function buildCard(o) {
-  const wrap = document.createElement("div");
-  wrap.className = "office-card";
 
-  const cat     = CATEGORIES.find(c => c.key === o.category) || { icon: "🏢", cssClass: "ch-default" };
-  const provNum = parseInt(o.province, 10);
-  const hasServices = Array.isArray(o.services) && o.services.length > 0;
-  const hasMap      = o.map_embed && o.map_embed.trim() !== "";
-
-  /* ── Card header ── */
-  const headerHtml = `
-    <div class="${cat.cssClass} p-5">
-      <div class="flex items-start justify-between gap-2">
-        <div class="flex-1 min-w-0">
-          <span class="inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-1 rounded-full bg-white/20 text-white mb-2.5 uppercase tracking-wider">
-            ${cat.icon} ${o.category}
-          </span>
-          <h3 class="text-white font-bold text-[15px] leading-snug">${escHtml(o.name_en)}</h3>
-          <p class="text-white/75 text-[13px] np mt-0.5 leading-snug">${escHtml(o.name_np)}</p>
-        </div>
-      </div>
-      <div class="flex flex-wrap gap-1.5 mt-3">
-        <span class="text-[11px] bg-white/15 text-white px-2.5 py-0.5 rounded-full flex items-center gap-1">
-          📍 ${escHtml(o.district)}
-        </span>
-        <span class="text-[11px] bg-white/15 text-white px-2.5 py-0.5 rounded-full np">${escHtml(o.district_np)}</span>
-        <span class="text-[11px] bg-white/15 text-white px-2.5 py-0.5 rounded-full prov-${provNum}">
-          P${provNum} · ${escHtml(o.province_name_en)}
-        </span>
-      </div>
-    </div>`;
-
-  /* ── Info block ── */
-  const infoHtml = `
-    <div>
-      <p class="text-slate-600 text-[13px] leading-relaxed">${escHtml(o.info_en)}</p>
-      <p class="np text-slate-400 text-[12px] mt-1 leading-relaxed">${escHtml(o.info_np)}</p>
-    </div>`;
-
-  /* ── Contact details ── */
-  let contactHtml = `<div class="space-y-2">`;
-  if (o.phone && o.phone.length > 0) {
-    const links = o.phone.map(p =>
-      `<a href="tel:${escAttr(p)}" class="text-brand-700 font-semibold text-[13px] hover:text-brand-900 transition-colors">${escHtml(p)}</a>`
-    ).join('<span class="text-slate-200 mx-1">|</span>');
-    contactHtml += `<div class="flex items-start gap-2"><span class="text-slate-400 text-sm mt-px">📞</span><div class="flex flex-wrap items-center gap-y-0.5">${links}</div></div>`;
-  }
-  if (o.email) {
-    contactHtml += `<div class="flex items-center gap-2">
-      <span class="text-slate-400 text-sm">📧</span>
-      <a href="mailto:${escAttr(o.email)}" class="text-brand-700 text-[13px] hover:text-brand-900 transition-colors truncate">${escHtml(o.email)}</a>
-    </div>`;
-  }
-  if (o.address_en) {
-    contactHtml += `<div class="flex items-start gap-2">
-      <span class="text-slate-400 text-sm mt-px">🏠</span>
-      <div>
-        <span class="text-slate-600 text-[13px]">${escHtml(o.address_en)}</span>
-        ${o.address_np ? `<span class="np text-slate-400 text-[11px] block">${escHtml(o.address_np)}</span>` : ""}
-      </div>
-    </div>`;
-  }
-  contactHtml += `</div>`;
-
-  /* ── Services accordion ── */
-  let servicesHtml = "";
-  if (hasServices) {
-    const rows = o.services.map((svc, si) => {
-      const accordionId = `${o.id}__${si}`;
-      const docsEn = (svc.documents_en || []).map(d =>
-        `<li class="flex items-start gap-1.5 text-[12px] text-slate-600"><span class="text-emerald-500 mt-0.5 flex-shrink-0">✓</span>${escHtml(d)}</li>`
-      ).join("");
-      const docsNp = (svc.documents_np || []).map(d =>
-        `<li class="flex items-start gap-1.5 text-[12px] text-slate-600 np"><span class="text-emerald-500 mt-0.5 flex-shrink-0">✓</span>${escHtml(d)}</li>`
-      ).join("");
-
-      return `
-        <div class="border-b border-slate-100 last:border-b-0">
-          <div
-            class="accordion-trigger flex items-center justify-between px-4 py-3 rounded-none hover:bg-slate-50"
-            onclick="toggleAccordion('${accordionId}')"
-            role="button"
-            aria-expanded="false"
-            id="trigger-${accordionId}"
-          >
-            <div>
-              <span class="text-[13px] font-semibold text-slate-700">${escHtml(svc.name_en)}</span>
-              <span class="np text-[11px] text-slate-400 ml-2">${escHtml(svc.name_np)}</span>
-            </div>
-            <span id="icon-${accordionId}" class="text-brand-700 text-lg leading-none select-none flex-shrink-0 ml-2">➕</span>
-          </div>
-          <div class="accordion-body" id="body-${accordionId}">
-            <div class="px-4 pb-4 pt-1">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">📄 Documents (English)</p>
-                  <ul class="space-y-1.5">${docsEn}</ul>
-                </div>
-                <div>
-                  <p class="np text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">📄 कागजातहरू (नेपाली)</p>
-                  <ul class="space-y-1.5">${docsNp}</ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>`;
-    }).join("");
-
-    servicesHtml = `
-      <div class="rounded-xl border border-slate-100 overflow-hidden">
-        <div class="px-4 py-2.5 bg-slate-50 border-b border-slate-100 flex items-center gap-1.5">
-          <span class="text-sm">🗂️</span>
-          <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Services &nbsp;<span class="np font-medium normal-case tracking-normal">सेवाहरू</span></span>
-        </div>
-        ${rows}
-      </div>`;
-  }
-
-  /* ── Map embed ── */
-  let mapHtml = "";
-  if (hasMap) {
-    mapHtml = `
-      <div>
-        <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">🗺️ Location Map</p>
-        <div class="map-ratio">
-          <iframe
-            src="${escAttr(o.map_embed)}"
-            loading="lazy"
-            allowfullscreen=""
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Map: ${escAttr(o.name_en)}"
-          ></iframe>
-        </div>
-      </div>`;
-  }
-
-  /* ── Action buttons ── */
-  let btnHtml = `<div class="flex flex-wrap gap-2 pt-1">`;
-  if (o.website) {
-    btnHtml += `<a href="${escAttr(o.website)}" target="_blank" rel="noopener noreferrer" class="btn-primary btn-web flex-1 min-w-[110px]">🌐 Website</a>`;
-  }
-  if (o.phone && o.phone.length > 0) {
-    btnHtml += `<a href="tel:${escAttr(o.phone[0])}" class="btn-primary btn-call flex-1 min-w-[110px]">📞 Call</a>`;
-  }
-  const mapTarget = o.map_link || `https://maps.google.com/?q=${encodeURIComponent(o.name_en + ' ' + o.district + ' Nepal')}`;
-  btnHtml += `<a href="${escAttr(mapTarget)}" target="_blank" rel="noopener noreferrer" class="btn-primary btn-map">🗺️ Map</a>`;
-  if (o.email) {
-    btnHtml += `<a href="mailto:${escAttr(o.email)}" class="btn-primary btn-email">📧</a>`;
-  }
-  btnHtml += `</div>`;
-
-  /* ── Assemble full card ── */
-  wrap.innerHTML = `
-    ${headerHtml}
-    <div class="card-body">
-      ${infoHtml}
-      ${contactHtml}
-      ${servicesHtml}
-      ${mapHtml}
-      ${btnHtml}
-    </div>`;
-
-  return wrap;
-}
-
-// ┌─────────────────────────────────────────────┐
-// │  ACCORDION TOGGLE                           │
-// └─────────────────────────────────────────────┘
-function toggleAccordion(id) {
-  const body    = document.getElementById(`body-${id}`);
-  const icon    = document.getElementById(`icon-${id}`);
-  const trigger = document.getElementById(`trigger-${id}`);
-  if (!body) return;
-
-  const isOpen = openAccordions.has(id);
+// ── SIDEBAR ───────────────────────────────────────────────────
+function toggleSidebar() {
+  const sidebar  = document.getElementById('province-sidebar');
+  const overlay  = document.getElementById('sidebar-overlay');
+  const hamburger = document.getElementById('hamburger');
+  const isOpen   = sidebar.classList.contains('open');
   if (isOpen) {
-    body.classList.remove("open");
-    icon.textContent = "➕";
-    trigger && trigger.setAttribute("aria-expanded", "false");
-    openAccordions.delete(id);
+    closeSidebar();
   } else {
-    body.classList.add("open");
-    icon.textContent = "➖";
-    trigger && trigger.setAttribute("aria-expanded", "true");
-    openAccordions.add(id);
+    sidebar.classList.add('open');
+    overlay.classList.add('open');
+    hamburger.classList.add('open');
   }
 }
 
-// ┌─────────────────────────────────────────────┐
-// │  UI STATE SWITCHER                          │
-// └─────────────────────────────────────────────┘
-function showState(state) {
-  const states = { loading: "state-loading", error: "state-error", empty: "state-empty", results: "results-grid" };
-  Object.values(states).forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.classList.add("hidden");
+function closeSidebar() {
+  document.getElementById('province-sidebar').classList.remove('open');
+  document.getElementById('sidebar-overlay').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+
+function sidebarSelectProvince(id) {
+  // Highlight sidebar button
+  document.querySelectorAll('.sidebar-prov-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sb-' + id)?.classList.add('active');
+  selectProvince(id);
+  closeSidebar();
+}
+
+
+// ── LANGUAGE SYSTEM ───────────────────────────────────────────
+let currentLang = 'ne';
+
+const T = {
+  ne: {
+    // Topbar
+    topbar_left:  '🇳🇵 Digital Nepal Index — नेपाल सरकारी सेवा निर्देशिका',
+    topbar_right: 'सम्पर्क: 1100 | info@nepal.gov.np',
+    // Nav
+    nav_title:    'Digital Nepal Index',
+    nav_sub:      'Nepal को सरकारी सेवा निर्देशिका',
+    nav_province: '🗺 प्रदेश ▾',
+    nav_hospital: '🏥 अस्पताल',
+    nav_office:   '🏛 सरकारी कार्यालय',
+    nav_news:     '📰 समाचार',
+    nav_court:    '⚖ अदालत',
+    nav_bank:     '🏦 बैंक',
+    nav_vacancy:  '💼 रिक्त पद',
+    // Hero
+    hero_title:   'Digital Nepal Index',
+    hero_sub:     '७ प्रदेश · ७७ जिल्ला · ७५३ स्थानीय तह',
+    hero_search:  'प्रदेश, जिल्ला, कार्यालय, अस्पताल खोज्नुहोस्...',
+    hero_btn:     '🔍 खोज',
+    // Map
+    map_header:   '🗺 नेपालको नक्सा — प्रदेश छान्नुहोस्',
+    prov_label:   '७ प्रदेश',
+    // Service cards
+    svc_hospital: 'अस्पताल',
+    svc_office:   'सरकारी कार्यालय',
+    svc_bank:     'बैंक',
+    svc_vacancy:  'रिक्त पद',
+    svc_news:     'समाचार',
+    svc_court:    'अदालत',
+    svc_school:   'विद्यालय',
+    svc_transport:'यातायात',
+    // Home stats
+    stat_province:'प्रदेश',
+    stat_district:'जिल्ला',
+    stat_local:   'स्थानीय तह',
+    stat_ward:    'वडा',
+    // Portal
+    p1_name:  'लोक सेवा आयोग',
+    p1_desc:  'लोक सेवा आयोगको आधिकारिक पोर्टल। परीक्षा कार्यक्रम, नतिजा, र विज्ञापन हेर्न सकिन्छ।',
+    p1_open:  'psc.gov.np खोल्नुहोस् →',
+    p2_name:  'मेरो सेयर',
+    p2_desc:  'IPO आवेदन, DEMAT खाता, र सेयर बजारसम्बन्धी सबै सेवा एकै ठाउँमा।',
+    p2_open:  'meroshare.cdsc.com.np खोल्नुहोस् →',
+    p3_name:  'सवारी चालक अनुमतिपत्र',
+    p3_desc:  'नयाँ लाइसेन्स आवेदन, नवीकरण, र परीक्षाको समय तालिका हेर्न सकिन्छ।',
+    p3_open:  'dotm.gov.np खोल्नुहोस् →',
+    p4_name:  'DV Lottery',
+    p4_desc:  'अमेरिकी विविधता भिसा (DV) कार्यक्रमको आधिकारिक फारम भर्ने पोर्टल।',
+    p4_open:  'dvprogram.state.gov खोल्नुहोस् →',
+    p5_name:  'राहदानी (Passport)',
+    p5_desc:  'नयाँ राहदानीको लागि आवेदन, नवीकरण, र स्थिति जाँच गर्न सकिन्छ।',
+    p5_open:  'nepalpassport.gov.np खोल्नुहोस् →',
+    p6_name:  'श्रम स्वीकृति',
+    p6_desc:  'वैदेशिक रोजगारीका लागि श्रम स्वीकृति, नवीकरण र अभिमुखीकरण सम्बन्धी जानकारी।',
+    p6_open:  'dofe.gov.np खोल्नुहोस् →',
+    p7_name:  'प्रतिपक्ष्य',
+    p7_desc:  'नयाँ सरकारले १०० दिनमा कति काम गर्‍यो? प्रगति र वाचाहरू ट्र्याक गर्नुहोस्।',
+    p7_open:  'pratipakshya.com खोल्नुहोस् →',
+    // Sidebar
+    sb_provinces: '७ प्रदेश',
+    sb_services:  'सेवाहरू',
+    sb_hospital:  '🏥 अस्पताल',
+    sb_office:    '🏛 सरकारी कार्यालय',
+    sb_news:      '📰 समाचार',
+    sb_court:     '⚖ अदालत',
+    sb_bank:      '🏦 बैंक',
+    sb_vacancy:   '💼 रिक्त पद',
+    sb_school:    '🏫 विद्यालय',
+    // Province names
+    provinces: {
+      p1:  { name:'कोशी प्रदेश',        hq:'विराटनगर',     btn:'१. कोशी प्रदेश',        count:'१४ जिल्ला' },
+      p2:  { name:'मधेश प्रदेश',         hq:'जनकपुर',       btn:'२. मधेश प्रदेश',         count:'८ जिल्ला'  },
+      bag: { name:'बागमती प्रदेश',       hq:'हेटौँडा',      btn:'३. बागमती प्रदेश',       count:'१३ जिल्ला' },
+      gan: { name:'गण्डकी प्रदेश',       hq:'पोखरा',        btn:'४. गण्डकी प्रदेश',       count:'११ जिल्ला' },
+      lum: { name:'लुम्बिनी प्रदेश',     hq:'देउखुरी',      btn:'५. लुम्बिनी प्रदेश',     count:'१२ जिल्ला' },
+      kar: { name:'कर्णाली प्रदेश',      hq:'वीरेन्द्रनगर', btn:'६. कर्णाली प्रदेश',      count:'१० जिल्ला' },
+      sud: { name:'सुदूरपश्चिम प्रदेश',  hq:'धनगढी',        btn:'७. सुदूरपश्चिम प्रदेश',  count:'९ जिल्ला'  },
+    },
+    // content
+    home_title:   '🏠 गृहपृष्ठ — सबै प्रदेश',
+    home_sub:     'प्रदेश छान्नुहोस् वा नक्सामा क्लिक गर्नुहोस्',
+    news_title:   '📰 ताजा समाचार',
+    back:         '← पछाडि',
+    select_dist:  '📍 जिल्लाहरू छान्नुहोस्',
+    wards_title:  '🏠 वडाहरू',
+    ward_offices: '🏛 वडा स्तरका कार्यालय तथा सेवाहरू',
+    bc_home:      'गृहपृष्ठ',
+    search_placeholder: 'प्रदेश, जिल्ला, कार्यालय...',
+  },
+  en: {
+    topbar_left:  '🇳🇵 Digital Nepal Index — Nepal Government Services Directory',
+    topbar_right: 'Contact: 1100 | info@nepal.gov.np',
+    nav_title:    'Digital Nepal Index',
+    nav_sub:      'Nepal को सरकारी सेवा निर्देशिका',
+    nav_province: '🗺 Provinces ▾',
+    nav_hospital: '🏥 Hospitals',
+    nav_office:   '🏛 Govt Offices',
+    nav_news:     '📰 News',
+    nav_court:    '⚖ Courts',
+    nav_bank:     '🏦 Banks',
+    nav_vacancy:  '💼 Vacancies',
+    hero_title:   'Digital Nepal Index',
+    hero_sub:     '7 Provinces · 77 Districts · 753 Local Units',
+    hero_search:  'Search province, district, office, hospital...',
+    hero_btn:     '🔍 Search',
+    map_header:   '🗺 Map of Nepal — Select a Province',
+    prov_label:   '7 Provinces',
+    svc_hospital: 'Hospitals',
+    svc_office:   'Govt Offices',
+    svc_bank:     'Banks',
+    svc_vacancy:  'Vacancies',
+    svc_news:     'News',
+    svc_court:    'Courts',
+    svc_school:   'Schools',
+    svc_transport:'Transport',
+    stat_province:'Provinces',
+    stat_district:'Districts',
+    stat_local:   'Local Units',
+    stat_ward:    'Wards',
+    p1_name:  'Public Service Commission',
+    p1_desc:  'Official portal of the PSC. View exam schedules, results, and job advertisements.',
+    p1_open:  'Open psc.gov.np →',
+    p2_name:  'MeroShare',
+    p2_desc:  'Apply for IPOs, manage your DEMAT account, and access all share market services.',
+    p2_open:  'Open meroshare.cdsc.com.np →',
+    p3_name:  'Driving License',
+    p3_desc:  'Apply for a new license, renew existing ones, and check exam schedules.',
+    p3_open:  'Open dotm.gov.np →',
+    p4_name:  'DV Lottery',
+    p4_desc:  'Official portal to apply for the US Diversity Visa (DV) Lottery program.',
+    p4_open:  'Open dvprogram.state.gov →',
+    p5_name:  'Passport',
+    p5_desc:  'Apply for a new passport, renew existing ones, and check application status.',
+    p5_open:  'Open nepalpassport.gov.np →',
+    p6_name:  'Labour Approval',
+    p6_desc:  'Apply for foreign employment labour approval, renewal, and orientation details.',
+    p6_open:  'Open dofe.gov.np →',
+    p7_name:  'Pratipakshya',
+    p7_desc:  'How much has the new government done in 100 days? Track progress and promises.',
+    p7_open:  'Open pratipakshya.com →',
+    sb_provinces: '7 Provinces',
+    sb_services:  'Services',
+    sb_hospital:  '🏥 Hospitals',
+    sb_office:    '🏛 Govt Offices',
+    sb_news:      '📰 News',
+    sb_court:     '⚖ Courts',
+    sb_bank:      '🏦 Banks',
+    sb_vacancy:   '💼 Vacancies',
+    sb_school:    '🏫 Schools',
+    provinces: {
+      p1:  { name:'Koshi Province',        hq:'Biratnagar',    btn:'1. Koshi Province',        count:'14 Districts' },
+      p2:  { name:'Madhesh Province',      hq:'Janakpur',      btn:'2. Madhesh Province',      count:'8 Districts'  },
+      bag: { name:'Bagmati Province',      hq:'Hetauda',       btn:'3. Bagmati Province',      count:'13 Districts' },
+      gan: { name:'Gandaki Province',      hq:'Pokhara',       btn:'4. Gandaki Province',      count:'11 Districts' },
+      lum: { name:'Lumbini Province',      hq:'Deukhuri',      btn:'5. Lumbini Province',      count:'12 Districts' },
+      kar: { name:'Karnali Province',      hq:'Birendranagar', btn:'6. Karnali Province',      count:'10 Districts' },
+      sud: { name:'Sudurpashchim Province',hq:'Dhangadhi',     btn:'7. Sudurpashchim Province',count:'9 Districts'  },
+    },
+    home_title:   '🏠 Home — All Provinces',
+    home_sub:     'Select a province or click on the map',
+    news_title:   '📰 Latest News',
+    back:         '← Back',
+    select_dist:  '📍 Select a District',
+    wards_title:  '🏠 Wards',
+    ward_offices: '🏛 Ward Level Offices & Services',
+    bc_home:      'Home',
+    search_placeholder: 'Search province, district, office...',
+  }
+};
+
+function t(key) { return T[currentLang][key] || key; }
+
+function toggleLang() {
+  currentLang = currentLang === 'ne' ? 'en' : 'ne';
+  document.getElementById('lt-ne').classList.toggle('active', currentLang === 'ne');
+  document.getElementById('lt-en').classList.toggle('active', currentLang === 'en');
+  applyLang();
+  goHome();
+}
+
+function applyLang() {
+  const lang = T[currentLang];
+  const safe = (sel, fn) => { try { const el = document.querySelector(sel); if(el) fn(el); } catch(e){} };
+
+  // Topbar
+  const tb = document.querySelectorAll('.topbar span');
+  if(tb[0]) tb[0].textContent = lang.topbar_left;
+  if(tb[1]) tb[1].textContent = lang.topbar_right;
+
+  // Nav
+  safe('.nav-title', el => { el.childNodes[0].textContent = lang.nav_title; });
+  safe('.nav-title small', el => el.textContent = lang.nav_sub);
+
+  // Nav links
+  const navLinks = document.querySelectorAll('.nav-links > a');
+  const navKeys  = ['nav_hospital','nav_office','nav_news','nav_court','nav_bank','nav_vacancy'];
+  navLinks.forEach((a,i) => { if(navKeys[i]) a.textContent = lang[navKeys[i]]; });
+  safe('.nav-dropdown > a', el => el.textContent = lang.nav_province);
+
+  // Hero
+  safe('.hero h1', el => el.textContent = lang.hero_title);
+  safe('.hero p',  el => el.textContent = lang.hero_sub);
+  safe('#search-input', el => el.placeholder = lang.hero_search);
+  safe('.hero-search button', el => el.textContent = lang.hero_btn);
+
+  // Sidebar province buttons
+  Object.entries(lang.provinces).forEach(([id, p]) => {
+    const sb = document.getElementById('sb-' + id);
+    if(sb) {
+      const nameSpan = sb.querySelector('.sb-name');
+      if(nameSpan) nameSpan.textContent = p.btn;
+      const cnt = sb.querySelector('.count');
+      if(cnt) cnt.textContent = p.count;
+    }
   });
-  const target = states[state];
-  if (target) {
-    const el = document.getElementById(target);
-    if (el) {
-      el.classList.remove("hidden");
-      if (state === "results") el.classList.add("grid");
+
+  // Service cards
+  const svcNames = document.querySelectorAll('.service-name');
+  const svcKeys  = ['svc_hospital','svc_office','svc_bank','svc_vacancy','svc_news','svc_court','svc_school','svc_transport'];
+  svcNames.forEach((el,i) => { if(svcKeys[i]) el.textContent = lang[svcKeys[i]]; });
+
+  // Portal cards — re-render from PORTAL_DATA
+  renderPortalBar();
+
+  // Sidebar sections
+  const sbTitles = document.querySelectorAll('.sidebar-section-title');
+  if(sbTitles[0]) sbTitles[0].textContent = lang.sb_provinces;
+  if(sbTitles[1]) sbTitles[1].textContent = lang.sb_services;
+
+  const sbNavBtns = document.querySelectorAll('.sidebar-nav-btn');
+  const sbKeys = ['sb_hospital','sb_office','sb_news','sb_court','sb_bank','sb_vacancy','sb_school'];
+  sbNavBtns.forEach((btn,i) => { if(sbKeys[i]) btn.textContent = lang[sbKeys[i]]; });
+
+  // Breadcrumb home
+  const bcHome = document.querySelector('#breadcrumb span');
+  if(bcHome) bcHome.textContent = lang.bc_home;
+
+  // Update PROVINCES data with current language names
+  Object.entries(lang.provinces).forEach(([id, p]) => {
+    if(PROVINCES[id]) {
+      PROVINCES[id]._displayName = p.name;
+      PROVINCES[id]._displayHq   = p.hq;
+    }
+  });
+
+  // Province dropdown reset so it rebuilds
+  document.getElementById('province-dropdown').innerHTML = '';
+
+  // Re-render portal bar in new language
+  renderPortalBar();
+
+  // Re-render news in new language
+  const nl = document.getElementById('news-list');
+  if (nl) nl.innerHTML = renderNewsHTML();
+  const nh = document.getElementById('news-heading');
+  if (nh) nh.textContent = '📰 ' + (currentLang==='ne'?'ताजा समाचार':'Latest News');
+
+  // Location filter translation
+  const ne = currentLang === 'ne';
+  const fhs = document.getElementById('filter-heading-sub');
+  if(fhs) fhs.textContent = ne ? '| स्थान अनुसार फिल्टर' : '| Filter by Location';
+  const pl = document.getElementById('province-label');
+  if(pl) pl.textContent = ne ? 'PROVINCE प्रदेश' : 'PROVINCE';
+  const dl = document.getElementById('district-label');
+  if(dl) dl.textContent = ne ? 'DISTRICT जिल्ला' : 'DISTRICT';
+  const pa = document.getElementById('province-all');
+  if(pa) pa.textContent = ne ? 'All Provinces — सबै प्रदेश' : 'All Provinces';
+  const da = document.getElementById('district-all');
+  if(da) da.textContent = ne ? 'All Districts — सबै जिल्ला' : 'All Districts';
+
+  // Update province dropdown options
+  const provSel = document.getElementById('province-select');
+  if(provSel) {
+    const selectedVal = provSel.value;
+    const PNAMES = {
+      p1:'कोशी प्रदेश|Koshi Province', p2:'मधेश प्रदेश|Madhesh Province',
+      bag:'बागमती प्रदेश|Bagmati Province', gan:'गण्डकी प्रदेश|Gandaki Province',
+      lum:'लुम्बिनी प्रदेश|Lumbini Province', kar:'कर्णाली प्रदेश|Karnali Province',
+      sud:'सुदूरपश्चिम प्रदेश|Sudurpashchim Province'
+    };
+    Array.from(provSel.options).forEach(opt => {
+      if(opt.value && PNAMES[opt.value]) {
+        const parts = PNAMES[opt.value].split('|');
+        opt.textContent = ne ? parts[0] : parts[1];
+      }
+    });
+    provSel.value = selectedVal;
+
+    // Also refresh district dropdown if province is selected
+    if(selectedVal && PROVINCE_DISTRICTS[selectedVal]) {
+      const distSel = document.getElementById('district-select');
+      const selDist = distSel ? distSel.value : '';
+      distSel.innerHTML = `<option value="">${ne ? 'All Districts — सबै जिल्ला' : 'All Districts'}</option>`;
+      PROVINCE_DISTRICTS[selectedVal].forEach(([dne, den]) => {
+        const opt = document.createElement('option');
+        opt.value = dne;
+        opt.textContent = ne ? dne : den;
+        distSel.appendChild(opt);
+      });
+      distSel.value = selDist;
     }
   }
 }
 
-function updateMetaRow(count) {
-  const countEl  = document.getElementById("results-count");
-  const clearBtn = document.getElementById("clear-all-btn");
-  const hasFilters = activeQuery || activeCat || activeProv || activeDist;
 
-  countEl.textContent = count > 0
-    ? `Showing ${count} office${count !== 1 ? "s" : ""}`
-    : "";
+// ── PORTAL DATA — loaded from portals.json ──────────────────
+let PORTAL_DATA = [];
 
-  if (hasFilters) {
-    clearBtn.classList.remove("hidden");
-    clearBtn.classList.add("inline-flex");
+function loadPortals() {
+  PORTAL_DATA = [
+  {
+    "id": "p1",
+    "icon": "📋",
+    "icon_bg": "#e8f0fe",
+    "color": "#003893",
+    "url": "https://www.psc.gov.np",
+    "name_ne": "लोक सेवा आयोग",
+    "name_en": "Public Service Commission",
+    "sub_ne": "लोक सेवा आयोग नेपाल",
+    "sub_en": "Public Service Commission Nepal",
+    "desc_ne": "लोक सेवा आयोगको आधिकारिक पोर्टल। परीक्षा कार्यक्रम, नतिजा, र विज्ञापन हेर्न सकिन्छ।",
+    "desc_en": "Official portal of the PSC. View exam schedules, results, and job advertisements.",
+    "open_ne": "psc.gov.np खोल्नुहोस् →",
+    "open_en": "Open psc.gov.np →",
+    "docs_ne": ["नागरिकता प्रमाणपत्रको प्रतिलिपि", "शैक्षिक योग्यताको प्रमाणपत्र (SLC/SEE देखि माथि)", "चारित्रिक प्रमाणपत्र", "हालसालै खिचिएको पासपोर्ट साइजको फोटो (२–४ प्रति)", "दरखास्त दस्तुर बुझाएको रसिद", "अनुभव प्रमाणपत्र (आवश्यक भएमा)"],
+    "docs_en": ["Copy of Citizenship Certificate", "Educational certificates (from SLC/SEE onwards)", "Character certificate", "Recent passport-size photos (2–4 copies)", "Application fee payment receipt", "Experience certificate (if required)"],
+    "steps_ne": ["psc.gov.np मा गई Online Registration गर्नुहोस्", "विज्ञापन नम्बर छानी दरखास्त फारम भर्नुहोस्", "Online वा बैंकमा दस्तुर बुझाउनुहोस्", "प्रवेशपत्र Download गर्नुहोस्", "परीक्षा दिनुहोस् र नतिजाको प्रतीक्षा गर्नुहोस्"],
+    "steps_en": ["Register online at psc.gov.np", "Select advertisement and fill application form", "Pay fee online or at bank", "Download admit card", "Appear for exam and await results"],
+    "fee_ne": "दस्तुर: रु. ३००–१,५०० (पदअनुसार)",
+    "fee_en": "Fee: NPR 300–1,500 (varies by post)"
+  },
+  {
+    "id": "p2",
+    "icon": "📈",
+    "icon_bg": "#e8f8ee",
+    "color": "#27ae60",
+    "url": "https://meroshare.cdsc.com.np",
+    "name_ne": "मेरो सेयर",
+    "name_en": "MeroShare",
+    "sub_ne": "CDSC MeroShare Portal",
+    "sub_en": "CDSC MeroShare Portal",
+    "desc_ne": "IPO आवेदन, DEMAT खाता, र सेयर बजारसम्बन्धी सबै सेवा एकै ठाउँमा।",
+    "desc_en": "Apply for IPOs, manage your DEMAT account, and access all share market services.",
+    "open_ne": "meroshare.cdsc.com.np खोल्नुहोस् →",
+    "open_en": "Open meroshare.cdsc.com.np →",
+    "docs_ne": ["नागरिकता प्रमाणपत्रको प्रतिलिपि", "DEMAT खाता नम्बर (DP खातासहित)", "बैंक खाता नम्बर (ASBA को लागि)", "मोबाइल नम्बर र इमेल ठेगाना", "PAN नम्बर (भएमा)"],
+    "docs_en": ["Copy of Citizenship Certificate", "DEMAT account number (with DP details)", "Bank account number (for ASBA)", "Mobile number and email address", "PAN number (if available)"],
+    "steps_ne": ["आफ्नो DP बैंक/ब्रोकरमा DEMAT खाता खोल्नुहोस्", "meroshare.cdsc.com.np मा Account बनाउनुहोस्", "DEMAT नम्बर र DP ID प्रयोग गरी Login गर्नुहोस्", "IPO Section मा गई आवेदन गर्नुहोस्", "ASBA बैंक खाता चयन गरी Submit गर्नुहोस्"],
+    "steps_en": ["Open a DEMAT account at your DP (bank/broker)", "Create account at meroshare.cdsc.com.np", "Login using DEMAT number and DP ID", "Go to IPO Section and apply", "Select ASBA bank account and submit"],
+    "fee_ne": "DEMAT खाता: रु. ३००–५०० | IPO दस्तुर: निःशुल्क",
+    "fee_en": "DEMAT: NPR 300–500 (varies by DP) | IPO application: Free"
+  },
+  {
+    "id": "p3",
+    "icon": "🚗",
+    "icon_bg": "#fff3e0",
+    "color": "#e67e22",
+    "url": "https://www.dotm.gov.np",
+    "name_ne": "सवारी चालक अनुमतिपत्र",
+    "name_en": "Driving License",
+    "sub_ne": "यातायात व्यवस्था विभाग",
+    "sub_en": "Dept. of Transport Management",
+    "desc_ne": "नयाँ लाइसेन्स आवेदन, नवीकरण, र परीक्षाको समय तालिका हेर्न सकिन्छ।",
+    "desc_en": "Apply for a new license, renew existing ones, and check exam schedules.",
+    "open_ne": "dotm.gov.np खोल्नुहोस् →",
+    "open_en": "Open dotm.gov.np →",
+    "docs_ne": ["नागरिकता प्रमाणपत्रको प्रतिलिपि", "रक्त समूह प्रमाणित गरेको कागजात", "चिकित्सक प्रमाणपत्र (आँखा परीक्षणसहित)", "हालसालै खिचिएको पासपोर्ट साइजको फोटो (२ प्रति)", "दस्तुर तिरेको रसिद"],
+    "docs_en": ["Copy of Citizenship Certificate", "Blood group certificate", "Medical certificate (including eye test)", "Recent passport-size photos (2 copies)", "Fee payment receipt"],
+    "steps_ne": ["dotm.gov.np मा Online Registration गर्नुहोस्", "जिल्ला यातायात कार्यालयमा Written Test दिनुहोस्", "Learner Permit लिनुहोस् र ३ महिना सवारी चलाउनुहोस्", "Trial (Practical) परीक्षाको लागि समय बुकिङ गर्नुहोस्", "परीक्षा पास भएपछि लाइसेन्स प्राप्त गर्नुहोस्"],
+    "steps_en": ["Register online at dotm.gov.np", "Appear for written test at District Transport Office", "Obtain Learner Permit and drive for 3 months", "Book slot for Trial (Practical) exam", "Receive license after passing all tests"],
+    "fee_ne": "Written: रु. ५० | Trial: रु. ५०० | Licence: रु. ५००–१,५०० (श्रेणी अनुसार)",
+    "fee_en": "Written: NPR 50 | Trial: NPR 500 | Licence: NPR 500–1,500 (by category)"
+  },
+  {
+    "id": "p4",
+    "icon": "🇺🇸",
+    "icon_bg": "#fdecea",
+    "color": "#c0392b",
+    "url": "https://dvprogram.state.gov",
+    "name_ne": "DV Lottery",
+    "name_en": "DV Lottery",
+    "sub_ne": "US Diversity Visa Program",
+    "sub_en": "US Diversity Visa Program",
+    "desc_ne": "अमेरिकी विविधता भिसा (DV) कार्यक्रमको आधिकारिक फारम भर्ने पोर्टल।",
+    "desc_en": "Official portal to apply for the US Diversity Visa (DV) Lottery program.",
+    "open_ne": "dvprogram.state.gov खोल्नुहोस् →",
+    "open_en": "Open dvprogram.state.gov →",
+    "docs_ne": ["राहदानी (Passport) — मान्य भएको", "हालसालै खिचिएको फोटो (DV Photo Requirement अनुसार)", "जन्म मिति प्रमाण", "शैक्षिक योग्यता — कम्तीमा SLC/SEE पास वा २ वर्षको कार्य अनुभव", "परिवारका सदस्यहरूको विवरण"],
+    "docs_en": ["Valid Passport", "Recent photo (per DV Photo Requirements)", "Proof of date of birth", "Min. high school education or 2 years work experience", "Details of family members"],
+    "steps_ne": ["dvprogram.state.gov मा Online Form भर्नुहोस् (अक्टोबर–नोभेम्बरमा)", "फोटो DV Requirement अनुसार Upload गर्नुहोस्", "Confirmation Number सुरक्षित राख्नुहोस्", "मे महिनामा नतिजा जाँच गर्नुहोस्", "छनोट भएमा Embassy Interview को तयारी गर्नुहोस्"],
+    "steps_en": ["Fill online form at dvprogram.state.gov (October–November)", "Upload photo per DV requirements", "Save Confirmation Number safely", "Check results in May", "Prepare for Embassy Interview if selected"],
+    "fee_ne": "Online आवेदन: निःशुल्क | Embassy Interview: $330 (Visa Fee)",
+    "fee_en": "Online application: Free | Embassy Interview: $330 (Visa Fee)"
+  },
+  {
+    "id": "p5",
+    "icon": "🛂",
+    "icon_bg": "#e8f5e9",
+    "color": "#1565c0",
+    "url": "https://nepalpassport.gov.np",
+    "name_ne": "राहदानी (Passport)",
+    "name_en": "Passport",
+    "sub_ne": "राहदानी विभाग",
+    "sub_en": "Department of Passport",
+    "desc_ne": "नयाँ राहदानीको लागि आवेदन, नवीकरण, र स्थिति जाँच गर्न सकिन्छ।",
+    "desc_en": "Apply for a new passport, renew existing ones, and check application status.",
+    "open_ne": "nepalpassport.gov.np खोल्नुहोस् →",
+    "open_en": "Open nepalpassport.gov.np →",
+    "docs_ne": ["नागरिकता प्रमाणपत्रको सक्कल र प्रतिलिपि", "जन्म दर्ता प्रमाणपत्र", "विवाह दर्ता प्रमाणपत्र (विवाहित भएमा)", "हालसालै खिचिएको पासपोर्ट साइज फोटो (२ प्रति)", "पुरानो राहदानी (नवीकरणको लागि)", "दस्तुर तिरेको रसिद"],
+    "docs_en": ["Original & copy of Citizenship Certificate", "Birth registration certificate", "Marriage certificate (if married)", "Recent passport-size photos (2 copies)", "Old passport (for renewal)", "Fee payment receipt"],
+    "steps_ne": ["nepalpassport.gov.np मा Online Form भर्नुहोस्", "Appointment मिति तोक्नुहोस्", "राहदानी विभाग वा जिल्ला प्रशासन कार्यालयमा उपस्थित हुनुहोस्", "Biometric (औँठाछाप र फोटो) दिनुहोस्", "१–३ हप्तामा राहदानी प्राप्त गर्नुहोस्"],
+    "steps_en": ["Fill online form at nepalpassport.gov.np", "Book appointment date", "Visit Dept. of Passport or District Admin Office", "Provide Biometrics (fingerprint & photo)", "Receive passport within 1–3 weeks"],
+    "fee_ne": "साधारण (३५ दिन): रु. ५,०००\nअत्यावश्यक (२४ घण्टा): रु. १०,०००",
+    "fee_en": "Regular (35 days): NPR 5,000\nUrgent (24 hours): NPR 10,000"
+  },
+  {
+    "id": "p6",
+    "icon": "✈️",
+    "icon_bg": "#fff3e0",
+    "color": "#e65100",
+    "url": "https://dofe.gov.np",
+    "name_ne": "श्रम स्वीकृति",
+    "name_en": "Labour Approval",
+    "sub_ne": "वैदेशिक रोजगार विभाग",
+    "sub_en": "Dept. of Foreign Employment",
+    "desc_ne": "वैदेशिक रोजगारीका लागि श्रम स्वीकृति, नवीकरण र अभिमुखीकरण सम्बन्धी जानकारी।",
+    "desc_en": "Apply for foreign employment labour approval, renewal, and orientation details.",
+    "open_ne": "dofe.gov.np खोल्नुहोस् →",
+    "open_en": "Open dofe.gov.np →",
+    "docs_ne": ["नागरिकता प्रमाणपत्रको प्रतिलिपि", "मान्य राहदानी (कम्तीमा ६ महिना बाँकी)", "शैक्षिक योग्यताको प्रमाणपत्र", "चिकित्सा परीक्षण प्रमाणपत्र (Approved Medical Centre बाट)", "Police Clearance Certificate", "रोजगारदाताको Contract / Offer Letter", "Insurance प्रिमियम तिरेको प्रमाण", "अभिमुखीकरण तालिम प्रमाणपत्र"],
+    "docs_en": ["Copy of Citizenship Certificate", "Valid Passport (min. 6 months remaining)", "Educational certificates", "Medical fitness certificate (from approved center)", "Police Clearance Certificate", "Employer Contract / Offer Letter", "Insurance premium payment proof", "Orientation training certificate"],
+    "steps_ne": ["dofe.gov.np मा Online आवेदन गर्नुहोस्", "स्वीकृत म्यानपावर कम्पनीमार्फत आवेदन दिनुहोस्", "Medical Test Approved Centre बाट गर्नुहोस्", "Orientation Training (अभिमुखीकरण) लिनुहोस्", "श्रम स्वीकृति र Sticker राहदानीमा लगाउनुहोस्", "विमानस्थलमा Smart Card (CEPEJ) देखाउनुहोस्"],
+    "steps_en": ["Apply online at dofe.gov.np", "Apply through a licensed manpower company", "Complete medical test at approved center", "Attend Orientation Training", "Get Labour Approval sticker on passport", "Show Smart Card (CEPEJ) at airport"],
+    "fee_ne": "श्रम स्वीकृति दस्तुर: रु. ३,५०० | Insurance: रु. १,४२० | Orientation: रु. ४५०",
+    "fee_en": "Labour Approval: NPR 3,500 | Insurance: NPR 1,420 | Orientation: NPR 450"
+  },
+  {
+    "id": "p7",
+    "icon": "📊",
+    "icon_bg": "#f3e5f5",
+    "color": "#6a1b9a",
+    "url": "https://pratipakshya.com",
+    "name_ne": "प्रतिपक्ष्य",
+    "name_en": "Pratipakshya",
+    "sub_ne": "सरकारको १०० दिन ट्र्याकर",
+    "sub_en": "Government 100-Day Tracker",
+    "desc_ne": "नयाँ सरकारले १०० दिनमा कति काम गर्‍यो? प्रगति र वाचाहरू ट्र्याक गर्नुहोस्।",
+    "desc_en": "How much has the new government done in 100 days? Track progress and promises.",
+    "open_ne": "pratipakshya.com खोल्नुहोस् →",
+    "open_en": "Open pratipakshya.com →",
+    "docs_ne": [],
+    "docs_en": [],
+    "steps_ne": ["pratipakshya.com मा जानुहोस्", "सरकारले गरेका वाचाहरू हेर्नुहोस्", "कति काम सम्पन्न, कति बाँकी ट्र्याक गर्नुहोस्", "प्रदेश र विषयगत क्षेत्रअनुसार फिल्टर गर्नुहोस्"],
+    "steps_en": ["Visit pratipakshya.com", "View promises made by the government", "Track completed vs pending tasks", "Filter by province and sector"],
+    "fee_ne": "निःशुल्क — सार्वजनिक सेवा",
+    "fee_en": "Free — Public service"
+  }
+];
+  renderPortalBar();
+}
+
+function renderPortalBar() {
+  const bar  = document.getElementById('portal-bar');
+  const lang = currentLang;
+  if (!bar || !PORTAL_DATA.length) return;
+
+  bar.innerHTML = PORTAL_DATA.map(p => {
+    const name = lang === 'ne' ? p.name_ne : p.name_en;
+    const sub  = lang === 'ne' ? p.sub_ne  : p.sub_en;
+    const desc = lang === 'ne' ? p.desc_ne : p.desc_en;
+    const open = lang === 'ne' ? p.open_ne : p.open_en;
+    return `
+      <div class="portal-link ${p.id}" onclick="openPortalDetail('${p.id}');return false;" style="cursor:pointer">
+        <div class="portal-top">
+          <div class="portal-icon-wrap" style="background:${p.icon_bg}">${p.icon}</div>
+          <div class="portal-name">
+            ${name}
+            <small>${sub}</small>
+          </div>
+        </div>
+        <div class="portal-desc">${desc}</div>
+        <div class="portal-action" style="color:${p.color}">${open}</div>
+      </div>`;
+  }).join('');
+}
+
+
+function openPortalDetail(key) {
+  const p = PORTAL_DATA.find(x => x.id === key);
+  if(!p) return;
+  const ne    = currentLang === 'ne';
+  const docs  = ne ? p.docs_ne  : p.docs_en;
+  const steps = ne ? p.steps_ne : p.steps_en;
+  const fee   = ne ? p.fee_ne   : p.fee_en;
+  const title = ne ? p.name_ne  : p.name_en;
+
+  document.getElementById('modal-icon').textContent       = p.icon;
+  document.getElementById('modal-icon').style.background  = p.icon_bg;
+  document.getElementById('modal-title').textContent      = title;
+  document.getElementById('modal-sub').textContent        = p.url;
+
+  const stepsHTML = steps.map((s,i) => `
+    <div class="modal-step">
+      <div class="step-num">${i+1}</div>
+      <div class="step-text">${s}</div>
+    </div>`).join('');
+
+  const docsSection = docs.length > 0 ? `
+    <div class="modal-section">
+      <h3>${ne?'आवश्यक कागजातहरू':'Required Documents'}</h3>
+      <ul>${docs.map(d=>`<li>${d}</li>`).join('')}</ul>
+    </div>` : '';
+
+  document.getElementById('modal-body').innerHTML = `
+    ${docsSection}
+    <div class="modal-section">
+      <h3>${ne?'आवेदन प्रक्रिया':'Application Process'}</h3>
+      <div class="modal-steps">${stepsHTML}</div>
+    </div>
+    <div class="modal-section">
+      <h3>${ne?'दस्तुर':'Fee'}</h3>
+      <div class="fee-box">${fee.replace(/\n/g,"<br>")}</div>
+    </div>
+    <a href="${p.url}" target="_blank" class="modal-open-btn">
+      ${ne?'आधिकारिक वेबसाइट खोल्नुहोस्':'Open Official Website'} →
+    </a>
+  `;
+
+  document.getElementById('portal-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePortalModal() {
+  document.getElementById('portal-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModal(e) {
+  if(e.target === document.getElementById('portal-modal')) closePortalModal();
+}
+
+
+// ── NEWS SYSTEM ───────────────────────────────────────────────
+let NEWS_DATA = [];
+
+function loadNews() {
+  NEWS_DATA = [
+  {
+    "id": "n1",
+    "date_ne": "मंसिर २०",
+    "date_en": "Dec 5",
+    "title_ne": "प्रदेश सरकारले नयाँ स्वास्थ्य नीति जारी गर्‍यो",
+    "title_en": "Province government issues new health policy",
+    "meta_ne": "बागमती प्रदेश · २ घण्टा अघि",
+    "meta_en": "Bagmati Province · 2 hours ago",
+    "url": "#",
+    "category": "health",
+    "province": "bag"
+  },
+  {
+    "id": "n2",
+    "date_ne": "मंसिर १९",
+    "date_en": "Dec 4",
+    "title_ne": "लोक सेवा आयोगले नयाँ विज्ञापन प्रकाशित गर्‍यो — ५०० पद रिक्त",
+    "title_en": "PSC publishes new advertisement — 500 vacancies",
+    "meta_ne": "काठमाडौं · १ दिन अघि",
+    "meta_en": "Kathmandu · 1 day ago",
+    "url": "https://psc.gov.np",
+    "category": "vacancy",
+    "province": "bag"
+  },
+  {
+    "id": "n3",
+    "date_ne": "मंसिर १८",
+    "date_en": "Dec 3",
+    "title_ne": "कर्णाली प्रदेशमा नयाँ अस्पताल निर्माण सुरु",
+    "title_en": "New hospital construction begins in Karnali Province",
+    "meta_ne": "कर्णाली प्रदेश · २ दिन अघि",
+    "meta_en": "Karnali Province · 2 days ago",
+    "url": "#",
+    "category": "health",
+    "province": "kar"
+  },
+  {
+    "id": "n4",
+    "date_ne": "मंसिर १७",
+    "date_en": "Dec 2",
+    "title_ne": "सुदूरपश्चिममा विद्युत् विस्तार परियोजना सम्पन्न",
+    "title_en": "Electricity expansion project completed in Sudurpashchim",
+    "meta_ne": "सुदूरपश्चिम · ३ दिन अघि",
+    "meta_en": "Sudurpashchim · 3 days ago",
+    "url": "#",
+    "category": "infrastructure",
+    "province": "sud"
+  },
+  {
+    "id": "n5",
+    "date_ne": "मंसिर १६",
+    "date_en": "Dec 1",
+    "title_ne": "गण्डकी प्रदेशमा पर्यटन प्रवर्द्धन कार्यक्रम सुरु",
+    "title_en": "Tourism promotion programme launched in Gandaki Province",
+    "meta_ne": "पोखरा · ४ दिन अघि",
+    "meta_en": "Pokhara · 4 days ago",
+    "url": "#",
+    "category": "tourism",
+    "province": "gan"
+  },
+  {
+    "id": "n6",
+    "date_ne": "मंसिर १५",
+    "date_en": "Nov 30",
+    "title_ne": "DV Lottery 2026 को नतिजा प्रकाशित",
+    "title_en": "DV Lottery 2026 results published",
+    "meta_ne": "राष्ट्रिय · ५ दिन अघि",
+    "meta_en": "National · 5 days ago",
+    "url": "https://dvprogram.state.gov",
+    "category": "national",
+    "province": null
+  },
+  {
+    "id": "n7",
+    "date_ne": "मंसिर १४",
+    "date_en": "Nov 29",
+    "title_ne": "लुम्बिनी प्रदेशमा सडक विस्तार आयोजना स्वीकृत",
+    "title_en": "Road expansion project approved in Lumbini Province",
+    "meta_ne": "लुम्बिनी प्रदेश · ६ दिन अघि",
+    "meta_en": "Lumbini Province · 6 days ago",
+    "url": "#",
+    "category": "infrastructure",
+    "province": "lum"
+  },
+  {
+    "id": "n8",
+    "date_ne": "मंसिर १३",
+    "date_en": "Nov 28",
+    "title_ne": "मधेश प्रदेशमा सिँचाइ आयोजना सम्पन्न",
+    "title_en": "Irrigation project completed in Madhesh Province",
+    "meta_ne": "जनकपुर · ७ दिन अघि",
+    "meta_en": "Janakpur · 7 days ago",
+    "url": "#",
+    "category": "agriculture",
+    "province": "p2"
+  }
+];
+  const nl = document.getElementById('news-list');
+  if (nl) nl.innerHTML = renderNewsHTML();
+  const nh = document.getElementById('news-heading');
+  if (nh) nh.textContent = '📰 ' + (currentLang==='ne'?'ताजा समाचार':'Latest News');
+}
+
+function renderNewsHTML(provinceFilter) {
+  if (!NEWS_DATA.length) return '<div style="color:#aaa;font-size:13px;padding:8px 0;">समाचार उपलब्ध छैन</div>';
+  const ne   = currentLang === 'ne';
+  let items  = NEWS_DATA;
+  if (provinceFilter) items = NEWS_DATA.filter(n => n.province === provinceFilter || !n.province);
+  return items.slice(0, 6).map(n => {
+    const title = ne ? n.title_ne : n.title_en;
+    const meta  = ne ? n.meta_ne  : n.meta_en;
+    const date  = ne ? n.date_ne  : n.date_en;
+    const parts = date.split(' ');
+    const d1    = parts[0] || date;
+    const d2    = parts[1] || '';
+    const link  = n.url && n.url !== '#' ? `href="${n.url}" target="_blank"` : '';
+    return `
+      <div class="news-item" style="cursor:pointer" ${link ? `onclick="window.open('${n.url}')"` : ''}>
+        <div class="news-date">${d1}<br>${d2}</div>
+        <div>
+          <div class="news-title">${title}</div>
+          <div class="news-meta">${meta}</div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+
+// ── LOCATION FILTER ──────────────────────────────────────────
+const PROVINCE_DISTRICTS = {
+  p1:  [["ताप्लेजुङ","Taplejung"],["पाँचथर","Panchthar"],["इलाम","Ilam"],["झापा","Jhapa"],["मोरङ","Morang"],["सुनसरी","Sunsari"],["धनकुटा","Dhankuta"],["तेह्रथुम","Terhathum"],["संखुवासभा","Sankhuwasabha"],["भोजपुर","Bhojpur"],["सोलुखुम्बु","Solukhumbu"],["ओखलढुङ्गा","Okhaldhunga"],["खोटाङ","Khotang"],["उदयपुर","Udayapur"]],
+  p2:  [["सर्लाही","Sarlahi"],["रौतहट","Rautahat"],["बारा","Bara"],["पर्सा","Parsa"],["धनुषा","Dhanusha"],["महोत्तरी","Mahottari"],["सिराहा","Siraha"],["सप्तरी","Saptari"]],
+  bag: [["काठमाडौं","Kathmandu"],["ललितपुर","Lalitpur"],["भक्तपुर","Bhaktapur"],["काभ्रेपलाञ्चोक","Kavrepalanchok"],["सिन्धुली","Sindhuli"],["रामेछाप","Ramechhap"],["दोलखा","Dolakha"],["सिन्धुपाल्चोक","Sindhupalchok"],["रसुवा","Rasuwa"],["नुवाकोट","Nuwakot"],["धादिङ","Dhading"],["मकवानपुर","Makwanpur"],["चितवन","Chitwan"]],
+  gan: [["कास्की","Kaski"],["तनहुँ","Tanahun"],["गोरखा","Gorkha"],["लमजुङ","Lamjung"],["स्याङ्जा","Syangja"],["पर्वत","Parbat"],["बाग्लुङ","Baglung"],["म्याग्दी","Myagdi"],["मुस्ताङ","Mustang"],["मनाङ","Manang"],["नवलपुर","Nawalpur"]],
+  lum: [["रुपन्देही","Rupandehi"],["कपिलवस्तु","Kapilvastu"],["नवलपरासी","Nawalparasi"],["पाल्पा","Palpa"],["अर्घाखाँची","Arghakhanchi"],["गुल्मी","Gulmi"],["रोल्पा","Rolpa"],["प्युठान","Pyuthan"],["दाङ","Dang"],["बाँके","Banke"],["बर्दिया","Bardiya"]],
+  kar: [["सुर्खेत","Surkhet"],["दैलेख","Dailekh"],["जाजरकोट","Jajarkot"],["रुकुम पश्चिम","Rukum West"],["सल्यान","Salyan"],["डोल्पा","Dolpa"],["हुम्ला","Humla"],["जुम्ला","Jumla"],["मुगु","Mugu"],["कालिकोट","Kalikot"]],
+  sud: [["कैलाली","Kailali"],["कञ्चनपुर","Kanchanpur"],["डडेल्धुरा","Dadeldhura"],["डोटी","Doti"],["अछाम","Achham"],["बाजुरा","Bajura"],["बझाङ","Bajhang"],["बैतडी","Baitadi"],["दार्चुला","Darchula"]]
+};
+
+function onProvinceFilter(provinceId) {
+  const distSelect = document.getElementById('district-select');
+  const ne = currentLang === 'ne';
+  distSelect.innerHTML = `<option value="">${ne ? 'All Districts — सबै जिल्ला' : 'All Districts'}</option>`;
+
+  if (provinceId && PROVINCE_DISTRICTS[provinceId]) {
+    PROVINCE_DISTRICTS[provinceId].forEach(([dne, den]) => {
+      const opt = document.createElement('option');
+      opt.value = dne; // always store Nepali as value (used for selectDistrict)
+      opt.textContent = ne ? dne : den;
+      distSelect.appendChild(opt);
+    });
+    selectProvince(provinceId);
   } else {
-    clearBtn.classList.add("hidden");
-    clearBtn.classList.remove("inline-flex");
+    goHome();
   }
 }
 
-// ┌─────────────────────────────────────────────┐
-// │  CLEAR ALL FILTERS                          │
-// └─────────────────────────────────────────────┘
-function clearAllFilters() {
-  activeQuery = ""; activeCat = ""; activeProv = ""; activeDist = "";
-
-  const searchIn = document.getElementById("search-input");
-  if (searchIn) searchIn.value = "";
-
-  const clearBtn = document.getElementById("btn-clear-search");
-  if (clearBtn) { clearBtn.classList.add("hidden"); clearBtn.classList.remove("flex"); }
-
-  document.getElementById("province-select").value = "";
-  document.getElementById("district-select").value = "";
-  rebuildDistrictDropdown("");
-
-  document.querySelectorAll(".badge-btn").forEach(b => b.classList.remove("active"));
-  activeCat = null;
-
-  applyFilters();
+function onDistrictFilter(district) {
+  if (district) {
+    selectDistrict(district);
+  } else {
+    const prov = document.getElementById('province-select').value;
+    if (prov) selectProvince(prov);
+    else goHome();
+  }
 }
 
-// ┌─────────────────────────────────────────────┐
-// │  SANITISATION HELPERS                       │
-// └─────────────────────────────────────────────┘
-function escHtml(str) {
-  if (typeof str !== "string") return "";
-  return str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
-function escAttr(str) {
-  if (typeof str !== "string") return "";
-  return str.replace(/"/g, "&quot;").replace(/'/g, "&#039;");
-}
+// Init
+loadPortals();
+loadNews();
+goHome();
+applyLang();
 </script>
+
+<footer>
+  <div class="footer-top">
+
+    <!-- Brand + Disclaimer -->
+    <div class="footer-brand">
+      <div class="brand-name">Digital Nepal Index</div>
+      <div class="brand-sub">नेपाल सरकारी सेवा निर्देशिका</div>
+      <div class="disclaimer">
+        ⚠ <strong style="color:#e6b93a;">npsarkar.com</strong> एउटा निजी र स्वतन्त्र portal हो — Nepal Sarkar वा कुनै सरकारी निकायसँग सम्बन्धित छैन।<br>
+        <span style="color:#6e7681;font-size:11px;">npsarkar.com is a private independent portal — not affiliated with Nepal Government or any government body.</span>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+  <div class="footer-bottom">
+    <div class="copy">© 2025 npsarkar.com  | All rights reserved</div>
+  </div>
+</footer>
+
 </body>
 </html>
